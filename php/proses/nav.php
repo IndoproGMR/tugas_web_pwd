@@ -39,7 +39,7 @@
     <div class="dropdown">
         <button class="dropbtn">delete</button>
         <div class="dropdown-content">
-            <a href="">delete Player</a>
+            <a href="../php/delete/player.php">delete Player</a>
             <a href="">delete Donatur</a>
             <a href="">delete donatur lvl</a>
             <a href="">delete Hukuman</a>
