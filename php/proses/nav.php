@@ -17,7 +17,7 @@
     <div class="dropdown">
         <button class="dropbtn">Daftar</button>
         <div class="dropdown-content">
-            <a href="">Daftar player</a>
+            <a href="../daftar/player.php">Daftar player</a>
             <a href="">Daftar donatur</a>
             <a href="">Daftar Pelanggar</a>
             <a href="">Daftar farm</a>

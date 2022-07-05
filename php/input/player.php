@@ -70,7 +70,7 @@
                         $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN)
                         VALUES ('$nama', '$uuid', '$softban')";
                         if ($conn->query($sql) === TRUE) {
-                            echo "New record created successfully" . "<br>";
+                            echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
                         } else {
                             echo "Error: " . $sql . "<br>" . $conn->error;
                         }
