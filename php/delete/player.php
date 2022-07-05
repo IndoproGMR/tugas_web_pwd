@@ -90,7 +90,7 @@
     } else {
         echo "<h3>Mohon Centang confirmasi</h3>";
     }
-    require('../daftar/player.php');
+    // require('../daftar/player.php');
     ?>
 
 

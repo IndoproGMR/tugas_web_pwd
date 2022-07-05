@@ -1,5 +1,3 @@
-
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -8,7 +6,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -16,49 +14,52 @@ input[type=number] {
 
 input[type="text"],
 input[type="password"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-
-input[type="submit"]{
-    background-color: #04aa6d;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  transition: ease-in-out 150ms;
 }
 
-input[type="submit"]:hover{
-    background-color: hsl(158, 95%, 30%);
+input[type="submit"]:hover {
+  background-color: hsl(158, 95%, 30%);
 }
-
 
 form {
-    padding: 2rem;
-    width: 50%;
+  padding: 2rem;
+  width: 50%;
 }
-h1{
-    text-align: center;
-}
-
-.btmhome{
-    margin: 2rem;
-    text-decoration: none;
-    background-color: #04aa6d;
-    padding: 10px;
-    color: #f2f2f2;
-
+h1 {
+  text-align: center;
 }
 
+.btmhome {
+  margin: 2rem;
+  text-decoration: none;
+  background-color: #04aa6d;
+  padding: 10px;
+  color: #f2f2f2;
+  transition: ease-in-out 150ms;
+}
+.btmhome:hover {
+  background-color: #048656;
+  padding: 10px;
+  color: #f2f2f2;
+}
 
-select{
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -74,7 +75,6 @@ select{
   box-sizing: border-box;
 
 } */
-
 
 /*the container must be positioned relative:*/
 .custom-select {
@@ -112,7 +112,8 @@ select{
 }
 
 /*style the items (options), including the selected item:*/
-.select-items div,.select-selected {
+.select-items div,
+.select-selected {
   color: #ffffff;
   padding: 8px 16px;
   border: 1px solid transparent;
@@ -136,6 +137,7 @@ select{
   display: none;
 }
 
-.select-items div:hover, .same-as-selected {
+.select-items div:hover,
+.same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }

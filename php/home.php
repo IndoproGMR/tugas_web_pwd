@@ -27,11 +27,11 @@
     <p>Todo:</p>
     <p>1. melengkapi yang kosong</p>
     <ul>
-        <strong>akun (2/3)</strong>
+        <strong>akun (2/4)</strong>
+        <li>akun panel</li>
         <li>ganti pass</li>
         <br>
-        <strong>daftar (0/4)</strong>
-        <li>player</li>
+        <strong>daftar (1/4)</strong>
         <li>Donatur</li>
         <li>Pelanggar</li>
         <li>farm</li>
@@ -43,8 +43,7 @@
         <li>jenis farm1</li>
         <li>rule</li>
         <br>
-        <strong>Delate Data (0/8)</strong>
-        <li>Player</li>
+        <strong>Delate Data (1/8)</strong>
         <li>Donatur</li>
         <li>donatur lvl</li>
         <li>Hukuman</li>
@@ -73,7 +72,6 @@
         $hash1 = $_COOKIE["hash"];
         $key = $_COOKIE["session"];
 
-        // >>>>>>>>>>>>>>>
         $cek = $hash1;  // input
         require("../php/proses/cekinput.php");
         if ($bersih) { // cek hash
@@ -82,7 +80,6 @@
             require("../php/proses/cekinput.php");
             if ($bersih) { // cek key
 
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
                 $exp = date("Ymd");
                 $ceklogin = "SELECT * FROM session WHERE hash='$hash1' AND sessionkey=$key";
                 $ceklogin1 = mysqli_query($conn, $ceklogin);
@@ -103,7 +100,6 @@
                         header("Location: /php/login");
                     } elseif ($row['sessionkey'] === $key) {
                         // echo "5"; // berhasil login
-                        ////////////////////////////
                         $hash1 = $_COOKIE["hash"];
                         $key = $_COOKIE["session"];
                         //set session key
@@ -119,12 +115,10 @@
                             echo "Update Failed: " . mysqli_error($conn);
                         }
                         exit();
-                        ////////////////////////////
                     }
                 } else {
                     header("Location: ../php/login");
                 }
-                //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
             } else {
                 header("Location: /php/login/logout.php"); //awto logout
             }
