@@ -15,7 +15,7 @@ if ($bersih) { // cek hash
 
         //set session key
         $random = random_int(0, 9999);
-        $sql_update = "UPDATE session SET sessionkey='$random' WHERE hash='$hash1'";
+        $sql_update = "UPDATE session SET SESSIONKEY='$random' WHERE HASH='$hash1'";
         setcookie("session", $random, time() + (86400 * 6), "/");
         $result = mysqli_query($conn, $sql_update);
 

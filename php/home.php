@@ -81,37 +81,37 @@
             if ($bersih) { // cek key
 
                 $exp = date("Ymd");
-                $ceklogin = "SELECT * FROM session WHERE hash='$hash1' AND sessionkey=$key";
+                $ceklogin = "SELECT * FROM session WHERE HASH='$hash1' AND SESSIONKEY=$key";
                 $ceklogin1 = mysqli_query($conn, $ceklogin);
 
                 if (mysqli_num_rows($ceklogin1) === 1) {
                     $row = mysqli_fetch_assoc($ceklogin1);
 
-                    if ($row['exp'] < $exp) {
+                    if ($row['EXP'] < $exp) {
                         header("Location: /php/login");
-                    } elseif ($row['sessionkey'] === null) {
+                    } elseif ($row['SESSIONKEY'] === null) {
                         header("Location: /php/login");
-                    } elseif ($row['sessionkey'] === "24ab243446b96dd563c71cd219d6e995e8013c9c0459d7ed8d0456d3b8894679") {
+                    } elseif ($row['SESSIONKEY'] === "24ab243446b96dd563c71cd219d6e995e8013c9c0459d7ed8d0456d3b8894679") {
                         //hash untuk null
                         header("Location: /php/login");
-                    } elseif (!$row['sessionkey'] == $key) {
+                    } elseif (!$row['SESSIONKEY'] == $key) {
                         header("Location: /php/login");
-                    } elseif (!$row['hash'] == $hash1) {
+                    } elseif (!$row['HASH'] == $hash1) {
                         header("Location: /php/login");
-                    } elseif ($row['sessionkey'] === $key) {
+                    } elseif ($row['SESSIONKEY'] === $key) {
                         // echo "5"; // berhasil login
                         $hash1 = $_COOKIE["hash"];
                         $key = $_COOKIE["session"];
                         //set session key
                         $random = random_int(0, 9999);
-                        $sql_update = "UPDATE session SET sessionkey='$random' WHERE hash='$hash1'";
+                        $sql_update = "UPDATE session SET SESSIONKEY='$random' WHERE HASH='$hash1'";
                         setcookie("session", $random, time() + (86400 * 6), "/");
                         $result = mysqli_query($conn, $sql_update);
                         if ($result) {
                             // echo 'Updated Successfully';
                             // header("Location: ../home.php");
                         } else {
-                            header("Location: /php/login");
+                            // header("Location: /php/login");
                             echo "Update Failed: " . mysqli_error($conn);
                         }
                         exit();

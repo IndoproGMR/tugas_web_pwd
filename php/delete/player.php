@@ -82,7 +82,7 @@
                 }
                 // }
             } else {
-                header("Location: /php/login");
+                // header("Location: /php/login");
             }
         } else {
             echo "<h3>Mohon Centang confirmasi</h3>";

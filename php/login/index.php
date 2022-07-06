@@ -52,7 +52,7 @@
         setcookie('hash', null, -1, '/');
         setcookie('session', null, -1, '/');
         setcookie('username', null, -1, '/');
-        $setexp = "UPDATE session SET exp=null, sessionkey=null WHERE hash='$hash1'";
+        $setexp = "UPDATE session SET EXP=null, SESSIONKEY=null WHERE HASH='$hash1'";
         if ($conn->query($setexp) === TRUE) {
             // echo "New record created successfully" . "<br>";
         } else {
@@ -68,6 +68,7 @@
     if (isset($_POST["user"]) && isset($_POST["password"])) {
         // echo "0";
 
+        var_dump($_POST);
 
         require("../proses/sql.php");
 
@@ -118,14 +119,14 @@
         // echo "<br>";
 
         // <cocokan password dan hash1 dengan sql>
-        $cek = "SELECT * FROM akun WHERE hash='$hash1' AND password='$pass2'";
+        $cek = "SELECT * FROM akun WHERE HASH='$hash1' AND PASSWORD='$pass2'";
         // echo "1";
         $cek1 = mysqli_query($conn, $cek);
         if (mysqli_num_rows($cek1) === 1) {
             // echo "2";
 
             $row = mysqli_fetch_assoc($cek1);
-            if ($row['hash'] === $hash1 && $row['password'] === $pass2) {
+            if ($row['HASH'] === $hash1 && $row['PASSWORD'] === $pass2) {
                 // echo "3"; //login berhasil
                 $exp = date("Ymd");
                 $exp = $exp + 1;
@@ -135,11 +136,11 @@
                 }
                 //set session key
                 $random = random_int(000, 9999);
-                $sql_update = "UPDATE session SET sessionkey='$random', exp='$exp' WHERE hash='$hash1'";
+                $sql_update = "UPDATE session SET SESSIONKEY='$random', EXP='$exp' WHERE HASH='$hash1'";
 
                 setcookie("hash", $hash1, time() + (86400 * 6), "/");
                 setcookie("session", $random, time() + (86400 * 6), "/");
-                setcookie("username", $row['name'], time() + (86400 * 6), "/");
+                setcookie("username", $row['NAME_AKUN'], time() + (86400 * 6), "/");
 
 
                 if ($conn->query($sql_update) === TRUE) {

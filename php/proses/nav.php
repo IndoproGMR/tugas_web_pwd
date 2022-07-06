@@ -37,6 +37,18 @@
     </div>
 
     <div class="dropdown">
+        <button class="dropbtn">Update</button>
+        <div class="dropdown-content">
+            <a href="">Update Player</a>
+            <a href="">Update Donatur</a>
+            <a href="">Update Hukuman</a>
+            <a href="">Update Jenis farm</a>
+            <a href="">Update Rule</a>
+            <a href="">Update Donatur lvl</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
         <button class="dropbtn">delete</button>
         <div class="dropdown-content">
             <a href="../php/delete/player.php">delete Player</a>

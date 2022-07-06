@@ -50,7 +50,7 @@ if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["name"])) {
 
 
 
-        $admin = "SELECT * FROM akun WHERE hash='$adminname1' AND password='$adminpass2'";
+        $admin = "SELECT * FROM akun WHERE HASH='$adminname1' AND PASSWORD='$adminpass2'";
         $admin1 =  mysqli_query($conn, $admin);
         if (mysqli_num_rows($admin1) === 1) {
             // echo "password admin jalan";
@@ -81,14 +81,14 @@ if (isset($_POST["user"]) && isset($_POST["pass"]) && isset($_POST["name"])) {
                 // echo "bersih";
                 $idrandom = random_int(0, 99999999);
 
-                $input = "INSERT INTO `akun` (`ID`, `name`, `password`, `hash`, `time_akun`)
-                VALUES ('$idrandom', '$name', '$pass2', '$hash1', NOW())";
+                $input = "INSERT INTO `akun` (`ID_AKUN`, `NAME_AKUN`, `HASH`, `PASSWORD`, `TIME_AKUN`)
+                VALUES ('$idrandom', '$name', '$hash1', '$pass2', NOW())";
 
 
 
                 if ($conn->query($input) === TRUE) {
                     echo 'Updated Successfully 1';
-                    $input = "INSERT INTO `session` (`hash`, `sessionkey`, `exp`)
+                    $input = "INSERT INTO `session` (`HASH`, `SESSIONKEY`, `EXP`)
                     VALUES ('$hash1', null, null)";
                     if ($conn->query($input) === TRUE) {
                         echo 'Updated Successfully 2';

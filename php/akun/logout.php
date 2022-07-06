@@ -13,7 +13,7 @@ if ($bersih) {
         setcookie('hash', null, -1, '/');
         setcookie('session', null, -1, '/');
         setcookie('username', null, -1, '/');
-        $setexp = "UPDATE session SET exp=null, sessionkey=null WHERE hash='$hash1'";
+        $setexp = "UPDATE session SET exp=null, SESSIONKEY=null WHERE HASH='$hash1'";
         if ($conn->query($setexp) === TRUE) {
             header("Location: ../");
         } else {

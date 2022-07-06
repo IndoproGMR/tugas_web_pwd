@@ -24,26 +24,26 @@ if (isset($_COOKIE["hash"]) && isset($_COOKIE["session"])) {
 
 
             $exp = date("Ymd");
-            $ceklogin = "SELECT * FROM session WHERE hash='$hash1' AND sessionkey=$key";
+            $ceklogin = "SELECT * FROM session WHERE HASH='$hash1' AND SESSIONKEY=$key";
             $ceklogin1 = mysqli_query($conn, $ceklogin);
 
             if (mysqli_num_rows($ceklogin1) === 1) {
                 $row = mysqli_fetch_assoc($ceklogin1);
-                if ($row['exp'] < $exp) {
+                if ($row['EXP'] < $exp) {
                     header("Location: ../php/login");
-                } elseif ($row['sessionkey'] === $key) {
+                } elseif ($row['SESSIONKEY'] === $key) {
                     // >>>>>>>>>>>>>>>>>>>>
                     require("../proses/renewkey.php");
                     $valid = true;
                     // >>>>>>>>>>>>>>>>>>>>
-                } elseif ($row['sessionkey'] || $row['hash'] === null) {
+                } elseif ($row['SESSIONKEY'] || $row['HASH'] === null) {
                     header("Location: ../php/login");
-                } elseif ($row['sessionkey'] || $row['hash']  === "24ab243446b96dd563c71cd219d6e995e8013c9c0459d7ed8d0456d3b8894679") {
+                } elseif ($row['SESSIONKEY'] || $row['HASH']  === "24ab243446b96dd563c71cd219d6e995e8013c9c0459d7ed8d0456d3b8894679") {
                     // hash untuk null
                     header("Location: ../php/login");
-                } elseif (!$row['sessionkey'] === $key) {
+                } elseif (!$row['SESSIONKEY'] === $key) {
                     header("Location: ../php/login");
-                } elseif (!$row['hash'] === $hash1) {
+                } elseif (!$row['HASH'] === $hash1) {
                     header("Location: ../php/login");
                 }
             } else {

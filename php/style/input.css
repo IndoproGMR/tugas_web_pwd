@@ -76,6 +76,10 @@ select {
 
 } */
 
+table {
+  width: 55% !important;
+}
+
 /*the container must be positioned relative:*/
 .custom-select {
   position: relative;

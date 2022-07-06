@@ -13,11 +13,13 @@
     <h1>Input player baru</h1>
     <hr>
     <form action="../input/player.php" method="post">
-        nama: <input type="text" name="nama" placeholder="Player Name" required>
+        Nickname: <input type="text" name="nick" placeholder="Player Name" required>
         <br>
-        uuid: <input type="text" name="uuid" placeholder="2b430-1wa..." required>
+        Nama: <input type="text" name="nama" placeholder="Player Name" required>
         <br>
-        softban:
+        UUID: <input type="text" name="uuid" placeholder="2b430-1wa..." required>
+        <br>
+        SoftBan:
         <div class="custom-select">
             <select name="softban">
                 <option value="N" selected>Softban ? (default: no)</option>
@@ -44,9 +46,11 @@
         // echo "1";
 
 
-        if (isset($_POST["nama"]) && isset($_POST["uuid"])) {
+        if (isset($_POST["nama"]) && isset($_POST["uuid"]) && isset($_POST["nick"])) {
             // echo "2";
 
+
+            $nick = $_POST['nick'];
             $nama = $_POST['nama'];
             $uuid = $_POST['uuid'];
             $softban = $_POST["softban"];
@@ -66,16 +70,25 @@
                     require("../proses/cekinput.php");
                     if ($bersih) { // cek softban
 
-                        // echo "jalan";
-                        $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN)
-                        VALUES ('$nama', '$uuid', '$softban')";
-                        if ($conn->query($sql) === TRUE) {
-                            echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
-                        } else {
-                            echo "Error: " . $sql . "<br>" . $conn->error;
-                        }
+                        // echo "5";
+                        $cek = $nick;
+                        require("../proses/cekinput.php");
+                        if ($bersih) { // cek nick
 
-                        //////////////
+                            // echo "jalan";
+                            $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME)
+                        VALUES ('$nama', '$uuid', '$softban','$nick')";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+
+                            //////////////
+                        } else {
+                            header("Location: /php/login/logout.php"); //awto logout
+                            echo " kotor 4 ";
+                        }
                     } else {
                         header("Location: /php/login/logout.php"); //awto logout
                         echo " kotor 3 ";

@@ -61,46 +61,35 @@
 
     <table>
         <tr>
-            <th>Nick</th>
-            <th>Name</th>
-            <th>UUID</th>
-            <th>Softban</th>
+            <th>ID_AKUN</th>
+            <th>NAME_AKUN</th>
+            <th>HASH</th>
+            <th>PASSWORD</th>
         </tr>
 
         <?php
         // require("../proses/ceklogin.php");
         require("../proses/sql.php");
-        $sql = "SELECT * FROM PLAYER";
+        $sql = "SELECT * FROM akun";
         if ($result = mysqli_query($conn, $sql)) { // mencari data
 
             if (mysqli_num_rows($result) > 0) { // bila data diatas 0
 
                 while ($row = mysqli_fetch_array($result)) { // print data 
 
-                    $nick =  htmlspecialchars($row['NICKNAME']);
-                    $namaplayer =  htmlspecialchars($row['NAME']);
-                    $UUID =  htmlspecialchars($row['UUID']);
-                    $SOFTBAN = htmlspecialchars($row['SOFTBAN']);
+                    $ID =  htmlspecialchars($row['ID_AKUN']);
+                    $NAMA =  htmlspecialchars($row['NAME_AKUN']);
+                    $HASHA = htmlspecialchars($row['HASH']);
+                    $PASSA = htmlspecialchars($row['PASSWORD']);
 
-                    if ($SOFTBAN !== "Y") {
-                        echo "<tr>";
+                    echo "<tr>";
 
-                        echo "<td>" . $nick . "</td>";
-                        echo "<td>" . $namaplayer . "</td>";
-                        echo "<td>" . $UUID . "</td>";
-                        echo "<td>" . $SOFTBAN . "</td>";
+                    echo "<td>" . $ID . "</td>";
+                    echo "<td>" . $NAMA . "</td>";
+                    echo "<td>" . $HASHA . "</td>";
+                    echo "<td>" . $PASSA . "</td>";
 
-                        echo "</tr>";
-                    } else { // bila player dalam softban maka beri tanda
-                        echo "<tr class='Y'>";
-
-                        echo "<td>" . $nick . "</td>";
-                        echo "<td>" . $namaplayer . "</td>";
-                        echo "<td>" . $UUID . "</td>";
-                        echo "<td>" . $SOFTBAN . "</td>";
-
-                        echo "</tr>";
-                    }
+                    echo "</tr>";
                 }
             }
         }
