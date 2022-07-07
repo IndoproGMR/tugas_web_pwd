@@ -1,3 +1,6 @@
+<link rel="icon" href="../foto/favicon.ico" />
+
+
 <a href="../akun/logout.php">logout</a>
 <br>
 <a href="../akun/gantipass.php">ganti password</a>

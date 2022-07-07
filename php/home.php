@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <?php
     require("../php/proses/nav.php")
     ?>
@@ -36,8 +35,7 @@
         <li>Pelanggar</li>
         <li>farm</li>
         <br>
-        <strong>input (1/6)</strong>
-        <li>Donatur</li>
+        <strong>input (2/6)</strong>
         <li>donatur lvl</li>
         <li>Hukuman</li>
         <li>jenis farm1</li>

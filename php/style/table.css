@@ -1,0 +1,32 @@
+table {
+  padding: 1rem 0.5rem;
+  width: 100%;
+  border: 1px solid #cccccc;
+}
+
+tr {
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  width: 100%;
+}
+
+.Y > td {
+  color: #cccccc;
+  background-color: red;
+}
+
+th {
+  font-size: 25px;
+  padding: 10px;
+  background-color: #aaffff;
+  border: 1px solid #cccccc;
+}
+
+td {
+  font-size: 15px;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  background-color: #aaaaff;
+}

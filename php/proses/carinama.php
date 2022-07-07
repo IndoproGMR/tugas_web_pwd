@@ -11,13 +11,15 @@
             while ($row = mysqli_fetch_array($result)) { // print data 
 
                 $namaplayer = array($row['NAME']);
+                $nick =  htmlspecialchars($row['NICKNAME']);
+
 
                 foreach ($namaplayer as $namaplayer) {
 
                     if ($namaplayer == $namaplayer) {
-                        echo "<option>$namaplayer</option>";
+                        echo "<option value=" . $namaplayer . ">" . $namaplayer . " - ( " . $nick . " ) " . "</option>";
                     } else {
-                        echo "<option>$namaplayer</option>";
+                        echo "<option value=" . $namaplayer . ">" . $namaplayer . " - ( " . $nick . " ) " . "</option>";
                     }
                 }
             }

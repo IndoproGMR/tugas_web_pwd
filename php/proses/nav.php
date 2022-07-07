@@ -18,7 +18,7 @@
         <button class="dropbtn">Daftar</button>
         <div class="dropdown-content">
             <a href="../php/daftar/player.php">Daftar player</a>
-            <a href="">Daftar donatur</a>
+            <a href="../php/daftar/donatur.php">Daftar donatur</a>
             <a href="">Daftar Pelanggar</a>
             <a href="">Daftar farm</a>
         </div>
@@ -28,8 +28,8 @@
         <button class="dropbtn">Input</button>
         <div class="dropdown-content">
             <a href="../php/input/player.php">Input Player</a>
-            <a href="">Input Donatur</a>
-            <a href="">Input Hukuman</a>
+            <a href="../php/input/donatur.php">Input Donatur</a>
+            <a href="../php/input/hukuman.php">Input Hukuman</a>
             <a href="">Input Jenis farm</a>
             <a href="">Input Rule</a>
             <a href="">Input Donatur lvl</a>

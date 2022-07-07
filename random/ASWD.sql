@@ -132,6 +132,8 @@ PASSWORD varchar(64) not null,
 TIME_AKUN timestamp not null,
 primary key (HASH)
 );
+-- tambahkan primary key ID_AKUN
+-- primary key (HASH,ID_AKUN)
 
 /*==============================================================*/
 /* Table: SESSION                                               */

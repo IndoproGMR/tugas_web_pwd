@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Akun</title>
+    <title>Daftar Level</title>
 </head>
 
 <body>
@@ -52,7 +52,7 @@
         }
     </style>
 
-    <h1>Daftar Player</h1>
+    <h1>Daftar Donatur lvl</h1>
     <hr>
     <br>
     <a href="../home.php" class="btmhome">home</a>
@@ -62,33 +62,30 @@
 
     <table>
         <tr>
-            <th>ID AKUN</th>
-            <th>NAME AKUN</th>
-            <th>HASH</th>
-            <th>PASSWORD</th>
+            <th>iddlvl</th>
+            <th>namatingkatan</th>
+            <th>Diskripsi</th>
         </tr>
 
         <?php
         // require("../proses/ceklogin.php");
         require("../proses/sql.php");
-        $sql = "SELECT * FROM akun";
+        $sql = "SELECT * FROM DONATUR_LVL";
         if ($result = mysqli_query($conn, $sql)) { // mencari data
 
             if (mysqli_num_rows($result) > 0) { // bila data diatas 0
 
                 while ($row = mysqli_fetch_array($result)) { // print data 
 
-                    $ID =  htmlspecialchars($row['ID_AKUN']);
-                    $NAMA =  htmlspecialchars($row['NAME_AKUN']);
-                    $HASHA = htmlspecialchars($row['HASH']);
-                    $PASSA = htmlspecialchars($row['PASSWORD']);
+                    $lvl =  htmlspecialchars($row['IDDLVL']);
+                    $nama =  htmlspecialchars($row['NAMATINGKATAN']);
+                    $Diskripsi =  htmlspecialchars($row['DISKRIPSI']);
 
                     echo "<tr>";
 
-                    echo "<td>" . $ID . "</td>";
-                    echo "<td>" . $NAMA . "</td>";
-                    echo "<td>" . $HASHA . "</td>";
-                    echo "<td>" . $PASSA . "</td>";
+                    echo "<td>" . $lvl . "</td>";
+                    echo "<td>" . $nama . "</td>";
+                    echo "<td>" . $Diskripsi . "</td>";
 
                     echo "</tr>";
                 }

@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="../style//input.css">
+<link rel="icon" href="../foto/favicon.ico" />
+
 
 <form action="" method="post">
     <label for="name">Nama</label>
@@ -16,6 +18,8 @@
 </form>
 
 <a href="../home.php" class="btmhome">home</a>
+<a href="../daftar/akun.php" class="btmhome">Daftar</a>
+
 
 
 

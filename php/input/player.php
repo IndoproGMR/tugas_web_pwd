@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="../foto/favicon.ico" />
     <link rel="stylesheet" href="../style/input.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +13,8 @@
 <body>
     <h1>Input player baru</h1>
     <hr>
-    <form action="../input/player.php" method="post">
-        Nickname: <input type="text" name="nick" placeholder="Player Name" required>
+    <form action="" method="post">
+        Nickname: <input type="text" name="nick" placeholder="Player Name">
         <br>
         Nama: <input type="text" name="nama" placeholder="Player Name" required>
         <br>
@@ -34,6 +35,8 @@
 
 
     <a href="../home.php" class="btmhome">home</a>
+    <a href="../daftar/player.php" class="btmhome">Daftar</a>
+
 
 
 
@@ -77,7 +80,7 @@
 
                             // echo "jalan";
                             $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME)
-                        VALUES ('$nama', '$uuid', '$softban','$nick')";
+                            VALUES ('$nama', '$uuid', '$softban','$nick')";
                             if ($conn->query($sql) === TRUE) {
                                 echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
                             } else {
