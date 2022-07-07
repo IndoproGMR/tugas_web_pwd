@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="../style/input.css" />
     <a href="../home.php" class="btmhome">home</a>
     <a href="../input/player.php" class="btmhome">Input</a>
+    <a href="../update/player.php" class="btmhome">Update</a>
+    <a href="../delete/player.php" class="btmhome">Delete</a>
     <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
     <script src="../js/print.js"></script>
     <!-- --------------- -->

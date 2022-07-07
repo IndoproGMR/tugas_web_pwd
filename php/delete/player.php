@@ -25,6 +25,9 @@
 
 
     <a href="../home.php" class="btmhome">home</a>
+    <a href="../input/player.php" class="btmhome">Input</a>
+    <a href="../update/player.php" class="btmhome">Update</a>
+    <a href="../daftar/player.php" class="btmhome">Daftar</a>
 
 
 

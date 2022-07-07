@@ -7,18 +7,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Player</title>
+    <title>Ubah Player</title>
 </head>
 
 <body>
-    <h1>Input player baru</h1>
+    <h1>Ubah player</h1>
     <hr>
     <form action="" method="post">
+        <br>
+        Nama: <? require("../proses/carinama.php") ?>
         Nickname: <input type="text" name="nick" placeholder="Player Name">
-        <br>
-        Nama: <input type="text" name="nama" placeholder="Player Name" required>
-        <br>
-        UUID: <input type="text" name="uuid" placeholder="2b430-1wa..." required>
         <br>
         SoftBan:
         <div class="custom-select">
@@ -35,9 +33,10 @@
 
 
     <a href="../home.php" class="btmhome">home</a>
-    <a href="../update/player.php" class="btmhome">Update</a>
-    <a href="../delete/player.php" class="btmhome">Delete</a>
+    <a href="../input/player.php" class="btmhome">Input</a>
     <a href="../daftar/player.php" class="btmhome">Daftar</a>
+    <a href="../delete/player.php" class="btmhome">Delete</a>
+
 
 
 
@@ -51,13 +50,12 @@
         // echo "1";
 
 
-        if (isset($_POST["nama"]) && isset($_POST["uuid"]) && isset($_POST["nick"])) {
+        if (isset($_POST["namaplayer"]) && isset($_POST["softban"]) && isset($_POST["nick"])) {
             // echo "2";
 
 
             $nick = $_POST['nick'];
-            $nama = $_POST['nama'];
-            $uuid = $_POST['uuid'];
+            $nama = $_POST['namaplayer'];
             $softban = $_POST["softban"];
 
 
@@ -65,42 +63,50 @@
             require("../proses/cekinput.php");
             if ($bersih) { // cek nama
 
-                // echo "3";
-                $cek = $uuid;
+                // echo "4";
+                $cek = $softban;
                 require("../proses/cekinput.php");
-                if ($bersih) { // cek uudi
+                if ($bersih) { // cek softban
 
-                    // echo "4";
-                    $cek = $softban;
+                    // echo "5";
+                    $cek = $nick;
                     require("../proses/cekinput.php");
-                    if ($bersih) { // cek softban
+                    if ($bersih) { // cek nick
 
-                        // echo "5";
-                        $cek = $nick;
-                        require("../proses/cekinput.php");
-                        if ($bersih) { // cek nick
+                        if ($nama != 1542) {
+
+
+
+
+
+                            if ($nick !== '') {
+                                $nicka = ", NICKNAME = '$nick'";
+                            } else {
+                                $nicka = "";
+                            }
+
+
+                            // echo $nicka;
+                            $sql = "UPDATE `PLAYER` SET `SOFTBAN`= '$softban' $nicka WHERE NAME = '$nama'";
+
+                            // echo $sql;
 
                             // echo "jalan";
-                            $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME)
-                            VALUES ('$nama', '$uuid', '$softban','$nick')";
+                            //$sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME) VALUES ('$nama', '$uuid', '$softban','$nick')";
                             if ($conn->query($sql) === TRUE) {
-                                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                                echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
                             } else {
                                 echo "Error: " . $sql . "<br>" . $conn->error;
                             }
-
-                            //////////////
-                        } else {
-                            header("Location: /php/login/logout.php"); //awto logout
-                            echo " kotor 4 ";
                         }
+                        //////////////
                     } else {
                         header("Location: /php/login/logout.php"); //awto logout
-                        echo " kotor 3 ";
+                        echo " kotor 4 ";
                     }
                 } else {
                     header("Location: /php/login/logout.php"); //awto logout
-                    echo " kotor 2 ";
+                    echo " kotor 3 ";
                 }
             } else {
                 header("Location: /php/login/logout.php"); //awto logout

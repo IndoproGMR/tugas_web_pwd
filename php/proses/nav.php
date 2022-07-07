@@ -39,7 +39,7 @@
     <div class="dropdown">
         <button class="dropbtn">Update</button>
         <div class="dropdown-content">
-            <a href="">Update Player</a>
+            <a href="../php/update/player.php">Update Player</a>
             <a href="">Update Donatur</a>
             <a href="">Update Hukuman</a>
             <a href="">Update Jenis farm</a>

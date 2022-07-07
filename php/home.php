@@ -30,13 +30,11 @@
         <li>akun panel</li>
         <li>ganti pass</li>
         <br>
-        <strong>daftar (1/4)</strong>
-        <li>Donatur</li>
+        <strong>daftar (2/4)</strong>
         <li>Pelanggar</li>
         <li>farm</li>
         <br>
-        <strong>input (2/6)</strong>
-        <li>donatur lvl</li>
+        <strong>input (3/6)</strong>
         <li>Hukuman</li>
         <li>jenis farm1</li>
         <li>rule</li>
@@ -50,7 +48,7 @@
         <li>pelanggaran</li>
         <li>rule</li>
         <br>
-        <strong>Bagunan (0/2)</strong>
+        <strong>Bagunan (0/3)</strong>
         <li>input farm1</li>
         <li>sertifikat farm</li>
         <li>desain sertifikat</li>
