@@ -30,13 +30,19 @@
         <li>akun panel</li>
         <li>ganti pass</li>
         <br>
-        <strong>daftar (2/4)</strong>
-        <li>Pelanggar</li>
-        <li>farm</li>
+        <strong>daftar (7/9)</strong>
+        <li>Farm</li>
+        <li>pelanggaran</li>
         <br>
-        <strong>input (3/6)</strong>
+        <strong>input (8/8) DONE</strong>
+        <br>
+        <strong>Update (1/8)</strong>
+        <li>Donatur</li>
+        <li>donatur lvl</li>
         <li>Hukuman</li>
-        <li>jenis farm1</li>
+        <li>Farm</li>
+        <li>Jenis Farm1</li>
+        <li>pelanggaran</li>
         <li>rule</li>
         <br>
         <strong>Delate Data (1/8)</strong>
@@ -48,10 +54,11 @@
         <li>pelanggaran</li>
         <li>rule</li>
         <br>
-        <strong>Bagunan (0/3)</strong>
-        <li>input farm1</li>
-        <li>sertifikat farm</li>
+        <strong>Bagunan (1/5)</strong>
+        <li>update</li>
+        <li>delete</li>
         <li>desain sertifikat</li>
+        <li>sertifikat farm</li>
     </ul>
     <p>2. entah sih mau diisi apa di halaman utama XD</p>
     <p>3. update sql tabel</p>

@@ -16,7 +16,6 @@
     <form action="" method="post">
         nama: <? require("../proses/carinama.php") ?>
         <br>
-        <!-- uuid: <input type="text" name="UUID" id="UUID" placeholder="2b430-1wa..." required> -->
         <? require('../proses/confirm.php') ?>
         <br>
         <input type="submit">
@@ -55,38 +54,30 @@
             // echo "0";
 
             if ($valid) { // menerima signyal validasi dari ceklogin
-                // echo "1";
-
-
-                // if (isset($_POST["nama"]) && isset($_POST["uuid"])) {
-                // echo "2";
                 if (isset($_POST['namaplayer'])) {
-                    // echo "3";
                     $nama = $_POST['namaplayer'];
-                    // $uuid = $_POST['uuid'];
-                    // $softban = $_POST["softban"];
-
 
                     $cek = $nama;
                     require("../proses/cekinput.php");
-                    if ($bersih) { // cek nama
-                        if ($nama != 1542) {
-                            // echo "4 ";
-                            // echo "jalan";
-                            // echo $nama;
+                    if (!$bersih) {
+                        header("Location: /php/login/logout.php");
+                    }
 
-                            $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
-                            if ($conn->query($delete) === TRUE) {
-                                echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
-                            } else {
-                                echo "Error: " . $delete . "<br>" . $conn->error;
-                            }
+                    if ($nama != 1542) {
+                        // echo "4 ";
+                        // echo "jalan";
+                        // echo $nama;
+
+                        $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
+                        if ($conn->query($delete) === TRUE) {
+                            echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
+                        } else {
+                            echo "Error: " . $delete . "<br>" . $conn->error;
                         }
                     }
                 }
-                // }
             } else {
-                // header("Location: /php/login");
+                header("Location: /php/login");
             }
         } else {
             echo "<h3>Mohon Centang confirmasi</h3>";

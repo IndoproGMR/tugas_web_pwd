@@ -14,8 +14,9 @@
     <h1>Input Donatur</h1>
     <hr>
     <form action="" method="post">
-        Nama:<? require("../proses/carinama.php"); ?>
-        Donatur Level:
+        Nama: <span class="required">*</span>
+        <? require("../proses/carinama.php"); ?>
+        Donatur Level: <span class="required">*</span>
         <div>
             <?php
             require("../proses/sql.php");
@@ -42,7 +43,7 @@
             echo "<select>";
             ?>
         </div>
-        Bulan:
+        Bulan: <span class="required">*</span>
         <div>
             <select name="bulan" id="bulan">
                 <option value="MARET 2022">MARET 2022</option>
@@ -60,7 +61,8 @@
                 <option value="MARET 2023">MARET 2023</option>
             </select>
         </div>
-        Jumlah Donasi: <input type="number" name="donasi" placeholder="50000" required>
+        Jumlah Donasi: <span class="required">*</span>
+        <input type="number" name="donasi" placeholder="50000" required>
         <br>
 
 
@@ -74,78 +76,58 @@
 
 
     <a href="../home.php" class="btmhome">home</a>
+    <a href="../update/donatur.php" class="btmhome">Update</a>
+    <a href="../delete/donatur.php" class="btmhome">Delete</a>
     <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
 
 
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
-
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
-
-
         if (isset($_POST["namaplayer"]) && isset($_POST["lvl"]) && isset($_POST["bulan"]) && isset($_POST["donasi"])) {
-            // echo "2";
-
-
             $nama = $_POST['namaplayer'];
             $lvl = $_POST['lvl'];
             $bulan = $_POST['bulan'];
             $donasi = $_POST["donasi"];
 
-
             $cek = $nama;
             require("../proses/cekinput.php");
-            if ($bersih) { // cek nama
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
-                // echo "3";
-                $cek = $lvl;
-                require("../proses/cekinput.php");
-                if ($bersih) { // cek uudi
+            $cek = $lvl;
+            require("../proses/cekinput.php");
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
-                    // echo "4";
-                    $cek = $bulan;
-                    require("../proses/cekinput.php");
-                    if ($bersih) { // cek softban
+            $cek = $bulan;
+            require("../proses/cekinput.php");
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
-                        // echo "5";
-                        $cek = $donasi;
-                        require("../proses/cekinput.php");
-                        if ($bersih) { // cek nick
-                            $idrandom = random_int(0, 99999999);
+            $cek = $donasi;
+            require("../proses/cekinput.php");
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
 
-                            // echo "jalan";
-                            $sql = "INSERT INTO DONATUR (ID_DONASI,IDDLVL,NAME, BULAN, JUMLAH_DONASI,TGL_DONASI)
+            $idrandom = random_int(0, 99999999);
+
+            // echo "jalan";
+            $sql = "INSERT INTO DONATUR (ID_DONASI,IDDLVL,NAME, BULAN, JUMLAH_DONASI,TGL_DONASI)
                             VALUES ('$idrandom', '$lvl','$nama', '$bulan','$donasi',NOW())";
 
-                            // echo $sql;
-                            if ($conn->query($sql) === TRUE) {
-                                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database dengan jumlah Rp <strong>" . $donasi . "</strong><br>";
-                            } else {
-                                echo "Error: " . $sql . "<br>" . $conn->error;
-                            }
-
-                            //////////////
-                        } else {
-                            header("Location: /php/login/logout.php"); //awto logout
-                            echo " kotor 4 ";
-                        }
-                    } else {
-                        header("Location: /php/login/logout.php"); //awto logout
-                        echo " kotor 3 ";
-                    }
-                } else {
-                    header("Location: /php/login/logout.php"); //awto logout
-                    echo " kotor 2 ";
-                }
+            // echo $sql;
+            if ($conn->query($sql) === TRUE) {
+                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database dengan jumlah Rp <strong>" . $donasi . "</strong><br>";
             } else {
-                header("Location: /php/login/logout.php"); //awto logout
-                echo " kotor ";
+                echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
     } else {

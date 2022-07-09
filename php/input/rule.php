@@ -7,25 +7,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Hukuman</title>
+    <title>Input Rule</title>
 </head>
 
 <body>
-    <h1>Input Hukuman kepada Pelanggar</h1>
+    <h1>Input Rule</h1>
     <hr>
     <form action="" method="post">
         ID: <span class="required">*</span>
-        <input type="number" name="idh" placeholder="idhukuman (1001 = temp ban)" required>
+        <input type="number" name="idr" placeholder="Id rule (2301 = X-Ray Hack)" required>
         <br>
-        Nama Hukuman: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Nama hukuman" required>
+        Nama Rule: <span class="required">*</span>
+        <input type="text" name="nama" placeholder="Nama rule" required>
         <br>
         Diskripsi:
-        <textarea name="diskr" placeholder="Diban secara Permanen"></textarea>
+        <textarea name="diskr" placeholder="Penggunaan X-ray"></textarea>
         <br>
         <br>
         <input type="submit">
-
     </form>
 
 </body>
@@ -33,21 +32,25 @@
 </html>
 
 <a href="../home.php" class="btmhome">home</a>
-<a href="../update/hukuman.php" class="btmhome">Update</a>
-<a href="../delete/hukuman.php" class="btmhome">Delete</a>
-<a href="../daftar/hukuman.php" class="btmhome">Daftar</a>
+<a href="../update/rule.php" class="btmhome">Update</a>
+<a href="../delete/rule.php" class="btmhome">Delete</a>
+<a href="../daftar/rule.php" class="btmhome">Daftar</a>
 
 <button onclick="show()" id="btm" class="btmhome">tampilkan Daftar</button>
-<?php require_once("../daftar/hukuman.php"); ?>
+<?php require_once("../daftar/rule.php"); ?>
 <script src="../js/show.js"></script>
 
 <?php
 require("../proses/ceklogin.php");
 if ($valid) { // menerima signyal validasi dari ceklogin
-    if (isset($_POST["nama"]) && isset($_POST["idh"]) && isset($_POST["diskr"])) {
+    if (isset($_POST["nama"]) && isset($_POST["idr"]) && isset($_POST["diskr"])) {
         $nama = $_POST['nama'];
-        $idh = $_POST['idh'];
+        $idr = $_POST['idr'];
         $diskr = $_POST['diskr'];
+
+        // echo $nama;
+        // echo $idr;
+        // echo $diskr;
 
         $cek = $nama;
         require("../proses/cekinput.php");
@@ -55,7 +58,7 @@ if ($valid) { // menerima signyal validasi dari ceklogin
             header("Location: /php/login/logout.php");
         }
 
-        $cek = $idh;
+        $cek = $idr;
         require("../proses/cekinput.php");
         if (!$bersih) {
             header("Location: /php/login/logout.php");
@@ -68,11 +71,11 @@ if ($valid) { // menerima signyal validasi dari ceklogin
         }
 
         // echo "jalan";
-        $sql = "INSERT INTO HUKUMAN (HUKUMAN, IDHUKUM, DISKRIPSI_HUKUMAN)
-                            VALUES ('$nama', '$idh', '$diskr')";
+        $sql = "INSERT INTO RULE (RULENAME, IDRULE, DISKRIPSI_RULE)
+        VALUES ('$nama', '$idr', '$diskr')";
         // echo $sql;
         if ($conn->query($sql) === TRUE) {
-            echo "Sangsi <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+            echo "Rule <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

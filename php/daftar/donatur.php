@@ -75,6 +75,7 @@
 
                         $nama =  htmlspecialchars($row['NAME']);
                         $jumlah =  htmlspecialchars($row['JUMLAH_DONASI']);
+                        $jumlah = number_format($jumlah, 2, ",", ".");
                         $bulan = htmlspecialchars($row['BULAN']);
 
                         echo "<tr>";

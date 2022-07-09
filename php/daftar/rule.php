@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Level</title>
+    <title>Daftar Rule</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
 
     <div class="table" style>
 
-        <h1>Daftar Donatur lvl</h1>
+        <h1>Daftar Rule</h1>
         <hr>
         <!-- <br>
     <a href="../home.php" class="btmhome">home</a>
@@ -64,24 +64,24 @@
 
         <table>
             <tr>
-                <th>iddlvl</th>
-                <th>namatingkatan</th>
+                <th>ID Rule</th>
+                <th>Nama Rule</th>
                 <th>Diskripsi</th>
             </tr>
 
             <?php
             // require("../proses/ceklogin.php");
             require("../proses/sql.php");
-            $sql = "SELECT * FROM DONATUR_LVL";
+            $sql = "SELECT * FROM RULE";
             if ($result = mysqli_query($conn, $sql)) { // mencari data
 
                 if (mysqli_num_rows($result) > 0) { // bila data diatas 0
 
                     while ($row = mysqli_fetch_array($result)) { // print data 
 
-                        $lvl =  htmlspecialchars($row['IDDLVL']);
-                        $nama =  htmlspecialchars($row['NAMATINGKATAN']);
-                        $Diskripsi =  htmlspecialchars($row['DISKRIPSI']);
+                        $lvl =  htmlspecialchars($row['IDRULE']);
+                        $nama =  htmlspecialchars($row['RULENAME']);
+                        $Diskripsi =  htmlspecialchars($row['DISKRIPSI_RULE']);
 
                         echo "<tr>";
 

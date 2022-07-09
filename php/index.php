@@ -43,3 +43,8 @@
 </body>
 
 </html>
+
+<?
+require("../php/proses/uuid4.php");
+echo $uuid4;
+?>

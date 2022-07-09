@@ -14,11 +14,14 @@
     <h1>Input player baru</h1>
     <hr>
     <form action="" method="post">
-        Nickname: <input type="text" name="nick" placeholder="Player Name">
+        Nickname:
+        <input type="text" name="nick" placeholder="Player Name">
         <br>
-        Nama: <input type="text" name="nama" placeholder="Player Name" required>
+        Nama: <span class="required">*</span>
+        <input type="text" name="nama" placeholder="Player Name" required>
         <br>
-        UUID: <input type="text" name="uuid" placeholder="2b430-1wa..." required>
+        UUID: <span class="required">*</span>
+        <input type="text" name="uuid" placeholder="2b430-1wa..." required>
         <br>
         SoftBan:
         <div class="custom-select">
@@ -61,50 +64,40 @@
             $softban = $_POST["softban"];
 
 
+            $cek = $nick;
+            require("../proses/cekinput.php");
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
+
             $cek = $nama;
             require("../proses/cekinput.php");
-            if ($bersih) { // cek nama
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
-                // echo "3";
-                $cek = $uuid;
-                require("../proses/cekinput.php");
-                if ($bersih) { // cek uudi
+            $cek = $uuid;
+            require("../proses/cekinput.php");
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
-                    // echo "4";
-                    $cek = $softban;
-                    require("../proses/cekinput.php");
-                    if ($bersih) { // cek softban
+            $cek = $softban;
+            require("../proses/cekinput.php");
+            if (!$bersih) {
+                header("Location: /php/login/logout.php");
+            }
 
-                        // echo "5";
-                        $cek = $nick;
-                        require("../proses/cekinput.php");
-                        if ($bersih) { // cek nick
 
-                            // echo "jalan";
-                            $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME)
+
+
+            // echo "jalan";
+            $sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME)
                             VALUES ('$nama', '$uuid', '$softban','$nick')";
-                            if ($conn->query($sql) === TRUE) {
-                                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
-                            } else {
-                                echo "Error: " . $sql . "<br>" . $conn->error;
-                            }
-
-                            //////////////
-                        } else {
-                            header("Location: /php/login/logout.php"); //awto logout
-                            echo " kotor 4 ";
-                        }
-                    } else {
-                        header("Location: /php/login/logout.php"); //awto logout
-                        echo " kotor 3 ";
-                    }
-                } else {
-                    header("Location: /php/login/logout.php"); //awto logout
-                    echo " kotor 2 ";
-                }
+            if ($conn->query($sql) === TRUE) {
+                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
             } else {
-                header("Location: /php/login/logout.php"); //awto logout
-                echo " kotor ";
+                echo "Error: " . $sql . "<br>" . $conn->error;
             }
         }
     } else {

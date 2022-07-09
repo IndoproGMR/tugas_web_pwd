@@ -14,7 +14,7 @@ $filter = array(
     '--' => 5,
     ' DROP ' => 6,
     ' WHERE ' => 7,
-    ' OR' => 8,
+    ' OR ' => 8,
     ' SELECT ' => 9,
     "'" => 10
 
