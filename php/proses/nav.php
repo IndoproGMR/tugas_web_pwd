@@ -20,7 +20,7 @@
             <a href="../php/daftar/player.php">Daftar player</a>
             <a href="../php/daftar/donatur.php">Daftar donatur</a>
             <a href="">Daftar Pelanggar</a>
-            <a href="">Daftar farm</a>
+            <a href="../php/daftar/farm.php">Daftar farm</a>
         </div>
     </div>
 
@@ -71,7 +71,8 @@
         <div class="dropdown-content">
             <a href="../php/input/farm.php">Input farm</a>
             <a href="">Update farm</a>
-            <a href="">Daftar farm</a>
+            <a href="">Delete farm</a>
+            <a href="../php/daftar/farm.php">Daftar farm</a>
             <a href="">sertifikat farm</a>
         </div>
     </div>

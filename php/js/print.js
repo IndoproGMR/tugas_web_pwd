@@ -19,7 +19,7 @@ var btmhome = document.getElementsByClassName('btmhome');
         setTimeout(function () { //untuk menampil button
 
             for (var i = 0; i < btmhome.length; i++){
-                btmhome[i].style.display = "block";
+                btmhome[i].style.display = "";
             }
         }, 500);
     }

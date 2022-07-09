@@ -55,7 +55,7 @@
         <br>
         world: <span class="required">*</span>
         <select name="world" id="">
-            <option value="_overword">Orverword</option>
+            <option value="_overworld">Orverworld</option>
             <option value="_nether">Nether</option>
             <option value="_the_end">The End</option>
         </select>

@@ -12,7 +12,7 @@
     <script src="https://kit.fontawesome.com/90facb6ab3.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Input database Server</title>
+    <title>Home panel</title>
 </head>
 
 <body>
@@ -30,8 +30,7 @@
         <li>akun panel</li>
         <li>ganti pass</li>
         <br>
-        <strong>daftar (7/9)</strong>
-        <li>Farm</li>
+        <strong>daftar (8/9)</strong>
         <li>pelanggaran</li>
         <br>
         <strong>input (8/8) DONE</strong>
@@ -57,13 +56,14 @@
         <strong>Bagunan (1/5)</strong>
         <li>update</li>
         <li>delete</li>
+        <li>Daftar Farm</li>
         <li>desain sertifikat</li>
         <li>sertifikat farm</li>
     </ul>
     <p>2. entah sih mau diisi apa di halaman utama XD</p>
-    <p>3. update sql tabel</p>
     <p>5. bersihkan code dari command</p>
     <p>7. sambungkan sql database ke 2</p>
+    <p>8. menemukan cara untuk mencari tau bagaimana cara menagih player yang sudah jatuh tempo</p>
 
 
 

@@ -21,13 +21,7 @@ password >> ""
 
 
 
-[sql update]
-+ table akun > id(int 8 P) + name(varchar 64) + password(varchar 64) + hash(varchar 64 P) + time_akun(timestamp)
-+ table session > hash(table akun) + sessionkey (int 8 null) + exp(int 8 null)
-U table farm > world(varchar 64) + (X > Z)
-D table notebank
-D table akun_ganda
-D table pencairan
+
 
 
 [skema alur data]
@@ -144,6 +138,35 @@ cekinput.php >> ceklogin.php >> renewkey.php
 
 
 
+
+
+
+
+[uuid]
+function guidv4($data = null) {
+    // Generate 16 bytes (128 bits) of random data or use the data passed into the function.
+    $data = $data ?? random_bytes(16);
+    assert(strlen($data) == 16);
+
+    // Set version to 0100
+    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+    // Set bits 6-7 to 10
+    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+
+    // Output the 36 character UUID.
+    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+}
+
+// $myuuid = guidv4();
+// echo $myuuid; // Output
+
+[]
+
+
+
+
+
+
 [valid done]
 
 akun/
@@ -180,6 +203,17 @@ index.php
 
 
 
+http://139.99.118.72:7089/?worldname=DUNIA%20DALAM%20BERITA&mapname=flat&zoom=5&x=434&y=64&z=-2156
+
+http://139.99.118.72:7089/?worldname=DUNIA%20DALAM%20BERITA_nether&mapname=flat&zoom=5&x=6&y=64&z=6
+
+
+"http://".$iplink."/?worldname=DUNIA%20DALAM%20BERITA".$world."&mapname=flat&zoom=5&x=".$x."&y=64&z=".$z;
+
+
+
+$link = "http://" . $iplink . "/?worldname=DUNIA%20DALAM%20BERITA" . $world . "&mapname=flat&zoom=4&x=" . $X . "&y=64&z=" . $Z;
+<a href='$link' target='_blank'>Link</a>
 
 
 
@@ -187,12 +221,23 @@ index.php
 
 
 
+$sqllink = "SELECT NAME, NAMA_FARM, NAMA_JENIS_FARM, DESKRIPSI, UKURAN, WORLD , Z, X, PAJAK
+FROM FARM F INNER JOIN JENIS_FARM J
+ON (F.ID_JENIS_FARM = J.ID_JENIS_FARM)
+WHERE ";
+// F.ID_JENIS_FARM = '2000';
+// F.WORLD = '_%'
+
+if ($nama !== "1542"){
+    $sqllink = $sqllink. "F.NAME = '$name' AND";
+}
+
+if ($world === "*") {
+    $sql = $sqllink. "F.WORLD LIKE '_%';";
+} else{
+    $sql = $sqllink."F.WORLD = '$world';";
+}
 
 
-
-
-
-
-
-
+bila nama ada maka kasi nama dulu lalu didalam nama ada koma
 
