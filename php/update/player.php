@@ -27,7 +27,7 @@
             </select>
         </div>
         <br>
-        <input type="submit">
+        <input type="submit" value="update">
     </form>
     <script src="../js/select.js"></script>
 

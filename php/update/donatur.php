@@ -80,9 +80,9 @@
         Jumlah Donasi:
         <input type="number" name="donasi" placeholder="50000">
         <br>
-        <input type="submit">
+        <input type="submit" value="update">
     </form>
-    <script src="../js/select.js"></script>
+
 
 
     <a href="../home.php" class="btmhome">home</a>

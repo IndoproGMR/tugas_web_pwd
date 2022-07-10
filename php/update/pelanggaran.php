@@ -103,15 +103,15 @@
         </div>
         Lama hukuman:
         <input type="date" name="lama" id="">
-        <input type="submit">
+        <input type="submit" value="update">
     </form>
-    <script src="../js/select.js"></script>
+
 
 
     <a href="../home.php" class="btmhome">home</a>
-    <a href="../input/donatur.php" class="btmhome">Input</a>
-    <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
-    <a href="../delete/donatur.php" class="btmhome">Delete</a>
+    <a href="../input/pelanggaran.php" class="btmhome">Input</a>
+    <a href="../daftar/pelanggaran.php" class="btmhome">Daftar</a>
+    <a href="../delete/pelanggaran.php" class="btmhome">Delete</a>
 
 
 

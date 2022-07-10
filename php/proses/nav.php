@@ -44,7 +44,7 @@
             <a href="../php/update/player.php">Update Player</a>
             <a href="../php/update/pelanggaran.php">Update Pelanggar</a>
             <a href="../php/update/donatur.php">Update Donatur</a>
-            <a href="">Update Hukuman</a>
+            <a href="../php/update/hukuman.php">Update Hukuman</a>
             <a href="">Update farm</a>
             <a href="">Update Jenis farm</a>
             <a href="">Update Rule</a>
