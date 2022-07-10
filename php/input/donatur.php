@@ -44,23 +44,8 @@
             ?>
         </div>
         Bulan: <span class="required">*</span>
-        <div>
-            <select name="bulan" id="bulan">
-                <option value="MARET 2022">MARET 2022</option>
-                <option value="APRIL 2022">APRIL 2022</option>
-                <option value="MEI 2022">MEI 2022</option>
-                <option value="JUNI 2022" selected>JUNI 2022</option>
-                <option value="JULI 2022">JULI 2022</option>
-                <option value="AGUSTUS 2022">AGUSTUS 2022</option>
-                <option value="SEPTEMBER 2022">SEPTEMBER 2022</option>
-                <option value="OKTOBER 2022">OKTOBER 2022</option>
-                <option value="NOVEMBER 2022">NOVEMBER 2022</option>
-                <option value="DESEMBER 2022">DESEMBER 2022</option>
-                <option value="JANUARI 2023">JANUARI 2023</option>
-                <option value="FEBRUARI 2023">FEBRUARI 2023</option>
-                <option value="MARET 2023">MARET 2023</option>
-            </select>
-        </div>
+        <? require("../proses/caribulan.php") ?>
+
         Jumlah Donasi: <span class="required">*</span>
         <input type="number" name="donasi" placeholder="50000" required>
         <br>

@@ -25,7 +25,7 @@
 
     <form action="" method="POST" class="btmhome">
         Nama: <? require("../proses/carinama.php") ?>
-        Bulan:
+        world:
         <div>
             <select name="world" id="world">
                 <option value="*" selected>Tampilakan Semua Map</option>

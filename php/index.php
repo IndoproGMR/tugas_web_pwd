@@ -46,5 +46,21 @@
 
 <?
 require("../php/proses/uuid4.php");
-echo $uuid4;
+// echo $uuid4;
+$string = "SEPTEMBER 2022";
+echo $string;
+echo "<br>";
+
+$newstring = date("Ym", strtotime($string));
+echo "<br>";
+
+echo $newstring;
+echo "<br>";
+
+
+$date =  date("Ym");
+echo $date;
+echo "<br>";
+$time = strtotime("+18 month");
+echo date("Ym", $time);
 ?>

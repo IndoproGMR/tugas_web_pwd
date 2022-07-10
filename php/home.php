@@ -30,13 +30,16 @@
         <li>akun panel</li>
         <li>ganti pass</li>
         <br>
-        <strong>daftar (8/9)</strong>
-        <li>pelanggaran</li>
+        <br>
+
+        <strong>daftar (9/9) DONE</strong>
+        <br>
         <br>
         <strong>input (8/8) DONE</strong>
         <br>
-        <strong>Update (1/8)</strong>
-        <li>Donatur</li>
+        <br>
+
+        <strong>Update (2/8)</strong>
         <li>donatur lvl</li>
         <li>Hukuman</li>
         <li>Farm</li>

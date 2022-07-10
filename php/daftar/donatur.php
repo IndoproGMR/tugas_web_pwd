@@ -25,24 +25,8 @@
 
     <form action="" method="POST" class="btmhome">
         Bulan:
-        <div>
-            <select name="bulan" id="bulan">
-                <option value="*">Tampilakan Semua Donatur</option>
-                <option value="MARET 2022">MARET 2022</option>
-                <option value="APRIL 2022">APRIL 2022</option>
-                <option value="MEI 2022">MEI 2022</option>
-                <option value="JUNI 2022" selected>JUNI 2022</option>
-                <option value="JULI 2022">JULI 2022</option>
-                <option value="AGUSTUS 2022">AGUSTUS 2022</option>
-                <option value="SEPTEMBER 2022">SEPTEMBER 2022</option>
-                <option value="OKTOBER 2022">OKTOBER 2022</option>
-                <option value="NOVEMBER 2022">NOVEMBER 2022</option>
-                <option value="DESEMBER 2022">DESEMBER 2022</option>
-                <option value="JANUARI 2023">JANUARI 2023</option>
-                <option value="FEBRUARI 2023">FEBRUARI 2023</option>
-                <option value="MARET 2023">MARET 2023</option>
-            </select>
-        </div>
+        <? require("../proses/caribulan.php") ?>
+
 
         <input type="submit">
 
@@ -63,7 +47,7 @@
                 $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN` = '$bulan' ORDER BY `JUMLAH_DONASI` ASC";
             } else {
                 echo "<H1>Menampilkan semua Danatur</H1>";
-                $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN`LIKE '% 2022' ORDER BY `TGL_DONASI` ASC";
+                $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN`LIKE '%' ORDER BY `TGL_DONASI` ASC";
             }
 
             require("../proses/sql.php");

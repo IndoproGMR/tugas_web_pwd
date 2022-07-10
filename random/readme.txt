@@ -241,3 +241,60 @@ if ($world === "*") {
 
 bila nama ada maka kasi nama dulu lalu didalam nama ada koma
 
+$sql = 
+
+SELECT NAME, RULENAME, HUKUMAN, LAMA
+FROM PELANGGARAN P
+INNER JOIN RULE R
+ON P.IDRULE = R.IDRULE
+INNER JOIN HUKUMAN H
+ON P.IDHUKUM = H.IDHUKUM
+WHERE P.NAME = "RiveraMaxwell"
+ORDER BY P.NAME
+
+
+UPDATE dan DELETE DONASI
+
+<option value="id"> nama - lvl - jumlah - bulan </option>
+
+
+yang di ubah lvl - jumlah - bulan
+
+SELECT NAME, NAMATINGKATAN, BULAN, JUMLAH_DONASI
+FROM DONATUR D INNER JOIN DONATUR_LVL L
+ON (D.IDDLVL = L.IDDLVL)
+ORDER BY D.NAME
+
+SELECT NAME, NAMATINGKATAN, BULAN, JUMLAH_DONASI FROM DONATUR D INNER JOIN DONATUR_LVL L ON (D.IDDLVL = L.IDDLVL) ORDER BY D.NAME
+
+
+data 202207 untuk juli 2022
+
+diset manual ke database
+
+
+tambhana table bulan 
+juli 2022 nama
+202207 id
+
+bila player sudah membayar 20k maka akan ditagih di bulan september
+
+21k rounddown ke 20k
+27k rounddown ke 20k
+rounddown donasi % 10k = 2
+
+maka tambahkan waktu 2 = 202209
+
+bila 202213 maka tambahkan 101 = 202301
+
+bila donasi 150k maka ditambah 15 = 202222
+maka tambahkan 203 = 202403
+
+atau buat jadi tanggal saja
+Bulan + 15 jadi
+
+bila tgl sekarang lebih kecil dari tempo maka diberi bg hijau
+bila tgl sekarang sama dengan tempo maka beri bg hijau
+bila tgl sekarang lebih besar dari tempo maka diberi bg merah
+
+
