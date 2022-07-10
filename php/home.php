@@ -32,8 +32,8 @@
         <br>
         <br>
 
-        <strong>daftar (9/9) DONE</strong>
-        <br>
+        <strong>daftar (9/10)</strong>
+        <li>Daftar keuangan</li>
         <br>
         <strong>input (8/8) DONE</strong>
         <br>
