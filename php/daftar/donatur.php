@@ -47,7 +47,7 @@
                 $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN` = '$bulan' ORDER BY `JUMLAH_DONASI` ASC";
             } else {
                 echo "<H1>Menampilkan semua Danatur</H1>";
-                $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN`LIKE '%' ORDER BY `TGL_DONASI` ASC";
+                $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN`LIKE '%' ORDER BY `BULAN` ASC";
             }
 
             require("../proses/sql.php");
@@ -60,7 +60,14 @@
                         $nama =  htmlspecialchars($row['NAME']);
                         $jumlah =  htmlspecialchars($row['JUMLAH_DONASI']);
                         $jumlah = number_format($jumlah, 2, ",", ".");
-                        $bulan = htmlspecialchars($row['BULAN']);
+                        $bulan = date("F Y", strtotime(htmlspecialchars($row['BULAN'])));
+                        // $bulan = htmlspecialchars($row['BULAN']);
+
+
+                        // echo $bulan;
+                        // $bulan2 = date("F Y", strtotime($bulan1));
+
+                        // echo $bulan2;
 
                         echo "<tr>";
 

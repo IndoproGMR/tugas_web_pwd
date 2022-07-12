@@ -295,11 +295,412 @@ bila 202213 maka tambahkan 101 = 202301
 bila donasi 150k maka ditambah 15 = 202222
 maka tambahkan 203 = 202403
 
-atau buat jadi tanggal saja
+
+
+atau buat jadi tanggal saja (terbukti bisa)
 Bulan + 15 jadi
+
+setiap donasi beri bulan dan tahun donasi dan jumlah donasi
+
+bila pada tanggal 30 febuary dan di set febuary 2022 dan jumlah donasi nya itu adalah 50k
+maka dia akan padat waktu 5 bulan hingga juli 2022 
+
+febuary 2022 5 bulan
+
+febuary (oke)
+maret (oke)
+april (oke)
+mei (oke)
+juni (oke)
+juli (oke)
+
+agustus (merah)
+september (merah)
+
+donasi lagi oktober 2022 20k
+oktober (oke)
+november (oke)
+
+desember (merah)
+
+donasi lagi desember 2022 10k
+desember (oke)
+
+januari (merah)
 
 bila tgl sekarang lebih kecil dari tempo maka diberi bg hijau
 bila tgl sekarang sama dengan tempo maka beri bg hijau
 bila tgl sekarang lebih besar dari tempo maka diberi bg merah
+bila tgl donasi lebih kecil dari tgl donasi maka beri bg gray
+
+//////////////////
+
+for nama 
+
+nama1  bulan1  bulan2  bulan3
+nama2  bulan1  bulan2  bulan3
+nama3  bulan1  bulan2  bulan3
+
+tr
+
+th nama1  /th
+th bulan1 /th
+th bulan2 /th
+th bulan3 /th
+
+/tr
+
+tr
+
+td nama /td
+td januari /td
+td febuary /td
+td maret /td
+
+/tr
+
+bila nama1 memiliki tag tgl febuary 2022 dengan keuangan rounddown ke 50k
+maka tambah dan ubah tag menjadi 202207
+ubah tag database menjadi 202202 bila
+bulan1 (202201) >= tempo(202207) maka beri bg hijau
+bulan8 (202208) >= tempo(202207) maka beri bg merah
 
 
+bila player donasi 2 kali maka ambil donasi paling terbaru
+
+atau order by nama
+
+nama1a feb ~ mei sisa akan merah
+nama1b juni ~ agus yang diambil terakhir
+
+
+
+
+
+
+
+
+////////////////////////////////
+
+for nama
+
+nama1   nama2   nama3
+bulan1  bulan1  bulan1
+bulan2  bulan2  bulan2
+bulan3  bulan3  bulan3
+
+
+tr
+
+th nama1 /th
+th nama2 /th
+th nama3 /th
+
+/tr
+
+bila 
+
+
+
+
+
+
+
+
+select R1.id,
+       R1.groupid,
+       R1.name,
+       R1.code
+from RawTable as R1
+  inner join (  
+              select name, code, max(groupid) as groupid
+              from RawTable
+              group by name, code
+             ) as R2
+    on R1.name = R2.name and
+       R1.code = R2.code and
+       R1.groupid = R2.groupid
+
+
+SELECT D1.NAME, D1.IDDLVL, D1.BULAN, D1.JUMLAH_DONASI, D1.TGL_DONASI
+FROM DONATUR as D1
+INNER JOIN (
+    SELECT NAME, IDDLVL,MAX(BULAN) AS BULAN, JUMLAH_DONASI, TGL_DONASI
+    FROM DONATUR
+) as D2
+ON 
+D1.NAME = D2.NAME AND
+D1.IDDLVL = D2.IDDLVL AND
+D1.BULAN = D2.BULAN AND
+D1.JUMLAH_DONASI = D2.JUMLAH_DONASI AND
+D1.TGL_DONASI = D2.TGL_DONASI
+
+
+
+SELECT D1.NAME, D1.IDDLVL, D1.BULAN, D1.JUMLAH_DONASI, D1.TGL_DONASI
+FROM DONATUR as D1
+INNER JOIN (
+    SELECT NAME, IDDLVL,MAX(BULAN) AS BULAN, JUMLAH_DONASI, TGL_DONASI
+    FROM DONATUR
+) as D2
+ON 
+D1.NAME = D2.NAME AND
+D1.JUMLAH_DONASI = D2.JUMLAH_DONASI
+
+
+
+
+SELECT NAME, IDDLVL, BULAN, JUMLAH_DONASI, TGL_DONASI, COUNT(*)
+FROM DONATUR
+GROUP BY NAME
+HAVING COUNT(*)>1
+
+
+
+
+select R.id,
+       R.groupid,
+       R.name,
+       R.code
+from (select id, 
+             groupid, 
+             name, 
+             code,
+             row_number() over(partition by name, code order by groupid desc) as rn
+      from RawTable       
+     ) as R
+where R.rn = 1
+
+
+
+SELECT D1.NAME, D1.IDDLVL, D1.BULAN, D1.JUMLAH_DONASI, D1.TGL_DONASI, d1.ID_DONASI
+FROM SELECT 
+NAME, 
+IDDLVL,
+BULAN,
+JUMLAH_DONASI,
+TGL_DONASI
+row_number() over(partition by name ORDER by ID_DONASI) AS D2
+    FROM DONATUR
+) as D1
+WHERE D1.D2 = 1
+
+
+select top (1) 
+with ties ID, DayNumber, Mfm, value
+from
+table
+order by row_number() over (partiton by
+                            ID, DayNumber, Mfm
+                            order by value desc)
+
+
+
+SELECT top(1)
+WITH TIES ID_DONASI, NAME, IDDLVL, BULAN, JUMLAH_DONASI,TGL_DONASI
+FROM DONATUR
+ORDER BY row_number() OVER (partition BY ID_DONASI, NAME, IDDLVL, BULAN, JUMLAH_DONASI,TGL_DONASI
+ORDER BY BULAN DESC
+)
+
+
+
+
+SELECT NAME, BULAN, COUNT(NAME), MAX(TGL_DONASI), MAX(BULAN)
+FROM DONATUR
+GROUP BY NAME
+ORDER BY BULAN
+
+SELECT NAME, BULAN
+FROM DONATUR
+ORDER BY BULAN
+
+
+ubah bulan jadi int 
+januari 2022 ke 2022-01
+
+
+
+
+SELECT D1.ID_DONASI D1.NAME, MAX(D1.BULAN) AS BULAN, D1.JUMLAH_DONASI
+FROM DONATUR D1
+INNER JOIN DONATUR D2
+ON D1.JUMLAH_DONASI = D2.JUMLAH_DONASI AND
+D1.ID_DONASI = D2.ID_DONASI AND
+D1.BULAN = D2.BULAN AND
+D1.NAME = D2.NAME
+GROUP BY D1.NAME
+
+
+
+SELECT *
+FROM WF_Approval sr1
+WHERE NOT EXISTS (
+    SELECT *
+    FROM  WF_Approval sr2 
+    WHERE sr1.DocumentID = sr2.DocumentID AND 
+          sr1.Status = sr2.Status AND                  # <-- new line
+          sr1.StepNumber < sr2.StepNumber
+) AND MasterStepID = 'Approval1'
+
+
+SELECT D1.ID_DONASI, D1.NAME, D1.BULAN, D1.JUMLAH_DONASI
+FROM DONATUR D1
+WHERE (
+    SELECT MAX(D2.BULAN) AS BULAN
+    FROM DONATUR D2
+    WHERE D1.ID_DONASI = D2.ID_DONASI AND
+    D1.NAME = D2.NAME AND
+    D1.JUMLAH_DONASI = D2.JUMLAH_DONASI
+)
+
+
+SELECT NAME, BULAN ,JUMLAH_DONASI
+FROM DONATUR
+WHERE BULAN = (
+    SELECT MAX(BULAN)
+FROM DONATUR
+)
+GROUP BY NAME
+
+SELECT NAME, MAX(BULAN) ,JUMLAH_DONASI, ID_DONASI
+FROM DONATUR
+GROUP BY NAME
+
+SELECT NAME, BULAN ,JUMLAH_DONASI, ID_DONASI
+FROM DONATUR
+GROUP BY NAME
+
+cari nama
+CARI BULAN
+CARI ID_DONASI
+ORDER BY BULAN
+
+
+
+
+select NAME
+from DONATUR
+GROUP by NAME
+
+for ()
+
+SELECT NAME, BULAN, ID_DONASI
+FROM DONATUR
+WHERE NAME = '$name'
+ORDER BY BULAN DESC
+
+row 1 ambil id
+
+select *
+from DONATUR
+where ID_DONASI = $id
+
+
+select *
+from DONATUR
+where ID_DONASI = (
+    SELECT ID_DONASI
+    FROM DONATUR
+    WHERE NAME = (
+        SELECT NAME
+        FROM DONATUR
+        WHERE ID_DONASI = 1
+    ) ORDER by BULAN desc limit 1
+)
+
+
+fuck berhasil juga :"D
+
+
+select *
+from DONATUR
+where ID_DONASI = (
+    SELECT ID_DONASI
+    FROM DONATUR
+    WHERE NAME = (
+        SELECT NAME
+        FROM DONATUR
+        WHERE ID_DONASI = $id
+    ) ORDER by BULAN desc limit 1
+)
+
+
+
+select NAME
+from DONATUR
+GROUP by NAME
+
+for ()
+
+select NAME, BULAN, JUMLAH_DONASI, ID_DONASI
+from DONATUR
+where ID_DONASI = (
+    SELECT ID_DONASI
+    FROM DONATUR
+    WHERE NAME = '$nama'
+    ORDER by BULAN desc limit 1
+)
+
+$JUMLAH_DONASI = round ($JUMLAH_DONASI, -4);
+
+
+date($bulan + $JUMLAH_DONASI)
+date(2022-04 + 4) = ($tempo) 2022-08
+
+$tgl = "2022-";
+$bulan = "02";
+$test = $tgl . "03";
+echo $test;
+
+
+
+
+for nama 
+
+nama1  bulan1  bulan2  bulan3
+nama2  bulan1  bulan2  bulan3
+nama3  bulan1  bulan2  bulan3
+
+tr
+
+th nama1  /th
+th bulan1 /th
+th bulan2 /th
+th bulan3 /th
+
+/tr
+
+
+
+$tgl = "2022-";
+if ($tgl . "03" > "2022-04") {
+    echo "jalan";
+} else {
+    echo "tidak jalan";
+}
+echo "<br>";
+echo "<br>";
+
+tr
+
+td nama /td
+
+if($thn."01" > $tempo){
+beri bg merah
+}
+if ($tgl <= $tempo){
+    beri bg hijau
+}
+if ($tgl < $bulan){
+    beri bg abu2
+}
+td januari /td
+
+if()
+td febuary /td
+
+if()
+td maret /td
+
+/tr

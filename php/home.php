@@ -32,19 +32,17 @@
         <br>
         <br>
 
-        <strong>daftar (9/10)</strong>
-        <li>Daftar keuangan</li>
+        <strong>daftar (9/9)</strong>
+        <li>Daftar keuangan (gak harus)</li>
         <br>
         <strong>input (8/8) DONE</strong>
         <br>
         <br>
 
-        <strong>Update (2/8)</strong>
+        <strong>Update (4/8)</strong>
         <li>donatur lvl</li>
-        <li>Hukuman</li>
         <li>Farm</li>
         <li>Jenis Farm1</li>
-        <li>pelanggaran</li>
         <li>rule</li>
         <br>
         <strong>Delate Data (1/8)</strong>

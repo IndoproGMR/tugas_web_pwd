@@ -15,7 +15,7 @@
     <hr>
     <form action="" method="post">
         <br>
-        Nama Sangsi:
+        Nama Sangsi: <span class="required">*</span>
         <div>
             <?
             require("../proses/sql.php");
@@ -43,7 +43,7 @@
             echo "<select>";
             ?>
         </div>
-        Nama Hukuman:
+        Nama Hukuman: <span class="required">*</span>
         <input type="text" name="nama" placeholder="Nama hukuman" required>
         <br>
         Diskripsi:
