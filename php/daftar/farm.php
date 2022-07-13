@@ -47,8 +47,8 @@
             <th>Ukuran</th>
 
             <th>World</th>
-            <th>Diskripsi</th>
             <th>pajak</th>
+            <th>Diskripsi</th>
             <th>Link</th>
         </tr>
         <?php
@@ -104,6 +104,7 @@
                         $world =  htmlspecialchars($row['WORLD']);
                         $diskr =  htmlspecialchars($row['DESKRIPSI']);
                         $pajak =  htmlspecialchars($row['PAJAK']);
+                        $pajak = number_format($pajak, 2, ",", ".");
 
 
                         $Z =  htmlspecialchars($row['Z']);
@@ -119,7 +120,7 @@
                         echo "<td>" . $ukuran . "</td>";
 
                         echo "<td>" . $world . "</td>";
-                        echo "<td>" . $pajak . "</td>";
+                        echo "<td> Rp. " . $pajak . "</td>";
                         echo "<td>" . $diskr . "</td>";
 
                         echo "<td> <a href='$link' target='_blank'>Link</a> </td>";

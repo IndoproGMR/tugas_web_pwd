@@ -53,7 +53,7 @@
         Ukuran farm: <span class="required">*</span>
         <input type="number" name="ukuran" placeholder="titik 1 ke titik 2 (pakai world edit untuk mempermudah)">
         <br>
-        world: <span class="required">*</span>
+        world:
         <select name="world" id="">
             <option value="_overworld">Orverworld</option>
             <option value="_nether">Nether</option>
@@ -120,11 +120,11 @@
 
             // echo "<br>";
             // echo $jf;
-            echo "<br>";
-            echo $jf0;
-            echo "<br>";
-            echo $jf1;
-            echo "<br>";
+            // echo "<br>";
+            // echo $jf0;
+            // echo "<br>";
+            // echo $jf1;
+            // echo "<br>";
 
 
 

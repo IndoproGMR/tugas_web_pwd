@@ -26,24 +26,24 @@
     <p>Todo:</p>
     <p>1. melengkapi yang kosong</p>
     <ul>
-        <strong>akun (2/4)</strong>
+        <strong>Akun (2/4)</strong>
         <li>akun panel</li>
         <li>ganti pass</li>
         <br>
         <br>
 
-        <strong>daftar (9/9)</strong>
-        <li>Daftar keuangan (gak harus)</li>
-        <br>
-        <strong>input (8/8) DONE</strong>
+        <strong>Daftar (9/9) DONE</strong>
+        <!-- <li>Daftar keuangan (gak harus)</li> -->
         <br>
         <br>
 
-        <strong>Update (4/8)</strong>
-        <li>donatur lvl</li>
-        <li>Farm</li>
-        <li>Jenis Farm1</li>
-        <li>rule</li>
+        <strong>Input (8/8) DONE</strong>
+        <br>
+        <br>
+
+        <strong>Update (8/8) DONE</strong>
+        <br>
+
         <br>
         <strong>Delate Data (1/8)</strong>
         <li>Donatur</li>
@@ -53,18 +53,17 @@
         <li>Jenis Farm1</li>
         <li>pelanggaran</li>
         <li>rule</li>
+
         <br>
-        <strong>Bagunan (1/5)</strong>
-        <li>update</li>
-        <li>delete</li>
-        <li>Daftar Farm</li>
+        <strong>Bagunan (3/6)</strong>
+        <li>Delete Farm</li>
         <li>desain sertifikat</li>
         <li>sertifikat farm</li>
     </ul>
     <p>2. entah sih mau diisi apa di halaman utama XD</p>
     <p>5. bersihkan code dari command</p>
     <p>7. sambungkan sql database ke 2</p>
-    <p>8. menemukan cara untuk mencari tau bagaimana cara menagih player yang sudah jatuh tempo</p>
+    <!-- <p>8. menemukan cara untuk mencari tau bagaimana cara menagih player yang sudah jatuh tempo (gak harus)</p> -->
 
 
 

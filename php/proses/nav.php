@@ -45,10 +45,10 @@
             <a href="../php/update/pelanggaran.php">Update Pelanggar</a>
             <a href="../php/update/donatur.php">Update Donatur</a>
             <a href="../php/update/hukuman.php">Update Hukuman</a>
-            <a href="">Update farm</a>
-            <a href="">Update Jenis farm</a>
-            <a href="">Update Rule</a>
-            <a href="">Update Donatur lvl</a>
+            <a href="../php/update/farm.php">Update farm</a>
+            <a href="../php/update/jenisfarm.php">Update Jenis farm</a>
+            <a href="../php/update/rule.php">Update Rule</a>
+            <a href="../php/update/donatur_lvl.php">Update Donatur lvl</a>
         </div>
     </div>
 
@@ -70,7 +70,7 @@
         <button class="dropbtn">Bangunan</button>
         <div class="dropdown-content">
             <a href="../php/input/farm.php">Input farm</a>
-            <a href="">Update farm</a>
+            <a href="../php/update/farm.php">Update farm</a>
             <a href="">Delete farm</a>
             <a href="../php/daftar/farm.php">Daftar farm</a>
             <a href="">sertifikat farm</a>
