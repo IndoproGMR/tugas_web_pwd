@@ -34,28 +34,17 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo $_POST["confirmasi"];
 
+    if ($valid) { // menerima signyal validasi dari ceklogin
 
-    if (isset($_POST["confirmasi"])) {
-        $confirm = $_POST["confirmasi"];
-        if ($confirm === "true") {
-            // echo "string";
-
-
-            // <code>
+        if (isset($_POST["confirmasi"])) {
+            $confirm = $_POST["confirmasi"];
+            if ($confirm === "true") {
 
 
 
 
-
-
-
-            // echo "0";
-
-            if ($valid) { // menerima signyal validasi dari ceklogin
                 if (isset($_POST['namaplayer'])) {
                     $nama = $_POST['namaplayer'];
 
@@ -71,21 +60,35 @@
                         // echo $nama;
 
                         $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
-                        if ($conn->query($delete) === TRUE) {
-                            echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
-                        } else {
-                            echo "Error: " . $delete . "<br>" . $conn->error;
-                        }
+                        echo $delete;
+
+
+
+                        // if ($conn->query($delete) === TRUE) {
+                        //     echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
+                        // } else {
+                        //     echo "Error: " . $delete . "<br>" . $conn->error;
+                        // }
                     }
                 }
+
+
+
+
+
+
+
+
+
+                /////
             } else {
-                header("Location: /login/");
+                echo "<h3>Mohon Centang confirmasi</h3>";
             }
         } else {
             echo "<h3>Mohon Centang confirmasi</h3>";
         }
     } else {
-        echo "<h3>Mohon Centang confirmasi</h3>";
+        header("Location: /login/");
     }
     // require('../daftar/player.php');
     ?>

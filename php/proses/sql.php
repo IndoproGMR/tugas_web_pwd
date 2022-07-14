@@ -13,5 +13,6 @@ if (!$conn) {
 }
 // echo "Connected successfully" . "<br>";
 
+// variabel untuk link farm dan donatur
 $iplink = "139.99.118.72:7089";
 $thn = "2022-";

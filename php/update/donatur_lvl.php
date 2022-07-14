@@ -17,7 +17,7 @@
     <hr>
     <form action="" method="post">
         <br>
-        Nama Sangsi: <span class="required">*</span>
+        Nama lvl: <span class="required">*</span>
         <div>
             <?
             require("../proses/sql.php");

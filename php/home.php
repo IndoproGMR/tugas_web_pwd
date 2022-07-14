@@ -44,8 +44,7 @@
         <br>
 
         <br>
-        <strong>Delate Data (1/8)</strong>
-        <li>Donatur</li>
+        <strong>Delate Data (2/8)</strong>
         <li>donatur lvl</li>
         <li>Hukuman</li>
         <li>Farm</li>

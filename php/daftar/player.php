@@ -42,40 +42,45 @@
 
         <?php
         require("../proses/ceklogin.php");
-        require("../proses/sql.php");
-        $sql = "SELECT * FROM PLAYER";
-        if ($result = mysqli_query($conn, $sql)) { // mencari data
 
-            if (mysqli_num_rows($result) > 0) { // bila data diatas 0
+        if ($valid) { // menerima signyal validasi dari ceklogin
+            require("../proses/sql.php");
+            $sql = "SELECT * FROM PLAYER";
+            if ($result = mysqli_query($conn, $sql)) { // mencari data
 
-                while ($row = mysqli_fetch_array($result)) { // print data 
+                if (mysqli_num_rows($result) > 0) { // bila data diatas 0
 
-                    $nick =  htmlspecialchars($row['NICKNAME']);
-                    $namaplayer =  htmlspecialchars($row['NAME']);
-                    $UUID =  htmlspecialchars($row['UUID']);
-                    $SOFTBAN = htmlspecialchars($row['SOFTBAN']);
+                    while ($row = mysqli_fetch_array($result)) { // print data 
 
-                    if ($SOFTBAN !== "Y") {
-                        echo "<tr>";
+                        $nick =  htmlspecialchars($row['NICKNAME']);
+                        $namaplayer =  htmlspecialchars($row['NAME']);
+                        $UUID =  htmlspecialchars($row['UUID']);
+                        $SOFTBAN = htmlspecialchars($row['SOFTBAN']);
 
-                        echo "<td>" . $nick . "</td>";
-                        echo "<td>" . $namaplayer . "</td>";
-                        echo "<td>" . $UUID . "</td>";
-                        echo "<td>" . $SOFTBAN . "</td>";
+                        if ($SOFTBAN !== "Y") {
+                            echo "<tr>";
 
-                        echo "</tr>";
-                    } else { // bila player dalam softban maka beri tanda
-                        echo "<tr class='Y'>";
+                            echo "<td>" . $nick . "</td>";
+                            echo "<td>" . $namaplayer . "</td>";
+                            echo "<td>" . $UUID . "</td>";
+                            echo "<td>" . $SOFTBAN . "</td>";
 
-                        echo "<td>" . $nick . "</td>";
-                        echo "<td>" . $namaplayer . "</td>";
-                        echo "<td>" . $UUID . "</td>";
-                        echo "<td>" . $SOFTBAN . "</td>";
+                            echo "</tr>";
+                        } else { // bila player dalam softban maka beri tanda
+                            echo "<tr class='Y'>";
 
-                        echo "</tr>";
+                            echo "<td>" . $nick . "</td>";
+                            echo "<td>" . $namaplayer . "</td>";
+                            echo "<td>" . $UUID . "</td>";
+                            echo "<td>" . $SOFTBAN . "</td>";
+
+                            echo "</tr>";
+                        }
                     }
                 }
             }
+        } else {
+            header("Location: /php/login");
         }
         ?>
     </table>

@@ -71,30 +71,35 @@
         </tr>
 
         <?php
-        // require("../proses/ceklogin.php");
-        require("../proses/sql.php");
-        $sql = "SELECT * FROM akun";
-        if ($result = mysqli_query($conn, $sql)) { // mencari data
+        require("../proses/ceklogin.php");
 
-            if (mysqli_num_rows($result) > 0) { // bila data diatas 0
+        if ($valid) { // menerima signyal validasi dari ceklogin
+            require("../proses/sql.php");
+            $sql = "SELECT * FROM akun";
+            if ($result = mysqli_query($conn, $sql)) { // mencari data
 
-                while ($row = mysqli_fetch_array($result)) { // print data 
+                if (mysqli_num_rows($result) > 0) { // bila data diatas 0
 
-                    $ID =  htmlspecialchars($row['ID_AKUN']);
-                    $NAMA =  htmlspecialchars($row['NAME_AKUN']);
-                    $HASHA = htmlspecialchars($row['HASH']);
-                    $PASSA = htmlspecialchars($row['PASSWORD']);
+                    while ($row = mysqli_fetch_array($result)) { // print data 
 
-                    echo "<tr>";
+                        $ID =  htmlspecialchars($row['ID_AKUN']);
+                        $NAMA =  htmlspecialchars($row['NAME_AKUN']);
+                        $HASHA = htmlspecialchars($row['HASH']);
+                        $PASSA = htmlspecialchars($row['PASSWORD']);
 
-                    echo "<td>" . $ID . "</td>";
-                    echo "<td>" . $NAMA . "</td>";
-                    echo "<td>" . $HASHA . "</td>";
-                    echo "<td>" . $PASSA . "</td>";
+                        echo "<tr>";
 
-                    echo "</tr>";
+                        echo "<td>" . $ID . "</td>";
+                        echo "<td>" . $NAMA . "</td>";
+                        echo "<td>" . $HASHA . "</td>";
+                        echo "<td>" . $PASSA . "</td>";
+
+                        echo "</tr>";
+                    }
                 }
             }
+        } else {
+            header("Location: /php/login");
         }
         ?>
     </table>

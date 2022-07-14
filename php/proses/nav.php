@@ -59,7 +59,7 @@
         <div class="dropdown-content">
             <a href="../php/delete/player.php">Delete Player</a>
             <a href="">Delete pelanggaran</a>
-            <a href="">Delete Donatur</a>
+            <a href="../php/delete/donatur.php">Delete Donatur</a>
             <a href="">Delete Hukuman</a>
             <a href="">Delete Farm</a>
             <a href="">Delete Jenis Farm1</a>

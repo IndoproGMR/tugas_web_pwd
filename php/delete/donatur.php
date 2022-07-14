@@ -16,8 +16,39 @@
     <h1>Delete player</h1>
     <hr>
     <form action="" method="post">
-        nama: <? require("../proses/carinama.php") ?>
-        <br>
+        Nama Donatur: <span class="required">*</span>
+        <div>
+            <?
+            require("../proses/sql.php");
+            echo "<select name='idlevel' id='lvl' value=''>";
+            $sql = "SELECT ID_DONASI, NAME, NAMATINGKATAN, BULAN, JUMLAH_DONASI FROM DONATUR D INNER JOIN DONATUR_LVL L ON (D.IDDLVL = L.IDDLVL) ORDER BY D.NAME";
+            if ($result = mysqli_query($conn, $sql)) { // mencari data
+
+                if (mysqli_num_rows($result) > 0) { // bila data diatas 0
+
+                    echo "<option selected value='1542'>Pilih LVL</option>";
+                    while ($row = mysqli_fetch_array($result)) { // print data 
+
+                        $ID = htmlspecialchars($row['ID_DONASI']);
+                        $nama = htmlspecialchars($row['NAME']);
+                        $level = htmlspecialchars($row['NAMATINGKATAN']);
+                        $bulan = htmlspecialchars($row['BULAN']);
+                        $jumlah = htmlspecialchars($row['JUMLAH_DONASI']);
+                        $jumlah = number_format($jumlah, 2, ",", ".");
+
+
+
+                        if ($nama == $nama) {
+                            echo "<option value='$ID'>$nama - ($level) - ($bulan) - (Rp. $jumlah)</option>";
+                        } else {
+                            echo "<option value='$ID'>$nama - ($level) - ($bulan) - (Rp. $jumlah)</option>";
+                        }
+                    }
+                }
+            }
+            echo "<select>";
+            ?>
+        </div>
         <? require('../proses/confirm.php') ?>
         <br>
         <input type="submit">
@@ -42,22 +73,10 @@
     if (isset($_POST["confirmasi"])) {
         $confirm = $_POST["confirmasi"];
         if ($confirm === "true") {
-            // echo "string";
-
-
-            // <code>
-
-
-
-
-
-
-
-            // echo "0";
 
             if ($valid) { // menerima signyal validasi dari ceklogin
-                if (isset($_POST['namaplayer'])) {
-                    $nama = $_POST['namaplayer'];
+                if (isset($_POST['idlevel'])) {
+                    $nama = $_POST['idlevel'];
 
                     $cek = $nama;
                     require("../proses/cekinput.php");
@@ -66,16 +85,18 @@
                     }
 
                     if ($nama != 1542) {
-                        // echo "4 ";
-                        // echo "jalan";
-                        // echo $nama;
 
-                        // $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
-                        // if ($conn->query($delete) === TRUE) {
-                        //     echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
-                        // } else {
-                        //     echo "Error: " . $delete . "<br>" . $conn->error;
-                        // }
+                        $delete = "DELETE FROM `DONATUR` WHERE ID_DONASI='$nama'";
+
+                        // echo $delete;
+
+                        if ($conn->query($delete) === TRUE) {
+                            echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
+                        } else {
+                            echo "Error: " . $delete . "<br>" . $conn->error;
+                        }
+                    } else {
+                        header("Location: ../delete/donatur.php?masukan_nama");
                     }
                 }
             } else {

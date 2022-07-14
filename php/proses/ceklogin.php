@@ -9,7 +9,10 @@ $valid = false;
 
 require("../proses/sql.php");
 
-if (isset($_COOKIE["hash"]) && isset($_COOKIE["session"])) {
+if (
+    isset($_COOKIE["hash"]) &&
+    isset($_COOKIE["session"])
+) {
     $hash1 = $_COOKIE["hash"];
     $key = $_COOKIE["session"];
 
