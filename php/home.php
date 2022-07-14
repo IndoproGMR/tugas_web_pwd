@@ -1,3 +1,4 @@
+<? ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +17,7 @@
 </head>
 
 <body>
-    <?php
-    require("../php/proses/nav.php")
-    ?>
+    <?php require("../php/proses/nav.php") ?>
 
     <a href="/php/">index</a>
 
@@ -70,8 +69,11 @@
 
 
     <?
-    require("../php/sql.php");
-    if (isset($_COOKIE["hash"]) && isset($_COOKIE["session"])) {
+    require("../php/proses/sql.php");
+    if (
+        isset($_COOKIE["hash"]) &&
+        isset($_COOKIE["session"])
+    ) {
         $hash1 = $_COOKIE["hash"];
         $key = $_COOKIE["session"];
 
@@ -120,7 +122,7 @@
                         exit();
                     }
                 } else {
-                    header("Location: ../php/login");
+                    header("Location: ../php/login/index.php");
                 }
             } else {
                 header("Location: /php/login/logout.php"); //awto logout

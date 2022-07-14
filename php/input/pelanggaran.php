@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,7 +102,12 @@
     require("../proses/ceklogin.php");
     if ($valid) {
         /////
-        if (isset($_POST['namaplayer']) && isset($_POST['rule']) && isset($_POST['sangsi']) && isset($_POST['lama'])) {
+        if (
+            isset($_POST['namaplayer']) &&
+            isset($_POST['rule']) &&
+            isset($_POST['sangsi']) &&
+            isset($_POST['lama'])
+        ) {
             // echo $_POST['lama'];
 
             $nama = $_POST['namaplayer'];
@@ -111,46 +118,46 @@
 
             $cek = $nama;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "nama";
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $rule;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "rule";
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $rule;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $sangsi;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "sangsi";
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $sangsi;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            $cek = $lama;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "lama";
-                header("Location: /php/login/logout.php");
-            }
+                        $cek = $lama;
+                        require("../proses/cekinput.php");
+                        if ($bersih) {
 
-            $idrandom = random_int(0, 99999999);
+                            $idrandom = random_int(0, 99999999);
 
 
-            $sql = "INSERT INTO `PELANGGARAN` (`ID_PELANGGARAN`, `IDRULE`, `NAME`, `IDHUKUM`, `LAMA`, `TIMESTAMP_P`)
-            VALUES ('$idrandom', '$rule', '$nama', '$sangsi', '$lama', current_timestamp())";
+                            $sql = "INSERT INTO `PELANGGARAN` (`ID_PELANGGARAN`, `IDRULE`, `NAME`, `IDHUKUM`, `LAMA`, `TIMESTAMP_P`)
+                            VALUES ('$idrandom', '$rule', '$nama', '$sangsi', '$lama', current_timestamp())";
 
-            if ($conn->query($sql) === TRUE) {
-                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        } else {
+                            header("Location: ../login/logout.php");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
+                } else {
+                    header("Location: ../login/logout.php");
+                }
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                header("Location: ../login/logout.php");
             }
         }
     } else {
-        header("Location: /php/login");
+        header("Location: ../login");
     }
     ?>
 

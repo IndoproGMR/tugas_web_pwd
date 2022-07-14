@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <div class="topnav" id="myTopnav">
     <img class="logo" src="foto/Logo _transapran.png" alt="logo" onclick="klik()" />
     <!-- <a href="./" class="active" id="back">Back</a> -->

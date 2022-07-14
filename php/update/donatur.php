@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,86 +97,79 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
-
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
-
-
-        if (isset($_POST["idlevel"]) && isset($_POST["donasi"]) && isset($_POST["bulan"]) && isset($_POST["lvl"])) {
-            // echo "2";
-
+        if (
+            isset($_POST["idlevel"]) &&
+            isset($_POST["donasi"]) &&
+            isset($_POST["bulan"]) &&
+            isset($_POST["lvl"])
+        ) {
             $idlevel = $_POST["idlevel"];
             $donasi = $_POST['donasi'];
             $lvl = $_POST['lvl'];
             $bulan = $_POST["bulan"];
 
-
             $cek = $idlevel;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $donasi;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $donasi;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $lvl;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $lvl;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            $cek = $bulan;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                        $cek = $bulan;
+                        require("../proses/cekinput.php");
+                        if ($bersih) {
+
+                            if ($idlevel != 1542) {
+
+                                if ($donasi !== '') {
+                                    $donasia = ", JUMLAH_DONASI = '$donasi'";
+                                } else {
+                                    $donasia = "";
+                                }
+
+                                if ($lvl != "1542") {
+                                    if ($lvl !== '') {
+                                        $lvla = ", IDDLVL = '$lvl'";
+                                    }
+                                } else {
+                                    $lvla = "";
+                                }
 
 
-            if ($idlevel != 1542) {
+                                if ($bulan !== '') {
+                                    $bulana = " BULAN = '$bulan'";
+                                } else {
+                                    $bulana = "";
+                                }
 
-                if ($donasi !== '') {
-                    $donasia = ", JUMLAH_DONASI = '$donasi'";
-                } else {
-                    $donasia = "";
-                }
-
-                if ($lvl != "1542") {
-                    if ($lvl !== '') {
-                        $lvla = ", IDDLVL = '$lvl'";
+                                $sql = "UPDATE `DONATUR` SET $bulana $donasia $lvla WHERE ID_DONASI = '$idlevel'";
+                                // echo $sql;
+                                if ($conn->query($sql) === TRUE) {
+                                    echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $conn->error;
+                                }
+                            } else {
+                                header("Location: ../update/donatur.php?masukan_nama");
+                            }
+                        } else {
+                            header("Location: ../login/logout.php");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
                     }
                 } else {
-                    $lvla = "";
+                    header("Location: ../login/logout.php");
                 }
-
-
-                if ($bulan !== '') {
-                    $bulana = " BULAN = '$bulan'";
-                } else {
-                    $bulana = "";
-                }
-
-
-                // echo $nicka;
-                // $sql = "UPDATE `DONATUR` SET `SOFTBAN`= '$softban' $nicka WHERE ID_DONASI = '$ID'";
-
-                $sql = "UPDATE `DONATUR` SET $bulana $donasia $lvla WHERE ID_DONASI = '$idlevel'";
-
-
-                // echo $sql;
-
-                // echo "jalan";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
             //////////////
         }

@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,45 +41,59 @@
             <th>bulan</th>
         </tr>
         <?php
-        // require("../proses/ceklogin.php");
+        require("../proses/ceklogin.php");
         if (isset($_POST["bulan"])) {
             $bulan = $_POST["bulan"];
-            if ($bulan !== "*") {
-                echo "<H1>$bulan</H1>";
-                $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN` = '$bulan' ORDER BY `JUMLAH_DONASI` ASC";
-            } else {
-                echo "<H1>Menampilkan semua Danatur</H1>";
-                $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN`LIKE '%' ORDER BY `BULAN` ASC";
-            }
 
-            require("../proses/sql.php");
-            if ($result = mysqli_query($conn, $sql)) { // mencari data
-
-                if (mysqli_num_rows($result) > 0) { // bila data diatas 0
-
-                    while ($row = mysqli_fetch_array($result)) { // print data 
-
-                        $nama =  htmlspecialchars($row['NAME']);
-                        $jumlah =  htmlspecialchars($row['JUMLAH_DONASI']);
-                        $jumlah = number_format($jumlah, 2, ",", ".");
-                        $bulan = date("F Y", strtotime(htmlspecialchars($row['BULAN'])));
-                        // $bulan = htmlspecialchars($row['BULAN']);
+            $cek = $bulan;
+            require("../proses/cekinput.php");
+            if ($bersih) {
 
 
-                        // echo $bulan;
-                        // $bulan2 = date("F Y", strtotime($bulan1));
 
-                        // echo $bulan2;
 
-                        echo "<tr>";
+                if ($bulan !== "*") {
+                    echo "<H1>$bulan</H1>";
+                    $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN` = '$bulan' ORDER BY `JUMLAH_DONASI` ASC";
+                } else {
+                    echo "<H1>Menampilkan semua Danatur</H1>";
+                    $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN`LIKE '%' ORDER BY `BULAN` ASC";
+                }
 
-                        echo "<td>" . $nama . "</td>";
-                        echo "<td> Rp. " . $jumlah . "</td>";
-                        echo "<td>" . $bulan . "</td>";
 
-                        echo "</tr>";
+                require("../proses/sql.php");
+                if ($result = mysqli_query($conn, $sql)) { // mencari data
+
+                    if (mysqli_num_rows($result) > 0) { // bila data diatas 0
+
+                        while ($row = mysqli_fetch_array($result)) { // print data 
+
+                            $nama =  htmlspecialchars($row['NAME']);
+                            $jumlah =  htmlspecialchars($row['JUMLAH_DONASI']);
+                            $jumlah = number_format($jumlah, 2, ",", ".");
+                            $bulan = date("F Y", strtotime(htmlspecialchars($row['BULAN'])));
+                            // $bulan = htmlspecialchars($row['BULAN']);
+
+
+                            // echo $bulan;
+                            // $bulan2 = date("F Y", strtotime($bulan1));
+
+                            // echo $bulan2;
+
+                            echo "<tr>";
+
+                            echo "<td>" . $nama . "</td>";
+                            echo "<td> Rp. " . $jumlah . "</td>";
+                            echo "<td>" . $bulan . "</td>";
+
+                            echo "</tr>";
+                        }
                     }
                 }
+
+                //
+            } else {
+                header("Location: ../login/logout.php");
             }
         }
 

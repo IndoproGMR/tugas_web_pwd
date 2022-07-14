@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <?
 // data O
 // $confirm = $_POST["confirmasi"]; (string)

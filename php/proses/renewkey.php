@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <?php
 // echo " renewkey ";
 require("../proses/sql.php");
@@ -27,8 +29,8 @@ if ($bersih) { // cek hash
             echo "Error : " . mysqli_error($conn);
         }
     } else {
-        header("Location: /php/login/logout.php"); //awto logout
+        header("Location: ../login/logout.php"); //awto logout
     }
 } else {
-    header("Location: /php/login/logout.php"); //awto logout
+    header("Location: ../login/logout.php"); //awto logout
 }

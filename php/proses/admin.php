@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <link rel="stylesheet" href="../style//input.css">
 <link rel="icon" href="../foto/favicon.ico" />
 <title>Input Akun</title>

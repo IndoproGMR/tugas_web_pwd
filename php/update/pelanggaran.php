@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -118,82 +120,86 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
 
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
 
-
-        if (isset($_POST["idp"]) && isset($_POST["rule"]) && isset($_POST["sangsi"]) && isset($_POST["lama"])) {
-            // echo "2";
+        if (
+            isset($_POST["idp"]) &&
+            isset($_POST["rule"]) &&
+            isset($_POST["sangsi"]) &&
+            isset($_POST["lama"])
+        ) {
 
             $idp = $_POST["idp"];
             $rule = $_POST['rule'];
             $sangsi = $_POST['sangsi'];
             $lama = $_POST["lama"];
 
-
             $cek = $idp;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $rule;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $rule;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $sangsi;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $sangsi;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            $cek = $lama;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                        $cek = $lama;
+                        require("../proses/cekinput.php");
+                        if ($bersih) {
+
+                            if ($idp != 1542) {
+                                if ($rule != "1542") {
+                                    if ($rule !== '') {
+                                        $rule = ", IDRULE = '$rule'";
+                                    }
+                                } else {
+                                    $rule = "";
+                                }
+
+                                if ($sangsi != "1542") {
+                                    if ($sangsi !== '') {
+                                        $sangsi = ", IDHUKUM = '$sangsi'";
+                                    }
+                                } else {
+                                    $sangsi = "";
+                                }
 
 
-            if ($idp != 1542) {
-                if ($rule != "1542") {
-                    if ($rule !== '') {
-                        $rule = ", IDRULE = '$rule'";
+                                if ($lama !== '') {
+                                    $lama = " LAMA = '$lama'";
+                                } else {
+                                    $lama = " LAMA = '2000-01-01'";
+                                }
+
+                                $sql = "UPDATE `PELANGGARAN` SET $lama $rule $sangsi WHERE ID_PELANGGARAN = '$idp'";
+
+                                // echo $sql;
+
+                                // echo "jalan";
+                                if ($conn->query($sql) === TRUE) {
+                                    echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $conn->error;
+                                }
+                            } else {
+                                header("Location: ../update/pelanggaran.php?masukan_nama");
+                            }
+                        } else {
+                            header("Location: ../login/logout.php");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
                     }
                 } else {
-                    $rule = "";
+                    header("Location: ../login/logout.php");
                 }
-
-                if ($sangsi != "1542") {
-                    if ($sangsi !== '') {
-                        $sangsi = ", IDHUKUM = '$sangsi'";
-                    }
-                } else {
-                    $sangsi = "";
-                }
-
-
-                if ($lama !== '') {
-                    $lama = " LAMA = '$lama'";
-                } else {
-                    $lama = " LAMA = '2000-01-01'";
-                }
-
-                $sql = "UPDATE `PELANGGARAN` SET $lama $rule $sangsi WHERE ID_PELANGGARAN = '$idp'";
-
-                // echo $sql;
-
-                // echo "jalan";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
             //////////////
         }

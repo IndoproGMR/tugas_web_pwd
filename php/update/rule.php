@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,58 +65,61 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
 
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
 
-        if (isset($_POST["idrule"]) && isset($_POST["nama"]) && isset($_POST["diskr"])) {
-            // echo "2";
-
+        if (
+            isset($_POST["idrule"]) &&
+            isset($_POST["nama"]) &&
+            isset($_POST["diskr"])
+        ) {
 
             $idrule = $_POST['idrule'];
             $nama = $_POST['nama'];
             $diskr = $_POST["diskr"];
 
-
             $cek = $idrule;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $nama;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $nama;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $diskr;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $diskr;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            if ($idrule != 1542) {
+                        if ($idrule != 1542) {
 
-                if ($diskr !== '') {
-                    $diskr = ", DISKRIPSI_RULE = '$diskr'";
+                            if ($diskr !== '') {
+                                $diskr = ", DISKRIPSI_RULE = '$diskr'";
+                            } else {
+                                $diskr = "";
+                            }
+
+                            $sql = "UPDATE `RULE` SET RULENAME = '$nama' $diskr WHERE IDRULE = '$idrule'";
+
+                            // echo $sql;
+
+                            // echo "jalan";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $idrule . "</strong> telah di Update ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        } else {
+                            header("Location: ../update/rule.php?masukan_nama");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
                 } else {
-                    $diskr = "";
+                    header("Location: ../login/logout.php");
                 }
-
-                $sql = "UPDATE `RULE` SET RULENAME = '$nama' $diskr WHERE IDRULE = '$idrule'";
-
-                // echo $sql;
-
-                // echo "jalan";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $idrule . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
             //////////////
         }

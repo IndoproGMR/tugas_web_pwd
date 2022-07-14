@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,58 +65,60 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
-
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
 
-        if (isset($_POST["sangsi"]) && isset($_POST["nama"]) && isset($_POST["diskr"])) {
-            // echo "2";
-
+        if (
+            isset($_POST["sangsi"]) &&
+            isset($_POST["nama"]) &&
+            isset($_POST["diskr"])
+        ) {
 
             $sangsi = $_POST['sangsi'];
             $nama = $_POST['nama'];
             $diskr = $_POST["diskr"];
 
-
             $cek = $sangsi;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $nama;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $nama;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $diskr;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $diskr;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            if ($sangsi != 1542) {
+                        if ($sangsi != 1542) {
 
-                if ($diskr !== '') {
-                    $diskr = ", DISKRIPSI_HUKUMAN = '$diskr'";
+                            if ($diskr !== '') {
+                                $diskr = ", DISKRIPSI_HUKUMAN = '$diskr'";
+                            } else {
+                                $diskr = "";
+                            }
+
+                            $sql = "UPDATE `HUKUMAN` SET HUKUMAN = '$nama' $diskr WHERE IDHUKUM = '$sangsi'";
+
+                            // echo $sql;
+
+                            // echo "jalan";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $sangsi . "</strong> telah di Update ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        } else {
+                            header("Location: ../update/hukuman.php?masukan_nama");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
                 } else {
-                    $diskr = "";
+                    header("Location: ../login/logout.php");
                 }
-
-                $sql = "UPDATE `HUKUMAN` SET HUKUMAN = '$nama' $diskr WHERE IDHUKUM = '$sangsi'";
-
-                // echo $sql;
-
-                // echo "jalan";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $sangsi . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
             //////////////
         }

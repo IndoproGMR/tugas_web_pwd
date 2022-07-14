@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,62 +44,58 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
 
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
 
-
-        if (isset($_POST["namaplayer"]) && isset($_POST["softban"]) && isset($_POST["nick"])) {
-            // echo "2";
-
+        if (
+            isset($_POST["namaplayer"]) &&
+            isset($_POST["softban"]) &&
+            isset($_POST["nick"])
+        ) {
 
             $nama = $_POST['namaplayer'];
             $nick = $_POST['nick'];
             $softban = $_POST["softban"];
 
-
             $cek = $nama;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $nick;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $nick;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $softban;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $softban;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            if ($nama != 1542) {
+                        if ($nama != 1542) {
 
-                if ($nick !== '') {
-                    $nicka = ", NICKNAME = '$nick'";
+                            if ($nick !== '') {
+                                $nicka = ", NICKNAME = '$nick'";
+                            } else {
+                                $nicka = "";
+                            }
+                            $sql = "UPDATE `PLAYER` SET `SOFTBAN`= '$softban' $nicka WHERE NAME = '$nama'";
+                            // echo $sql;
+                            // echo "jalan";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        } else {
+                            header("Location: ../update/player.php?masukan_nama");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
                 } else {
-                    $nicka = "";
+                    header("Location: ../login/logout.php");
                 }
-
-
-                // echo $nicka;
-                $sql = "UPDATE `PLAYER` SET `SOFTBAN`= '$softban' $nicka WHERE NAME = '$nama'";
-
-                // echo $sql;
-
-                // echo "jalan";
-                //$sql = "INSERT INTO PLAYER (NAME, UUID, SOFTBAN,NICKNAME) VALUES ('$nama', '$uuid', '$softban','$nick')";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $nama . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
             //////////////
         }

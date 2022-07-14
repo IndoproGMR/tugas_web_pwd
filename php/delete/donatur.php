@@ -26,9 +26,9 @@
 
 
     <a href="../home.php" class="btmhome">home</a>
-    <a href="../input/player.php" class="btmhome">Input</a>
-    <a href="../update/player.php" class="btmhome">Update</a>
-    <a href="../daftar/player.php" class="btmhome">Daftar</a>
+    <a href="../input/donatur.php" class="btmhome">Input</a>
+    <a href="../update/donatur.php" class="btmhome">Update</a>
+    <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
 
 
 
@@ -62,7 +62,7 @@
                     $cek = $nama;
                     require("../proses/cekinput.php");
                     if (!$bersih) {
-                        header("Location: /login/logout.php");
+                        header("Location: /php/login/logout.php");
                     }
 
                     if ($nama != 1542) {
@@ -70,16 +70,16 @@
                         // echo "jalan";
                         // echo $nama;
 
-                        $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
-                        if ($conn->query($delete) === TRUE) {
-                            echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
-                        } else {
-                            echo "Error: " . $delete . "<br>" . $conn->error;
-                        }
+                        // $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
+                        // if ($conn->query($delete) === TRUE) {
+                        //     echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
+                        // } else {
+                        //     echo "Error: " . $delete . "<br>" . $conn->error;
+                        // }
                     }
                 }
             } else {
-                header("Location: /login/");
+                header("Location: /php/login/logout.php");
             }
         } else {
             echo "<h3>Mohon Centang confirmasi</h3>";

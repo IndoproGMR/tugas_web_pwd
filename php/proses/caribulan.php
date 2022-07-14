@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <div>
     <select name="bulan" id="bulan">
         <option value="*">Pilih Bulan / Tampilkan Semua</option>

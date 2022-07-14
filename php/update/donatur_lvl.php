@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,58 +65,60 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
 
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
 
-        if (isset($_POST["donasi"]) && isset($_POST["nama"]) && isset($_POST["diskr"])) {
-            // echo "2";
-
-
+        if (
+            isset($_POST["donasi"]) &&
+            isset($_POST["nama"]) &&
+            isset($_POST["diskr"])
+        ) {
             $donasi = $_POST['donasi'];
             $nama = $_POST['nama'];
             $diskr = $_POST["diskr"];
 
-
             $cek = $donasi;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $nama;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $nama;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $diskr;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $diskr;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            if ($donasi != 1542) {
+                        if ($donasi != 1542) {
 
-                if ($diskr !== '') {
-                    $diskr = ", DISKRIPSI = '$diskr'";
+                            if ($diskr !== '') {
+                                $diskr = ", DISKRIPSI = '$diskr'";
+                            } else {
+                                $diskr = "";
+                            }
+
+                            $sql = "UPDATE `DONATUR_LVL` SET NAMATINGKATAN = '$nama' $diskr WHERE IDDLVL = '$donasi'";
+
+                            // echo $sql;
+
+                            // echo "jalan";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $donasi . "</strong> telah di Update ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        } else {
+                            header("Location: ../update/donatur_lvl.php?masukan_nama");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
                 } else {
-                    $diskr = "";
+                    header("Location: ../login/logout.php");
                 }
-
-                $sql = "UPDATE `DONATUR_LVL` SET NAMATINGKATAN = '$nama' $diskr WHERE IDDLVL = '$donasi'";
-
-                // echo $sql;
-
-                // echo "jalan";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $donasi . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
             //////////////
         }

@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <?php
 // data IO
 // Input = $cek (string)
@@ -16,7 +18,9 @@ $filter = array(
     ' WHERE ' => 7,
     ' OR ' => 8,
     ' SELECT ' => 9,
-    "'" => 10
+    ' IN ' => 10,
+    '`' => 11,
+    "'" => 12
 
 );
 
@@ -24,7 +28,9 @@ $filter = array(
 $filtertext = str_replace(array_keys($filter), "", $cek1);
 
 if ($cek1 === $filtertext) { //cek apakah hasil filter dan namanya sama
+    // $bersih = false;
     $bersih = true;
 } else {
     $bersih = false;
+    // $bersih = true;
 }

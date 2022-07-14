@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +94,16 @@
     <?php
     require("../proses/ceklogin.php");
     if ($valid) {
-        if (isset($_POST["namaplayer"]) && isset($_POST["jenisfarm"])  && isset($_POST["nf"]) && isset($_POST["diskr"]) && isset($_POST["ukuran"]) && isset($_POST["world"]) && isset($_POST["Z"]) && isset($_POST["X"])) {
+        if (
+            isset($_POST["namaplayer"]) &&
+            isset($_POST["jenisfarm"])  &&
+            isset($_POST["nf"]) &&
+            isset($_POST["diskr"]) &&
+            isset($_POST["ukuran"]) &&
+            isset($_POST["world"]) &&
+            isset($_POST["Z"]) &&
+            isset($_POST["X"])
+        ) {
             /////
 
             $nama = $_POST['namaplayer'];
@@ -118,114 +129,91 @@
             $jf0 = $jf[0]; // id jenis farm
             $jf1 = $jf[1]; // biaya farm per 10 block
 
-            // echo "<br>";
-            // echo $jf;
-            // echo "<br>";
-            // echo $jf0;
-            // echo "<br>";
-            // echo $jf1;
-            // echo "<br>";
-
-
-
-
             $cek = $nama;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                echo "nama";
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $jf0;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "id jenis";
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $jf0;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $jf1;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "biaya";
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $jf1;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            $cek = $nf;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "nama farm";
-                header("Location: /php/login/logout.php");
-            }
+                        $cek = $nf;
+                        require("../proses/cekinput.php");
+                        if ($bersih) {
 
-            $cek = $diskr;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "diskr";
-                header("Location: /php/login/logout.php");
-            }
+                            $cek = $diskr;
+                            require("../proses/cekinput.php");
+                            if ($bersih) {
 
-            $cek = $ukuran;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "ukuran";
-                header("Location: /php/login/logout.php");
-            }
+                                $cek = $ukuran;
+                                require("../proses/cekinput.php");
+                                if ($bersih) {
 
-            $cek = $world;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "wolrd";
-                header("Location: /php/login/logout.php");
-            }
+                                    $cek = $world;
+                                    require("../proses/cekinput.php");
+                                    if ($bersih) {
 
-            $cek = $Z;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "Z";
-                header("Location: /php/login/logout.php");
-            }
+                                        $cek = $Z;
+                                        require("../proses/cekinput.php");
+                                        if ($bersih) {
 
-            $cek = $X;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                // echo "X";
-                header("Location: /php/login/logout.php");
-            }
+                                            $cek = $X;
+                                            require("../proses/cekinput.php");
+                                            if ($bersih) {
 
-            require("../proses/uuid4.php");
-            // echo "jalan";
+                                                require("../proses/uuid4.php");
+                                                // echo "jalan";
 
-            $pajak = $jf1 * $ukuran / 3;
+                                                $pajak = $jf1 * $ukuran / 3;
 
-            $pajak = floor($pajak);
+                                                $pajak = floor($pajak);
 
 
 
-            $sql = "INSERT INTO `FARM` (`UUID_FARM`, `NAME`, `ID_JENIS_FARM`, `NAMA_FARM`, `DESKRIPSI`, `UKURAN`, `WORLD`, `Z`, `X`, `PAJAK`)
-                VALUES ('$uuid4', '$nama', '$jf0', '$nf', '$diskr', '$ukuran', '$world', '$Z', '$X', '$pajak');";
+                                                $sql = "INSERT INTO `FARM` (`UUID_FARM`, `NAME`, `ID_JENIS_FARM`, `NAMA_FARM`, `DESKRIPSI`, `UKURAN`, `WORLD`, `Z`, `X`, `PAJAK`)
+                                                    VALUES ('$uuid4', '$nama', '$jf0', '$nf', '$diskr', '$ukuran', '$world', '$Z', '$X', '$pajak');";
 
-            // echo $sql;
-            // echo "<br>";
-
-            // $link = "http://" . $iplink . "/?worldname=DUNIA%20DALAM%20BERITA" . $world . "&mapname=flat&zoom=5&x=" . $X . "&y=64&z=" . $Z;
-
-            // echo "<br>";
-            // echo $link;
-            // echo "<br>";
-
-            // echo "<a href='$link' target='_blank'>Link</a>";
-
-
-            if ($conn->query($sql) === TRUE) {
-                echo "Farm <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                                                if ($conn->query($sql) === TRUE) {
+                                                    echo "Farm <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                                                } else {
+                                                    echo "Error: " . $sql . "<br>" . $conn->error;
+                                                }
+                                            } else {
+                                                header("Location: ../login/logout.php");
+                                            }
+                                        } else {
+                                            header("Location: ../login/logout.php");
+                                        }
+                                    } else {
+                                        header("Location: ../login/logout.php");
+                                    }
+                                } else {
+                                    header("Location: ../login/logout.php");
+                                }
+                            } else {
+                                header("Location: ../login/logout.php");
+                            }
+                        } else {
+                            header("Location: ../login/logout.php");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
+                } else {
+                    header("Location: ../login/logout.php");
+                }
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                header("Location: ../login/logout.php");
             }
-
-            ////
+            ///
         }
+        ////
     } else {
-        header("Location: /php/login");
+        header("Location: ../login/");
     }
     ?>
 

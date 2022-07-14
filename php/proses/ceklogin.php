@@ -1,8 +1,10 @@
+<? ob_start(); ?>
+
 <?php
 // data O
 // output = $valid (boolean)
 
-
+$bersih = false;
 $valid = false;
 
 require("../proses/sql.php");
@@ -47,14 +49,14 @@ if (isset($_COOKIE["hash"]) && isset($_COOKIE["session"])) {
                     header("Location: ../php/login");
                 }
             } else {
-                header("Location: ../login");
+                header("Location: ../login/logout.php");
             }
         } else {
-            header("Location: /php/login/logout.php"); //awto logout
+            header("Location: ../login/logout.php"); //awto logout
         }
     } else {
-        header("Location: /php/login/logout.php"); //awto logout
+        header("Location: ../login/logout.php"); //awto logout
     }
 } else {
-    header("Location: ../login");
+    header("Location: ../login/logout.php");
 }

@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,12 +68,17 @@
     <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
 
 
-
+    ..
 
     <?php
     require("../proses/ceklogin.php");
     if ($valid) { // menerima signyal validasi dari ceklogin
-        if (isset($_POST["namaplayer"]) && isset($_POST["lvl"]) && isset($_POST["bulan"]) && isset($_POST["donasi"])) {
+        if (
+            isset($_POST["namaplayer"]) &&
+            isset($_POST["lvl"]) &&
+            isset($_POST["bulan"]) &&
+            isset($_POST["donasi"])
+        ) {
             $nama = $_POST['namaplayer'];
             $lvl = $_POST['lvl'];
             $bulan = $_POST['bulan'];
@@ -79,44 +86,50 @@
 
             $cek = $nama;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $lvl;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $lvl;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $bulan;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $bulan;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            $cek = $donasi;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                        $cek = $donasi;
+                        require("../proses/cekinput.php");
+                        if ($bersih) {
+
+                            $idrandom = random_int(0, 99999999);
+
+                            // echo "jalan";
+                            $sql = "INSERT INTO DONATUR (ID_DONASI,IDDLVL,NAME, BULAN, JUMLAH_DONASI,TGL_DONASI)
+                                    VALUES ('$idrandom', '$lvl','$nama', '$bulan','$donasi',NOW())";
+
+                            // echo $sql;
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database dengan jumlah Rp <strong>" . $donasi . "</strong><br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
 
 
-            $idrandom = random_int(0, 99999999);
-
-            // echo "jalan";
-            $sql = "INSERT INTO DONATUR (ID_DONASI,IDDLVL,NAME, BULAN, JUMLAH_DONASI,TGL_DONASI)
-                            VALUES ('$idrandom', '$lvl','$nama', '$bulan','$donasi',NOW())";
-
-            // echo $sql;
-            if ($conn->query($sql) === TRUE) {
-                echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database dengan jumlah Rp <strong>" . $donasi . "</strong><br>";
+                            ////////
+                        } else {
+                            header("Location: ../login/logout.php");
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
+                } else {
+                    header("Location: ../login/logout.php");
+                }
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                header("Location: ../login/logout.php");
             }
         }
     } else {
-        header("Location: /php/login");
+        header("Location: ../login/");
     }
     ?>
 

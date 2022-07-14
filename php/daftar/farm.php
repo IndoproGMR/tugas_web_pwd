@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,83 +54,98 @@
             <th>Link</th>
         </tr>
         <?php
-        if (isset($_POST["world"]) || isset($_POST['namaplayer'])) {
+        if (
+            isset($_POST["world"]) ||
+            isset($_POST['namaplayer'])
+        ) {
 
             $nama = $_POST['namaplayer'];
             $world = $_POST['world'];
 
             $cek = $nama;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
-
-            $cek = $world;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
+                $cek = $world;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
 
-            $sqllink = "SELECT NAME, NAMA_FARM, NAMA_JENIS_FARM, DESKRIPSI, UKURAN, WORLD , Z, X, PAJAK
-            FROM FARM F INNER JOIN JENIS_FARM J
-            ON (F.ID_JENIS_FARM = J.ID_JENIS_FARM)
-            WHERE ";
-
-            echo "<br>";
-
-            if ($nama !== "1542") {
-                $sqllink = $sqllink . "F.NAME = '$nama' AND ";
-            }
-
-            if ($world === "*") {
-                $sql = $sqllink . "F.WORLD LIKE '_%';";
-            } else {
-                $sql = $sqllink . "F.WORLD = '$world';";
-            }
-            // echo $sql;
-            require("../proses/sql.php");
 
 
-            if ($result = mysqli_query($conn, $sql)) { // mencari data
-
-                if (mysqli_num_rows($result) > 0) { // bila data diatas 0
-
-                    while ($row = mysqli_fetch_array($result)) { // print data 
-
-                        $nama =  htmlspecialchars($row['NAME']);
-                        $nf =  htmlspecialchars($row['NAMA_FARM']);
-                        $jf =  htmlspecialchars($row['NAMA_JENIS_FARM']);
-                        $ukuran =  htmlspecialchars($row['UKURAN']);
-
-                        $world =  htmlspecialchars($row['WORLD']);
-                        $diskr =  htmlspecialchars($row['DESKRIPSI']);
-                        $pajak =  htmlspecialchars($row['PAJAK']);
-                        $pajak = number_format($pajak, 2, ",", ".");
 
 
-                        $Z =  htmlspecialchars($row['Z']);
-                        $X =  htmlspecialchars($row['X']);
 
-                        $link = "http://" . $iplink . "/?worldname=DUNIA%20DALAM%20BERITA" . $world . "&mapname=flat&zoom=4&x=" . $X . "&y=64&z=" . $Z;
+                    $sqllink = "SELECT NAME, NAMA_FARM, NAMA_JENIS_FARM, DESKRIPSI, UKURAN, WORLD , Z, X, PAJAK
+                    FROM FARM F INNER JOIN JENIS_FARM J
+                    ON (F.ID_JENIS_FARM = J.ID_JENIS_FARM)
+                    WHERE ";
 
-                        echo "<tr>";
+                    echo "<br>";
 
-                        echo "<td>" . $nama . "</td>";
-                        echo "<td>" . $nf . "</td>";
-                        echo "<td>" . $jf . "</td>";
-                        echo "<td>" . $ukuran . "</td>";
-
-                        echo "<td>" . $world . "</td>";
-                        echo "<td> Rp. " . $pajak . "</td>";
-                        echo "<td>" . $diskr . "</td>";
-
-                        echo "<td> <a href='$link' target='_blank'>Link</a> </td>";
-
-                        echo "</tr>";
+                    if ($nama !== "1542") {
+                        $sqllink = $sqllink . "F.NAME = '$nama' AND ";
                     }
+
+                    if ($world === "*") {
+                        $sql = $sqllink . "F.WORLD LIKE '_%';";
+                    } else {
+                        $sql = $sqllink . "F.WORLD = '$world';";
+                    }
+                    // echo $sql;
+                    require("../proses/sql.php");
+
+
+                    if ($result = mysqli_query($conn, $sql)) { // mencari data
+
+                        if (mysqli_num_rows($result) > 0) { // bila data diatas 0
+
+                            while ($row = mysqli_fetch_array($result)) { // print data 
+
+                                $nama =  htmlspecialchars($row['NAME']);
+                                $nf =  htmlspecialchars($row['NAMA_FARM']);
+                                $jf =  htmlspecialchars($row['NAMA_JENIS_FARM']);
+                                $ukuran =  htmlspecialchars($row['UKURAN']);
+
+                                $world =  htmlspecialchars($row['WORLD']);
+                                $diskr =  htmlspecialchars($row['DESKRIPSI']);
+                                $pajak =  htmlspecialchars($row['PAJAK']);
+                                $pajak = number_format($pajak, 2, ",", ".");
+
+
+                                $Z =  htmlspecialchars($row['Z']);
+                                $X =  htmlspecialchars($row['X']);
+
+                                $link = "http://" . $iplink . "/?worldname=DUNIA%20DALAM%20BERITA" . $world . "&mapname=flat&zoom=4&x=" . $X . "&y=64&z=" . $Z;
+
+                                echo "<tr>";
+
+                                echo "<td>" . $nama . "</td>";
+                                echo "<td>" . $nf . "</td>";
+                                echo "<td>" . $jf . "</td>";
+                                echo "<td>" . $ukuran . "</td>";
+
+                                echo "<td>" . $world . "</td>";
+                                echo "<td> Rp. " . $pajak . "</td>";
+                                echo "<td>" . $diskr . "</td>";
+
+                                echo "<td> <a href='$link' target='_blank'>Link</a> </td>";
+
+                                echo "</tr>";
+                            }
+                        }
+                    }
+
+
+
+                    ///
+                } else {
+                    header("Location: ../login/logout.php");
                 }
+            } else {
+                header("Location: ../login/logout.php");
             }
+
+
 
 
             /////

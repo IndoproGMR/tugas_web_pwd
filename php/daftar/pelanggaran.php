@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,56 +46,56 @@
 
             $cek = $nama;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
 
-            $sqllink = "SELECT NAME, RULENAME, HUKUMAN, LAMA
+                $sqllink = "SELECT NAME, RULENAME, HUKUMAN, LAMA
             FROM PELANGGARAN P
             INNER JOIN RULE R
             ON P.IDRULE = R.IDRULE
             INNER JOIN HUKUMAN H
             ON P.IDHUKUM = H.IDHUKUM ";
-            // WHERE P.NAME = 'RiveraMaxwell'
-            //ORDER BY P.NAME";
+                // WHERE P.NAME = 'RiveraMaxwell'
+                //ORDER BY P.NAME";
 
-            echo "<br>";
+                echo "<br>";
 
-            if ($nama !== "1542") {
-                $sql = $sqllink . "WHERE P.NAME = '$nama' ORDER BY P.NAME ";
-            } else {
-                $sql = $sqllink . "ORDER BY P.NAME;";
-            }
-            // echo $sql;
-            require("../proses/sql.php");
-
-
-            if ($result = mysqli_query($conn, $sql)) { // mencari data
-
-                if (mysqli_num_rows($result) > 0) { // bila data diatas 0
-
-                    while ($row = mysqli_fetch_array($result)) { // print data 
-
-                        $nama =  htmlspecialchars($row['NAME']);
-                        $rn =  htmlspecialchars($row['RULENAME']);
-                        $sangsi =  htmlspecialchars($row['HUKUMAN']);
-                        $lama =  htmlspecialchars($row['LAMA']);
+                if ($nama !== "1542") {
+                    $sql = $sqllink . "WHERE P.NAME = '$nama' ORDER BY P.NAME ";
+                } else {
+                    $sql = $sqllink . "ORDER BY P.NAME;";
+                }
+                // echo $sql;
+                require("../proses/sql.php");
 
 
-                        echo "<tr>";
+                if ($result = mysqli_query($conn, $sql)) { // mencari data
 
-                        echo "<td>" . $nama . "</td>";
-                        echo "<td>" . $rn . "</td>";
-                        echo "<td>" . $sangsi . "</td>";
-                        echo "<td>" . $lama . "</td>";
+                    if (mysqli_num_rows($result) > 0) { // bila data diatas 0
+
+                        while ($row = mysqli_fetch_array($result)) { // print data 
+
+                            $nama =  htmlspecialchars($row['NAME']);
+                            $rn =  htmlspecialchars($row['RULENAME']);
+                            $sangsi =  htmlspecialchars($row['HUKUMAN']);
+                            $lama =  htmlspecialchars($row['LAMA']);
 
 
-                        echo "</tr>";
+                            echo "<tr>";
+
+                            echo "<td>" . $nama . "</td>";
+                            echo "<td>" . $rn . "</td>";
+                            echo "<td>" . $sangsi . "</td>";
+                            echo "<td>" . $lama . "</td>";
+
+
+                            echo "</tr>";
+                        }
                     }
                 }
+            } else {
+                header("Location: ../login/logout.php");
             }
-
 
             /////
         }

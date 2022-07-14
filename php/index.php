@@ -29,6 +29,8 @@
     <p>bila login tetap bermasalah ada kemungkinan masalah ada pada link</p>
     <p>http://localhost<b>/php/home.php</b></p>
     <p>link yang seharus nya seperti diatas</p>
+    <br>
+    <p>projek ini mengandung <code>ob_start();</code> dan <code>.htaccess</code> yang mungkin akan broke pada suatu saat :"D </p>
 
     <br>
     <br>

@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <?php
 $servernamedb = "Localhost";
 $usernamedb = "root";

@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <div>
     <?php
     // data O

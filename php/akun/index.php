@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <link rel="icon" href="../foto/favicon.ico" />
 
 

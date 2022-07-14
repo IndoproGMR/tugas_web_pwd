@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,60 +61,60 @@
 
 
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo "0";
 
     if ($valid) { // menerima signyal validasi dari ceklogin
-        // echo "1";
 
-        if (isset($_POST["idfarm"]) && isset($_POST["nama"]) && isset($_POST["biaya"])) {
-            // echo "2";
-
+        if (
+            isset($_POST["idfarm"]) &&
+            isset($_POST["nama"]) &&
+            isset($_POST["biaya"])
+        ) {
 
             $idfarm = $_POST['idfarm'];
             $nama = $_POST['nama'];
             $biaya = $_POST["biaya"];
 
-
             $cek = $idfarm;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $nama;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $nama;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $biaya;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $biaya;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            if ($idfarm != 1542) {
+                        if ($idfarm != 1542) {
 
-                if ($biaya !== '') {
-                    $biaya = ", BIAYA = '$biaya'";
+                            if ($biaya !== '') {
+                                $biaya = ", BIAYA = '$biaya'";
+                            } else {
+                                $biaya = "";
+                            }
+
+                            $sql = "UPDATE `JENIS_FARM` SET NAMA_JENIS_FARM = '$nama' $biaya WHERE ID_JENIS_FARM = '$idfarm'";
+
+                            // echo $sql;
+
+                            // echo "jalan";
+                            if ($conn->query($sql) === TRUE) {
+                                echo "Player <strong>" . $idfarm . "</strong> telah di Update ke dalam database" . "<br>";
+                            } else {
+                                echo "Error: " . $sql . "<br>" . $conn->error;
+                            }
+                        } else {
+                            header("Location: ../update/jenisfarm.php?masukan_nama");
+                        }
+                    }
                 } else {
-                    $biaya = "";
+                    header("Location: ../login/logout.php");
                 }
-
-                $sql = "UPDATE `JENIS_FARM` SET NAMA_JENIS_FARM = '$nama' $biaya WHERE ID_JENIS_FARM = '$idfarm'";
-
-                // echo $sql;
-
-                // echo "jalan";
-                if ($conn->query($sql) === TRUE) {
-                    echo "Player <strong>" . $idfarm . "</strong> telah di Update ke dalam database" . "<br>";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
-                }
+            } else {
+                header("Location: ../login/logout.php");
             }
-            //////////////
         }
     } else {
         header("Location: /php/login");

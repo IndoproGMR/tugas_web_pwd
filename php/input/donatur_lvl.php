@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +45,11 @@
 <?php
 require("../proses/ceklogin.php");
 if ($valid) { // menerima signyal validasi dari ceklogin
-    if (isset($_POST["nama"]) && isset($_POST["idl"]) && isset($_POST["diskr"])) {
+    if (
+        isset($_POST["nama"]) &&
+        isset($_POST["idl"]) &&
+        isset($_POST["diskr"])
+    ) {
         $nama = $_POST['nama'];
         $idl = $_POST['idl'];
         $diskr = $_POST['diskr'];
@@ -54,33 +60,45 @@ if ($valid) { // menerima signyal validasi dari ceklogin
 
         $cek = $nama;
         require("../proses/cekinput.php");
-        if (!$bersih) {
-            header("Location: /php/login/logout.php");
-        }
+        if ($bersih) {
 
-        $cek = $idl;
-        require("../proses/cekinput.php");
-        if (!$bersih) {
-            header("Location: /php/login/logout.php");
-        }
 
-        $cek = $diskr;
-        require("../proses/cekinput.php");
-        if (!$bersih) {
-            header("Location: /php/login/logout.php");
-        }
 
-        // echo "jalan";
-        $sql = "INSERT INTO DONATUR_LVL (NAMATINGKATAN, IDDLVL, DISKRIPSI)
-        VALUES ('$nama', '$idl', '$diskr')";
-        // echo $sql;
-        if ($conn->query($sql) === TRUE) {
-            echo "Rule <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+            $cek = $idl;
+            require("../proses/cekinput.php");
+            if ($bersih) {
+
+
+
+                $cek = $diskr;
+                require("../proses/cekinput.php");
+                if ($bersih) {
+
+
+
+                    // echo "jalan";
+                    $sql = "INSERT INTO DONATUR_LVL (NAMATINGKATAN, IDDLVL, DISKRIPSI)
+                    VALUES ('$nama', '$idl', '$diskr')";
+                    // echo $sql;
+                    if ($conn->query($sql) === TRUE) {
+                        echo "Rule <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    ////
+                } else {
+                    header("Location: ../login/logout.php");
+                }
+                /////
+            } else {
+                header("Location: ../login/logout.php");
+            }
+            //////
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            header("Location: ../login/logout.php");
         }
     }
 } else {
-    header("Location: /php/login");
+    header("Location: ../login/");
 }
 ?>

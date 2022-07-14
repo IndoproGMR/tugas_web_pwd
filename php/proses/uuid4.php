@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <?
 function guidv4($uuidata = null)
 {

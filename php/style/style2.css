@@ -1,83 +1,79 @@
 html {
-    scroll-behavior: smooth;
-  }
-  * {
-    box-sizing: border-box;
-  }
-  body {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+.mySlides {
+  display: none;
+}
+img {
+  vertical-align: middle;
+}
 
-    font-family: Verdana, sans-serif;
-    margin: 0;
-    overflow-x: hidden;
-  }
-  .mySlides {
-    display: none;
-  }
-  img {
-    vertical-align: middle;
-  }
+/*========================================*/
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
 
-  /*========================================*/
-  
-  /* width */
-  ::-webkit-scrollbar {
-    width: 0.4rem;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #4cbb48;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
-  /*========================================*/
-  .topnav {
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4cbb48;
+}
 
-    /* overflow: hidden; */
-    background-color: #4cbb48;
-  }
-  
-  .topnav a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  
-  .topnav a:hover {
-    background-color: #3e8e41;
-    /* color: black; */
-  }
-  
-  .topnav a.active {
-    background-color: #333;
-    color: white;
-  }
-  
-  .topnav .icon {
-    display: none;
-  }
-  
-  .logo {
-    float: left;
-    height: 3rem;
-  }
-  /*========================================*/
-  
-  /* .topnav .search-container {
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*========================================*/
+.topnav {
+  /* overflow: hidden; */
+  background-color: #4cbb48;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #3e8e41;
+  /* color: black; */
+}
+
+.topnav a.active {
+  background-color: #333;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.logo {
+  float: left;
+  height: 3rem;
+}
+/*========================================*/
+
+/* .topnav .search-container {
     float: right;
   }
   
@@ -102,120 +98,128 @@ html {
   .topnav .search-container button:hover {
     background: #ccc;
   } */
-  
 
-  .name{
-    float: right !important;
-    background-color: hsl(118, 46%, 30%);
+code {
+  background-color: #ddd;
+}
+
+.name {
+  float: right !important;
+  background-color: hsl(118, 46%, 30%);
+}
+
+/*========================================*/
+
+.dropbtn {
+  transition: all 100ms ease-out;
+  background-color: #4cbb48;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  transition: all 250ms ease-out;
+  /* opacity: .1; */
+  color: black;
+  /* padding: 12px 16px; */
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  opacity: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+  opacity: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .topnav .search-container {
+    float: none;
   }
 
-  /*========================================*/
-
-
-  .dropbtn {
-    transition: all 100ms ease-out;
-    background-color: #4cbb48;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+  .topnav input[type="text"],
+  .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 0.8rem;
   }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
+  .topnav input[type="text"] {
+    border: 0.1rem solid #ccc;
   }
-  
-  .dropdown-content {
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #4cbb48;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .topnav a:not(:first-child) {
     display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
   }
-  
-  .dropdown-content a {
-    transition: all 250ms ease-out;
-    /* opacity: .1; */
-    color: black;
-    /* padding: 12px 16px; */
-    text-decoration: none;
+  .topnav a.icon {
+    float: right;
     display: block;
   }
-  
-  .dropdown-content a:hover {background-color: #ddd;opacity: 1;}
-  
-  .dropdown:hover .dropdown-content {display: block;opacity: 1;}
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;opacity: 1;}
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 
-
-  
-  @media screen and (max-width: 700px) {
-    .topnav .search-container {
-      float: none;
-    }
-  
-    .topnav input[type="text"],
-    .topnav .search-container button {
-      float: none;
-      display: block;
-      text-align: left;
-      width: 100%;
-      margin: 0;
-      padding: 0.8rem;
-    }
-    .topnav input[type="text"] {
-      border: 0.1rem solid #ccc;
-    }
-  
-    /* width */
-    ::-webkit-scrollbar {
-      width: 0.3rem;
-    }
-  
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-  
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #4cbb48;
-    }
-  
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-  }
-  
-  @media screen and (max-width: 700px) {
-    .topnav a:not(:first-child) {
-      display: none;
-    }
-    .topnav a.icon {
-      float: right;
-      display: block;
-    }
-    .topnav.responsive {
-      position: relative;
-    }
-    .topnav.responsive .icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .topnav.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-    }
-  }
-  
-  a {
-    color: #000;
-    text-decoration: none;
-  }
-  
+a {
+  color: #000;
+  text-decoration: none;
+}

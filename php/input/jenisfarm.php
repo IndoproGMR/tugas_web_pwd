@@ -1,3 +1,5 @@
+<? ob_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,41 +44,48 @@
     require("../proses/ceklogin.php");
 
     if ($valid) { // menerima signyal validasi dari ceklogin
-        if (isset($_POST["nama"]) && isset($_POST["idj"]) && isset($_POST["biaya"])) {
+        if (
+            isset($_POST["nama"]) &&
+            isset($_POST["idj"]) &&
+            isset($_POST["biaya"])
+        ) {
             $idj = $_POST['idj'];
             $namaj = $_POST['nama'];
             $biaya = $_POST['biaya'];
 
             $cek = $namaj;
             require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+            if ($bersih) {
 
-            $cek = $idj;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                $cek = $idj;
+                require("../proses/cekinput.php");
+                if ($bersih) {
 
-            $cek = $biaya;
-            require("../proses/cekinput.php");
-            if (!$bersih) {
-                header("Location: /php/login/logout.php");
-            }
+                    $cek = $biaya;
+                    require("../proses/cekinput.php");
+                    if ($bersih) {
 
-            // echo "jalan";
-            $sql = "INSERT INTO JENIS_FARM (ID_JENIS_FARM, NAMA_JENIS_FARM, BIAYA)
-                VALUES ('$idj', '$namaj', '$biaya')";
-            // echo $sql;
-            if ($conn->query($sql) === TRUE) {
-                echo "Jenis Farm <strong>" . $namaj . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                        // echo "jalan";
+                        $sql = "INSERT INTO JENIS_FARM (ID_JENIS_FARM, NAMA_JENIS_FARM, BIAYA)
+                        VALUES ('$idj', '$namaj', '$biaya')";
+                        // echo $sql;
+                        if ($conn->query($sql) === TRUE) {
+                            echo "Jenis Farm <strong>" . $namaj . "</strong> telah di ditambahkan ke dalam database" . "<br>";
+                        } else {
+                            echo "Error: " . $sql . "<br>" . $conn->error;
+                        }
+                    } else {
+                        header("Location: ../login/logout.php");
+                    }
+                } else {
+                    header("Location: ../login/logout.php");
+                }
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                header("Location: ../login/logout.php");
             }
         }
     } else {
-        header("Location: /php/login");
+        header("Location: ../login");
     }
     ?>
 </body>
