@@ -56,6 +56,16 @@
     <div class="table" style="display: a;">
         <h1>Daftar Jenis Farm</h1>
         <hr>
+        <!-- --------------- -->
+        <link rel="stylesheet" href="../style/table.css">
+        <link rel="stylesheet" href="../style/input.css" />
+        <a href="../home.php" class="btmhome">home</a>
+        <a href="../input/jenisfarm.php" class="btmhome">Input</a>
+        <a href="../update/jenisfarm.php" class="btmhome">Update</a>
+        <a href="../delete/jenisfarm.php" class="btmhome">Delete</a>
+        <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
+        <script src="../js/print.js"></script>
+        <!-- --------------- -->
         <!-- <br>
     <a href="../home.php" class="btmhome">home</a>
     <br>

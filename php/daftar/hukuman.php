@@ -56,6 +56,16 @@
     <div class="table" style>
         <h1>Daftar Hukuman</h1>
         <hr>
+        <!-- --------------- -->
+        <link rel="stylesheet" href="../style/table.css">
+        <link rel="stylesheet" href="../style/input.css" />
+        <a href="../home.php" class="btmhome">home</a>
+        <a href="../input/hukuman.php" class="btmhome">Input</a>
+        <a href="../update/hukuman.php" class="btmhome">Update</a>
+        <a href="../delete/hukuman.php" class="btmhome">Delete</a>
+        <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
+        <script src="../js/print.js"></script>
+        <!-- --------------- -->
         <!-- <br>
     <a href="../home.php" class="btmhome">home</a>
     <br>

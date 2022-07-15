@@ -14,12 +14,13 @@
 <body>
     <h1>Daftar Pelanggaran</h1>
     <hr>
-    <br>
     <!-- --------------- -->
     <link rel="stylesheet" href="../style/table.css">
     <link rel="stylesheet" href="../style/input.css" />
     <a href="../home.php" class="btmhome">home</a>
-    <a href="../input/donatur.php" class="btmhome">Input</a>
+    <a href="../input/pelanggaran.php" class="btmhome">Input</a>
+    <a href="../update/pelanggaran.php" class="btmhome">Update</a>
+    <a href="../delete/pelanggaran.php" class="btmhome">Delete</a>
     <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
     <script src="../js/print.js"></script>
     <!-- --------------- -->

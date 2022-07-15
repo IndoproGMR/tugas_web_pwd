@@ -19,7 +19,9 @@
     <link rel="stylesheet" href="../style/table.css">
     <link rel="stylesheet" href="../style/input.css" />
     <a href="../home.php" class="btmhome">home</a>
-    <a href="../input/donatur.php" class="btmhome">Input</a>
+    <a href="../input/farm.php" class="btmhome">Input</a>
+    <a href="../update/farm.php" class="btmhome">Update</a>
+    <a href="../delete/farm.php" class="btmhome">Delete</a>
     <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
     <script src="../js/print.js"></script>
     <!-- --------------- -->

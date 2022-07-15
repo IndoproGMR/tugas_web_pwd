@@ -31,8 +31,7 @@
         <br>
         <br>
 
-        <strong>Daftar (9/9) DONE</strong>
-        <!-- <li>Daftar keuangan (gak harus)</li> -->
+        <strong>Daftar (10/10) DONE</strong>
         <br>
         <br>
 
@@ -61,7 +60,6 @@
     <p>2. entah sih mau diisi apa di halaman utama XD</p>
     <p>5. bersihkan code dari command</p>
     <p>7. sambungkan sql database ke 2</p>
-    <!-- <p>8. menemukan cara untuk mencari tau bagaimana cara menagih player yang sudah jatuh tempo (gak harus)</p> -->
 
 
 

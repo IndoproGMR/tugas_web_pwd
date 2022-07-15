@@ -47,73 +47,154 @@
 </html>
 
 <?
-require("../php/proses/uuid4.php");
-// echo $uuid4;
-$string = "202201";
-echo $string;
+// require("../php/proses/uuid4.php");
+// // echo $uuid4;
+// $string = "202201";
+// echo $string;
+// echo "<br>";
+
+// $newstring = date("m Y", strtotime($string));
+// echo "<br>";
+
+// echo $newstring;
+// echo "<br>";
+
+// $originalDate = "2022-03";
+// echo "<br>";
+// echo $originalDate;
+// $newDate = date("F Y", strtotime($originalDate));
+// echo "<br>";
+// echo $newDate;
+// echo "<br>";
+
+
+// $v1 = "2023-02";
+// $v2 = "2023-05";
+
+// if ($v1 < $v2) {
+//     echo "jalan1";
+// } elseif ($v1 > $v2) {
+//     echo "jalan2";
+// } else {
+//     echo "tidak jalan";
+// }
+
+
+
+// echo "<br>";
+
+// // echo $test;
+// echo "<br>";
+
+// $time = strtotime("+13 month");
+// echo date("Y-m", $time);
+// echo "<br>";
+
+// echo date("2022-04", $time);
+
+// echo "<br>";
+
+
+// $tgl = "2022-";
+// $test = $tgl . "03";
+
+// $month = 2;
+
+// $newtimestamp = strtotime("$test + $month month");
+// echo date('Y-m', $newtimestamp);
+// echo "<br>";
+
+// $tgl = "2022-";
+// if ($tgl . "03" > "2022-04") {
+//     echo "jalan";
+// } else {
+//     echo "tidak jalan";
+// }
+// echo "<br>";
+// echo "<br>";
+
+
+// $bulan = "2022-5";
+// $jum = "60165";
+// echo $jum;
+// echo "<br>";
+
+// $tempo = round($jum, -4) / 10000;
+
+// // for(i=0;)
+
+// // $tempo =
+
+
+// echo "<br>";
+// $newtimestamp = strtotime("$bulan + $tempo month");
+// echo $newtimestamp;
+// echo "<br>";
+
+// // echo date('Y-m', $newtimestamp);
+// echo date('Y-m', $newtimestamp);
+// echo "<br>";
+
+// // $newtimestamp = substr($newtimestamp, 8, -5);
+// echo $newtimestamp;
+
+// echo "<br>";
+// echo "<br>";
+
+
+
+// $tgl = "2022-";
+// if ($tgl . "10" > $newtimestamp) {
+//     echo $newtimestamp;
+//     echo "<br>";
+
+//     echo $tempo;
+//     echo "<br>";
+
+//     echo "jalan";
+// } else {
+//     echo "<br>";
+
+//     echo $newtimestamp;
+//     echo "<br>";
+
+//     echo $tempo;
+//     echo "<br>";
+
+//     echo "tidak jalan";
+// }
+// echo "<br>";
+// echo "<br>";
+
+
+
+
+
+
+
+
+
+
+// if($thn."01" > $tempo){
+//     beri bg merah
+//     }
+
+
+//     if ($tgl <= $tempo){
+//         beri bg hijau
+//     }
+
+
+//     if ($tgl < $bulan){
+//         beri bg abu2
+//     }
+//     td januari /td
+
+
+
+// $bulan = date($bulan + $tempo);
+// echo $bulan;
 echo "<br>";
-
-$newstring = date("m Y", strtotime($string));
-echo "<br>";
-
-echo $newstring;
-echo "<br>";
-
-$originalDate = "2022-03";
-echo "<br>";
-echo $originalDate;
-$newDate = date("F Y", strtotime($originalDate));
-echo "<br>";
-echo $newDate;
-echo "<br>";
-
-
-$v1 = "2023-02";
-$v2 = "2023-05";
-
-if ($v1 < $v2) {
-    echo "jalan1";
-} elseif ($v1 > $v2) {
-    echo "jalan2";
-} else {
-    echo "tidak jalan";
-}
-
-
-
-echo "<br>";
-
-// echo $test;
-echo "<br>";
-
-$time = strtotime("+13 month");
-echo date("Y-m", $time);
-echo "<br>";
-
-echo date("2022-04", $time);
-
-echo "<br>";
-
-
-$tgl = "2022-";
-$test = $tgl . "03";
-
-$month = 2;
-
-$newtimestamp = strtotime("$test + $month month");
-echo date('Y-m', $newtimestamp);
-echo "<br>";
-
-$tgl = "2022-";
-if ($tgl . "03" > "2022-04") {
-    echo "jalan";
-} else {
-    echo "tidak jalan";
-}
-echo "<br>";
-echo "<br>";
-
-
 
 // $date =  date("");
 // echo $date;

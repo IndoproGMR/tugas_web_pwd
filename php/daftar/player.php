@@ -16,7 +16,6 @@
 
     <h1>Daftar Player</h1>
     <hr>
-    <br>
     <!-- --------------- -->
     <link rel="stylesheet" href="../style/table.css">
     <link rel="stylesheet" href="../style/input.css" />
@@ -28,8 +27,7 @@
     <script src="../js/print.js"></script>
     <!-- --------------- -->
 
-    <br>
-    <br>
+
 
 
     <table>
