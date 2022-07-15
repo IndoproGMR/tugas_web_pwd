@@ -16,10 +16,14 @@
     <hr>
     <br>
     <!-- --------------- -->
+    <!-- --------------- -->
     <link rel="stylesheet" href="../style/table.css">
     <link rel="stylesheet" href="../style/input.css" />
     <a href="../home.php" class="btmhome">home</a>
     <a href="../input/donatur.php" class="btmhome">Input</a>
+    <a href="../update/donatur.php" class="btmhome">Update</a>
+    <a href="../delete/donatur.php" class="btmhome">Delete</a>
+    <a href="../daftar/tempo.php" class="btmhome">Jadwa Tempo</a>
     <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
     <script src="../js/print.js"></script>
     <!-- --------------- -->
