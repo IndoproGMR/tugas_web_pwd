@@ -689,9 +689,13 @@ td nama /td
 if($thn."01" > $tempo){
 beri bg merah
 }
+
+
 if ($tgl <= $tempo){
     beri bg hijau
 }
+
+
 if ($tgl < $bulan){
     beri bg abu2
 }

@@ -15,4 +15,4 @@ if (!$conn) {
 
 // variabel untuk link farm dan donatur
 $iplink = "139.99.118.72:7089";
-$thn = "2022-";
+$thn = 2022;
