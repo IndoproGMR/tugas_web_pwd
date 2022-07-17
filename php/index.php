@@ -17,7 +17,7 @@
 
 <body>
     <?php
-    require("../php/proses/nav.php")
+    require("../php/proses/nav.php");
     ?>
 
     <H2>Selamat datang pada Laman utama Furcaf</H2>

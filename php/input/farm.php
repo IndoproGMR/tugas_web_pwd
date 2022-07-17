@@ -17,7 +17,7 @@
     <hr>
     <form action="" method="post">
         Nama: <span class="required">*</span>
-        <? require("../proses/carinama.php"); ?>
+        <? require_once("../proses/carinama.php"); ?>
         jenis Farm:
         <div>
             <?

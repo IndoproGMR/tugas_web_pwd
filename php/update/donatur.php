@@ -78,7 +78,7 @@
             ?>
         </div>
         Bulan:
-        <? require("../proses/caribulan.php") ?>
+        <? require_once("../proses/caribulan.php") ?>
         Jumlah Donasi:
         <input type="number" name="donasi" placeholder="50000">
         <br>

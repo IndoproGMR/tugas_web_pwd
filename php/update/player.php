@@ -17,7 +17,7 @@
     <hr>
     <form action="" method="post">
         <br>
-        Nama: <? require("../proses/carinama.php") ?>
+        Nama: <? require_once("../proses/carinama.php") ?>
         Nickname: <input type="text" name="nick" placeholder="Player Name">
         <br>
         SoftBan:

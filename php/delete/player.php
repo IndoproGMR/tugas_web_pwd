@@ -16,13 +16,12 @@
     <h1>Delete player</h1>
     <hr>
     <form action="" method="post">
-        nama: <? require("../proses/carinama.php") ?>
+        nama: <? require_once("../proses/carinama.php") ?>
         <br>
         <? require('../proses/confirm.php') ?>
         <br>
         <input type="submit">
     </form>
-    <!-- <script src="../js/select.js"></script> -->
 
 
     <a href="../home.php" class="btmhome">home</a>
@@ -60,15 +59,15 @@
                         // echo $nama;
 
                         $delete = "DELETE FROM `PLAYER` WHERE NAME='$nama'";
-                        echo $delete;
+                        // echo $delete;
 
 
 
-                        // if ($conn->query($delete) === TRUE) {
-                        //     echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
-                        // } else {
-                        //     echo "Error: " . $delete . "<br>" . $conn->error;
-                        // }
+                        if ($conn->query($delete) === TRUE) {
+                            echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
+                        } else {
+                            echo "Error: " . $delete . "<br>" . $conn->error;
+                        }
                     }
                 }
 

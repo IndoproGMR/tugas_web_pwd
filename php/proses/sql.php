@@ -5,6 +5,9 @@ $servernamedb = "Localhost";
 $usernamedb = "root";
 $passworddb = "";
 $dbname = "test";
+// $usernamedb = "id17648367_indoprogmr";
+// $passworddb = "R9{^Y%_H_58Uj\SS";
+// $dbname =  "id17648367_furcaf";
 // Create connection
 $conn = mysqli_connect($servernamedb, $usernamedb, $passworddb, $dbname);
 // Check connection

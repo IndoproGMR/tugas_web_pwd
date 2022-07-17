@@ -17,7 +17,7 @@
     <hr>
     <form action="" method="post">
         Nama: <span class="required">*</span>
-        <? require("../proses/carinama.php"); ?>
+        <? require_once("../proses/carinama.php"); ?>
         Donatur Level: <span class="required">*</span>
         <div>
             <?php
@@ -46,7 +46,7 @@
             ?>
         </div>
         Bulan: <span class="required">*</span>
-        <? require("../proses/caribulan.php") ?>
+        <? require_once("../proses/caribulan.php") ?>
 
         Jumlah Donasi: <span class="required">*</span>
         <input type="number" name="donasi" placeholder="50000" required>

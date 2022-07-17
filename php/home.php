@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <?php require("../php/proses/nav.php") ?>
+    <?php require("../php/proses/nav.php"); ?>
 
     <a href="/php/">index</a>
 

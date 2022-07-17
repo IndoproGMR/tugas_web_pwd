@@ -63,9 +63,9 @@
 
 
     <a href="../home.php" class="btmhome">home</a>
-    <a href="../input/donatur.php" class="btmhome">Input</a>
-    <a href="../update/donatur.php" class="btmhome">Update</a>
-    <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
+    <a href="../input/donatur_lvl.php" class="btmhome">Input</a>
+    <a href="../update/donatur_lvl.php" class="btmhome">Update</a>
+    <a href="../daftar/donatur_lvl.php" class="btmhome">Daftar</a>
 
 
 
@@ -75,12 +75,12 @@
     require("../proses/ceklogin.php");
     // echo $_POST["confirmasi"];
 
+    if ($valid) { // menerima signyal validasi dari ceklogin
 
-    if (isset($_POST["confirmasi"])) {
-        $confirm = $_POST["confirmasi"];
-        if ($confirm === "true") {
+        if (isset($_POST["confirmasi"])) {
+            $confirm = $_POST["confirmasi"];
+            if ($confirm === "true") {
 
-            if ($valid) { // menerima signyal validasi dari ceklogin
                 if (isset($_POST['donasi'])) {
                     $nama = $_POST['donasi'];
 
@@ -106,13 +106,13 @@
                     }
                 }
             } else {
-                header("Location: /php/login/logout.php");
+                echo "<h3>Mohon Centang confirmasi</h3>";
             }
         } else {
             echo "<h3>Mohon Centang confirmasi</h3>";
         }
     } else {
-        echo "<h3>Mohon Centang confirmasi</h3>";
+        header("Location: /php/login/logout.php");
     }
     // require('../daftar/player.php');
     ?>

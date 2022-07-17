@@ -69,12 +69,12 @@
     require("../proses/ceklogin.php");
     // echo $_POST["confirmasi"];
 
+    if ($valid) { // menerima signyal validasi dari ceklogin
 
-    if (isset($_POST["confirmasi"])) {
-        $confirm = $_POST["confirmasi"];
-        if ($confirm === "true") {
+        if (isset($_POST["confirmasi"])) {
+            $confirm = $_POST["confirmasi"];
+            if ($confirm === "true") {
 
-            if ($valid) { // menerima signyal validasi dari ceklogin
                 if (isset($_POST['idlevel'])) {
                     $nama = $_POST['idlevel'];
 
@@ -100,13 +100,13 @@
                     }
                 }
             } else {
-                header("Location: /php/login/logout.php");
+                echo "<h3>Mohon Centang confirmasi</h3>";
             }
         } else {
             echo "<h3>Mohon Centang confirmasi</h3>";
         }
     } else {
-        echo "<h3>Mohon Centang confirmasi</h3>";
+        header("Location: /php/login/logout.php");
     }
     // require('../daftar/player.php');
     ?>

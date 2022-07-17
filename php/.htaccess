@@ -2,4 +2,4 @@
 ErrorDocument 500 /php/errors/500.html
 ErrorDocument 404 /php/errors/404.html
 
-php_flag output_buffering true
+php_flag output_buffering on

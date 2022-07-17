@@ -60,10 +60,10 @@
             <a href="../php/delete/player.php">Delete Player</a>
             <a href="../php/delete/pelanggaran.php">Delete pelanggaran</a>
             <a href="../php/delete/donatur.php">Delete Donatur</a>
-            <a href="">Delete Hukuman</a>
-            <a href="">Delete Farm</a>
-            <a href="">Delete Jenis Farm1</a>
-            <a href="">Delete rule</a>
+            <a href="../php/delete/hukuman.php">Delete Hukuman</a>
+            <a href="../php/delete/farm.php">Delete Farm</a>
+            <a href="../php/delete/jenisfarm.php">Delete Jenis Farm</a>
+            <a href="../php/delete/rule.php">Delete rule</a>
             <a href="../php/delete/donatur_lvl.php">Delete donatur lvl</a>
         </div>
     </div>
@@ -73,7 +73,7 @@
         <div class="dropdown-content">
             <a href="../php/input/farm.php">Input farm</a>
             <a href="../php/update/farm.php">Update farm</a>
-            <a href="">Delete farm</a>
+            <a href="../php/delete/farm.php">Delete farm</a>
             <a href="../php/daftar/farm.php">Daftar farm</a>
             <a href="">sertifikat farm</a>
         </div>
