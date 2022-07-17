@@ -31,7 +31,7 @@ password >> ""
 staff login > memberikan username dan password dan remember me
 
 
-[update akun]
+[akun]
 
 id random
 name (update)
@@ -44,7 +44,47 @@ hash (<name>_<password sha256^1>)
 
 
 
-update akun
+[update akun]
+
+masukan username dan password lama
+
+masukan username baru atau password baru atau profile name
+
+
+
+
+password => hash1 => hash2
+
+hashname = username_hash1
+
+hashpassword = hash2
+
+cek hashname dan hashpassword dan session (key dan hashname)
+
+
+
+
+bila sama 
+
+    bila akun di update
+
+        cari id lalu set password dan hash
+
+        password_baru = hash2
+
+        hashname_baru = usernamebaru_hash1
+
+
+
+    bila profile di update
+
+        cari id lalu set profile name
+
+
+
+
+
+
 
 dicari hash
 dapatkan id

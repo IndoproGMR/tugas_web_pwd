@@ -43,8 +43,7 @@
         <br>
 
         <br>
-        <strong>Delate Data (2/8)</strong>
-        <li>donatur lvl</li>
+        <strong>Delate Data (3/8)</strong>
         <li>Hukuman</li>
         <li>Farm</li>
         <li>Jenis Farm1</li>

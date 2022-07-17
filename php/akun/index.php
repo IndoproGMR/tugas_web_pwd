@@ -96,7 +96,7 @@
 <body>
     <nav>
         <a href="../home.php">Home</a>
-        <a href="../akun/gantipass.php">Ganti Password</a>
+        <a href="../akun/updateakun.php">Update Akun</a>
         <a href="../akun/logout.php">Log out</a>
         <a href="../index.php">Index</a>
 

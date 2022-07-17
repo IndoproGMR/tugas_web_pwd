@@ -58,13 +58,13 @@
         <button class="dropbtn">Delete</button>
         <div class="dropdown-content">
             <a href="../php/delete/player.php">Delete Player</a>
-            <a href="">Delete pelanggaran</a>
+            <a href="../php/delete/pelanggaran.php">Delete pelanggaran</a>
             <a href="../php/delete/donatur.php">Delete Donatur</a>
             <a href="">Delete Hukuman</a>
             <a href="">Delete Farm</a>
             <a href="">Delete Jenis Farm1</a>
             <a href="">Delete rule</a>
-            <a href="">Delete donatur lvl</a>
+            <a href="../php/delete/donatur_lvl.php">Delete donatur lvl</a>
         </div>
     </div>
 
