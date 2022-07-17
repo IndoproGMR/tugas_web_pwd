@@ -41,8 +41,8 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>jumlah</th>
-            <th>bulan</th>
+            <th>Jumlah</th>
+            <th>Bulan</th>
         </tr>
         <?php
         require("../proses/ceklogin.php");

@@ -72,8 +72,8 @@
 
         <table>
             <tr>
-                <th>iddlvl</th>
-                <th>namatingkatan</th>
+                <th>ID lvl</th>
+                <th>Nama Tingkatan</th>
                 <th>Diskripsi</th>
             </tr>
 

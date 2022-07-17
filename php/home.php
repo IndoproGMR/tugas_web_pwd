@@ -43,16 +43,11 @@
         <br>
 
         <br>
-        <strong>Delate Data (3/8)</strong>
-        <li>Hukuman</li>
-        <li>Farm</li>
-        <li>Jenis Farm1</li>
-        <li>pelanggaran</li>
-        <li>rule</li>
+        <strong>Delate Data (8/8) DONE</strong>
+        <br>
 
         <br>
-        <strong>Bagunan (3/6)</strong>
-        <li>Delete Farm</li>
+        <strong>Bagunan (4/6)</strong>
         <li>desain sertifikat</li>
         <li>sertifikat farm</li>
     </ul>

@@ -117,7 +117,7 @@
             echo "<h3>Mohon Centang confirmasi</h3>";
         }
     } else {
-        header("Location: /login/");
+        header("Location: /php/login/logout.php");
     }
     // require('../daftar/player.php');
     ?>

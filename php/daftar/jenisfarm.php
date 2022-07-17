@@ -74,9 +74,9 @@
 
         <table>
             <tr>
-                <th>Id Hukuman</th>
-                <th>Hukuman</th>
-                <th>Diskripsi</th>
+                <th>Id Jenis Farm</th>
+                <th>Nama Farm</th>
+                <th>Biaya per 10 block</th>
             </tr>
 
             <?php

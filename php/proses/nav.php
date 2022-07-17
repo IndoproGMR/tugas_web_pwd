@@ -19,10 +19,11 @@
     <div class="dropdown">
         <button class="dropbtn">Daftar</button>
         <div class="dropdown-content">
-            <a href="../php/daftar/player.php">Daftar player</a>
-            <a href="../php/daftar/donatur.php">Daftar donatur</a>
+            <a href="../php/daftar/player.php">Daftar Player</a>
+            <a href="../php/daftar/donatur.php">Daftar Donatur</a>
             <a href="../php/daftar/pelanggaran.php">Daftar Pelanggar</a>
-            <a href="../php/daftar/farm.php">Daftar farm</a>
+            <a href="../php/daftar/farm.php">Daftar Farm</a>
+            <a href="../php/daftar/tempo.php">Daftar Tempo</a>
         </div>
     </div>
 
@@ -33,8 +34,8 @@
             <a href="../php/input/pelanggaran.php">Input Pelanggaran</a>
             <a href="../php/input/donatur.php">Input Donatur</a>
             <a href="../php/input/hukuman.php">Input Hukuman</a>
-            <a href="../php/input/farm.php">Input farm</a>
-            <a href="../php/input/jenisfarm.php">Input Jenis farm</a>
+            <a href="../php/input/farm.php">Input Farm</a>
+            <a href="../php/input/jenisfarm.php">Input Jenis Farm</a>
             <a href="../php/input/rule.php">Input Rule</a>
             <a href="../php/input/donatur_lvl.php">Input Donatur lvl</a>
         </div>
@@ -47,8 +48,8 @@
             <a href="../php/update/pelanggaran.php">Update Pelanggar</a>
             <a href="../php/update/donatur.php">Update Donatur</a>
             <a href="../php/update/hukuman.php">Update Hukuman</a>
-            <a href="../php/update/farm.php">Update farm</a>
-            <a href="../php/update/jenisfarm.php">Update Jenis farm</a>
+            <a href="../php/update/farm.php">Update Farm</a>
+            <a href="../php/update/jenisfarm.php">Update Jenis Farm</a>
             <a href="../php/update/rule.php">Update Rule</a>
             <a href="../php/update/donatur_lvl.php">Update Donatur lvl</a>
         </div>
@@ -63,19 +64,19 @@
             <a href="../php/delete/hukuman.php">Delete Hukuman</a>
             <a href="../php/delete/farm.php">Delete Farm</a>
             <a href="../php/delete/jenisfarm.php">Delete Jenis Farm</a>
-            <a href="../php/delete/rule.php">Delete rule</a>
-            <a href="../php/delete/donatur_lvl.php">Delete donatur lvl</a>
+            <a href="../php/delete/rule.php">Delete Rule</a>
+            <a href="../php/delete/donatur_lvl.php">Delete Donatur lvl</a>
         </div>
     </div>
 
     <div class="dropdown">
         <button class="dropbtn">Bangunan</button>
         <div class="dropdown-content">
-            <a href="../php/input/farm.php">Input farm</a>
-            <a href="../php/update/farm.php">Update farm</a>
-            <a href="../php/delete/farm.php">Delete farm</a>
-            <a href="../php/daftar/farm.php">Daftar farm</a>
-            <a href="">sertifikat farm</a>
+            <a href="../php/input/farm.php">Input Farm</a>
+            <a href="../php/update/farm.php">Update Farm</a>
+            <a href="../php/delete/farm.php">Delete Farm</a>
+            <a href="../php/daftar/farm.php">Daftar Farm</a>
+            <a href="">sertifikat Farm</a>
         </div>
     </div>
 
