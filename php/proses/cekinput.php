@@ -28,8 +28,8 @@ $filter = array(
 $filtertext = str_replace(array_keys($filter), "", $cek1);
 
 if ($cek1 === $filtertext) { //cek apakah hasil filter dan namanya sama
-    // $bersih = false;
     $bersih = true;
+    // $bersih = false;
 } else {
     $bersih = false;
     // $bersih = true;

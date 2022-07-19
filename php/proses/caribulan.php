@@ -6,8 +6,8 @@
         <option value="2022-03">MARET 2022</option>
         <option value="2022-04">APRIL 2022</option>
         <option value="2022-05">MEI 2022</option>
-        <option value="2022-06" selected>JUNI 2022</option>
-        <option value="2022-07">JULI 2022</option>
+        <option value="2022-06">JUNI 2022</option>
+        <option value="2022-07" selected>JULI 2022</option>
         <option value="2022-08">AGUSTUS 2022</option>
         <option value="2022-09">SEPTEMBER 2022</option>
         <option value="2022-10">OKTOBER 2022</option>

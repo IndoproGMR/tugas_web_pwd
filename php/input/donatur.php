@@ -18,6 +18,7 @@
     <form action="" method="post">
         Nama: <span class="required">*</span>
         <? require_once("../proses/carinama.php"); ?>
+
         Donatur Level: <span class="required">*</span>
         <div>
             <?php
@@ -45,11 +46,12 @@
             echo "<select>";
             ?>
         </div>
+
         Bulan: <span class="required">*</span>
         <? require_once("../proses/caribulan.php") ?>
 
         Jumlah Donasi: <span class="required">*</span>
-        <input type="number" name="donasi" placeholder="50000" required>
+        <input type="number" name="donasi" placeholder="50000" maxlength="20" required>
         <br>
 
 

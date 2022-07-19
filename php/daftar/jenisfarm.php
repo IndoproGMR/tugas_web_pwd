@@ -13,9 +13,6 @@
 
 <body>
 
-
-
-
     <link rel="stylesheet" href="../style/input.css" />
 
 
@@ -66,11 +63,6 @@
         <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
         <script src="../js/print.js"></script>
         <!-- --------------- -->
-        <!-- <br>
-    <a href="../home.php" class="btmhome">home</a>
-    <br>
-    <br> -->
-
 
         <table>
             <tr>

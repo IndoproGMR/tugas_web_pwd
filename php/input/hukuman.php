@@ -17,13 +17,13 @@
     <hr>
     <form action="" method="post">
         ID: <span class="required">*</span>
-        <input type="number" name="idh" placeholder="idhukuman (1001 = temp ban)" required>
+        <input type="number" name="idh" placeholder="idhukuman (1001 = temp ban)" maxlength="6" required>
         <br>
         Nama Hukuman: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Nama hukuman" required>
+        <input type="text" name="nama" placeholder="Nama hukuman" maxlength="128" required>
         <br>
         Diskripsi:
-        <textarea name="diskr" placeholder="Diban secara Permanen"></textarea>
+        <textarea name="diskr" placeholder="Diban secara Permanen" maxlength="128"></textarea>
         <br>
         <br>
         <input type="submit">

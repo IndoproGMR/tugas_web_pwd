@@ -13,9 +13,6 @@
 
 <body>
 
-
-
-
     <link rel="stylesheet" href="../style/input.css" />
 
 
@@ -92,11 +89,6 @@
         <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
         <script src="../js/print.js"></script>
         <!-- --------------- -->
-        <!-- <br>
-    <a href="../home.php" class="btmhome">home</a>
-    <br>
-    <br> -->
-
 
         <table>
             <tr>
@@ -116,6 +108,7 @@
                 <th>Novermber</th>
                 <th>Desember</th>
 
+                <!-- debug -->
                 <!-- <th>Donasi</th> -->
                 <!-- <th>tempo</th> -->
                 <!-- <th>bulan</th> -->
@@ -127,9 +120,6 @@
             require("../proses/ceklogin.php");
 
             if ($valid) { // menerima signyal validasi dari ceklogin
-
-
-
                 $bulanini = date("Ym");
 
                 require("../proses/sql.php");
@@ -162,16 +152,7 @@
                                         $jum =  htmlspecialchars($row['JUMLAH_DONASI']);
                                         $id =  htmlspecialchars($row['ID_DONASI']);
 
-
-
-
-                                        // $temporound = (round($jum, -4) / 10000) - 1;
                                         $temporound = floor($jum / 10000) - 1;
-                                        // echo "<br>";
-                                        // echo $temporound;
-                                        // echo "<br>";
-
-
 
                                         $newtimestamp = strtotime("$bulan + $temporound month");
                                         $tempo = date('Ym', $newtimestamp);

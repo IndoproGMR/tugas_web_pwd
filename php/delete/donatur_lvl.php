@@ -16,10 +16,6 @@
     <h1>Delete Donatur lvl</h1>
     <hr>
     <form action="" method="post">
-
-
-
-
         Nama lvl: <span class="required">*</span>
         <div>
             <?
@@ -37,11 +33,7 @@
                         $nama = htmlspecialchars($row['NAMATINGKATAN']);
                         $diskr = htmlspecialchars($row['DISKRIPSI']);
 
-                        if ($nama == $nama) {
-                            echo "<option value='$ID'>$ID - ($nama) - ($diskr)</option>";
-                        } else {
-                            echo "<option value='$ID'>$ID - ($nama) - ($diskr)</option>";
-                        }
+                        echo "<option value='$ID'>$ID - ($nama) - ($diskr)</option>";
                     }
                 }
             }
@@ -49,17 +41,10 @@
             ?>
         </div>
 
-
-
-
-
-
-
         <? require('../proses/confirm.php') ?>
         <br>
         <input type="submit">
     </form>
-    <!-- <script src="../js/select.js"></script> -->
 
 
     <a href="../home.php" class="btmhome">home</a>
@@ -67,13 +52,8 @@
     <a href="../update/donatur_lvl.php" class="btmhome">Update</a>
     <a href="../daftar/donatur_lvl.php" class="btmhome">Daftar</a>
 
-
-
-
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo $_POST["confirmasi"];
 
     if ($valid) { // menerima signyal validasi dari ceklogin
 
@@ -114,7 +94,6 @@
     } else {
         header("Location: /php/login/logout.php");
     }
-    // require('../daftar/player.php');
     ?>
 
 

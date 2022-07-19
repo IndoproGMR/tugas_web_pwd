@@ -50,9 +50,6 @@
     <a href="../update/jenisfarm.php" class="btmhome">Update</a>
     <a href="../daftar/jenisfarm.php" class="btmhome">Daftar</a>
 
-
-
-
     <?php
     require("../proses/ceklogin.php");
 
@@ -61,9 +58,6 @@
         if (isset($_POST["confirmasi"])) {
             $confirm = $_POST["confirmasi"];
             if ($confirm === "true") {
-
-
-
 
                 if (isset($_POST['idfarm'])) {
                     $nama = $_POST['idfarm'];
@@ -75,14 +69,9 @@
                     }
 
                     if ($nama != 1542) {
-                        // echo "4 ";
-                        // echo "jalan";
-                        // echo $nama;
 
                         $delete = "DELETE FROM `JENIS_FARM` WHERE ID_JENIS_FARM='$nama'";
                         // echo $delete;
-
-
 
                         if ($conn->query($delete) === TRUE) {
                             echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
@@ -91,15 +80,6 @@
                         }
                     }
                 }
-
-
-
-
-
-
-
-
-
                 /////
             } else {
                 echo "<h3>Mohon Centang confirmasi</h3>";
@@ -110,7 +90,6 @@
     } else {
         header("Location: /php/login/logout.php");
     }
-    // require('../daftar/player.php');
     ?>
 
 

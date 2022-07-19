@@ -7,12 +7,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Input Akun</title>
 
-<h1>Masukan Akun</h1>
+<h1>Input Baru Akun</h1>
 <hr>
 
 <form action="" method="post">
     <label for="name">Nama</label>
-    <input type="text" name="name" id="name" placeholder="untuk nama" require>
+    <input type="text" name="name" id="name" placeholder="untuk nama" maxlength="64" require>
 
     <label for="username">Username</label>
     <input type="text" name="user" id="user" placeholder="untuk login" require>
@@ -42,7 +42,7 @@ if ($valid) { // menerima signyal validasi dari ceklogin
     ) {
         // echo "0";
 
-        require("../sql.php");
+        require("../proses/sql.php");
 
         //input data
 
@@ -101,16 +101,16 @@ if ($valid) { // menerima signyal validasi dari ceklogin
                     $idrandom = random_int(0, 99999999);
 
                     $input = "INSERT INTO `akun` (`ID_AKUN`, `NAME_AKUN`, `HASH`, `PASSWORD`, `TIME_AKUN`)
-                VALUES ('$idrandom', '$name', '$hash1', '$pass2', NOW())";
+                    VALUES ('$idrandom', '$name', '$hash1', '$pass2', NOW())";
 
 
 
                     if ($conn->query($input) === TRUE) {
-                        echo 'Updated Successfully 1';
+                        echo 'Akun Sudah di daftarkan ke dalam Akun, ';
                         $input = "INSERT INTO `session` (`HASH`, `SESSIONKEY`, `EXP`)
-                    VALUES ('$hash1', null, null)";
+                        VALUES ('$hash1', null, null)";
                         if ($conn->query($input) === TRUE) {
-                            echo 'Updated Successfully 2';
+                            echo 'Akun Sudah di daftarkan ke dalam Session';
                         } else {
                             echo "Error: " . $input . "<br>" . $conn->error;
                             exit();
@@ -119,6 +119,8 @@ if ($valid) { // menerima signyal validasi dari ceklogin
                         echo "Error: " . $input . "<br>" . $conn->error;
                     }
                     exit();
+                } else {
+                    header("Location: ../login/logout.php");
                 }
 
                 // command >>>>

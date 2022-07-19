@@ -48,7 +48,7 @@
             ?>
         </div>
         Nama Farm:
-        <input type="text" name="nf" placeholder="Gold Farm 1000" require>
+        <input type="text" name="nf" placeholder="Gold Farm 1000" maxlength="64" require>
         <br>
         jenis Farm:
         <div>
@@ -79,10 +79,10 @@
             ?>
         </div>
         Diskripsi:
-        <textarea name="diskr" placeholder="Menghasilkan GOLD YANG SANGATTTTTT BANYAAAAAAKKKKKKK"></textarea>
+        <textarea name="diskr" placeholder="Menghasilkan GOLD YANG SANGATTTTTT BANYAAAAAAKKKKKKK" maxlength="300"></textarea>
         <br>
         Ukuran farm:
-        <input type="number" name="ukuran" placeholder="titik 1 ke titik 2 (pakai world edit untuk mempermudah)">
+        <input type="number" name="ukuran" placeholder="titik 1 ke titik 2 (pakai world edit untuk mempermudah)" maxlength="15">
         <br>
         world:
         <select name="world" id="">
@@ -93,8 +93,8 @@
         <div>
             <strong>Lokasi: </strong>
             <br>
-            <span>&nbsp; X: </span> <input type="number" name="X" placeholder="titik tengah farm">
-            <span>&nbsp; Z: </span> <input type="number" name="Z" placeholder="titik tengah farm">
+            <span>&nbsp; X: </span> <input type="number" name="X" placeholder="titik tengah farm" maxlength="11">
+            <span>&nbsp; Z: </span> <input type="number" name="Z" placeholder="titik tengah farm" maxlength="11">
         </div>
         <input type="submit" value="update">
     </form>

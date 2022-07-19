@@ -80,7 +80,7 @@
         Bulan:
         <? require_once("../proses/caribulan.php") ?>
         Jumlah Donasi:
-        <input type="number" name="donasi" placeholder="50000">
+        <input type="number" name="donasi" placeholder="50000" maxlength="20">
         <br>
         <input type="submit" value="update">
     </form>

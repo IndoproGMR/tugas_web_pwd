@@ -18,7 +18,7 @@
     <form action="" method="post">
         <br>
         Nama: <? require_once("../proses/carinama.php") ?>
-        Nickname: <input type="text" name="nick" placeholder="Player Name">
+        Nickname: <input type="text" name="nick" placeholder="Player Name" maxlength="64">
         <br>
         SoftBan:
         <div class="custom-select">

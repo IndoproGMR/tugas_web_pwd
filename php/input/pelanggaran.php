@@ -134,9 +134,16 @@
 
                             $idrandom = random_int(0, 99999999);
 
+                            if ($lama === '') {
+                                $lama = 'null';
+                            }
 
                             $sql = "INSERT INTO `PELANGGARAN` (`ID_PELANGGARAN`, `IDRULE`, `NAME`, `IDHUKUM`, `LAMA`, `TIMESTAMP_P`)
-                            VALUES ('$idrandom', '$rule', '$nama', '$sangsi', '$lama', current_timestamp())";
+                            VALUES ('$idrandom', '$rule', '$nama', '$sangsi', $lama, current_timestamp())";
+
+                            // echo $sql;
+                            //INSERT INTO `PELANGGARAN` (`ID_PELANGGARAN`, `IDRULE`, `NAME`, `IDHUKUM`, `LAMA`, `TIMESTAMP_P`) 
+                            //VALUES ('98150056', '0', 'Kevin_TF0X', '0', '', current_timestamp());
 
                             if ($conn->query($sql) === TRUE) {
                                 echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";

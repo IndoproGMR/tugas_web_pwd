@@ -46,10 +46,10 @@
             ?>
         </div>
         Nama Donasi: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Nama Level (Donatur +)" required>
+        <input type="text" name="nama" placeholder="Nama Level (Donatur +)" maxlength="32" required>
         <br>
         Diskripsi:
-        <textarea name="diskr" placeholder="Donatur +  yang telah berdonasi diatas 100k"></textarea>
+        <textarea name="diskr" placeholder="Donatur +  yang telah berdonasi diatas 100k" maxlength="64"></textarea>
         <br>
         <input type="submit" value="update">
     </form>

@@ -17,13 +17,13 @@
     <hr>
     <form action="" method="post">
         ID: <span class="required">*</span>
-        <input type="number" name="idr" placeholder="Id rule (2301 = X-Ray Hack)" required>
+        <input type="number" name="idr" placeholder="Id rule (2301 = X-Ray Hack)" maxlength="6" required>
         <br>
         Nama Rule: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Nama rule" required>
+        <input type="text" name="nama" placeholder="Nama rule" maxlength="128" required>
         <br>
         Diskripsi:
-        <textarea name="diskr" placeholder="Penggunaan X-ray"></textarea>
+        <textarea name="diskr" placeholder="Penggunaan X-ray" maxlength="128"></textarea>
         <br>
         <br>
         <input type="submit">

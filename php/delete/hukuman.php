@@ -32,12 +32,7 @@
                         $ID = htmlspecialchars($row['IDHUKUM']);
                         $nama = htmlspecialchars($row['HUKUMAN']);
                         $diskr = htmlspecialchars($row['DISKRIPSI_HUKUMAN']);
-
-                        if ($nama == $nama) {
-                            echo "<option value='$ID'>$ID - ($nama) - ($diskr)</option>";
-                        } else {
-                            echo "<option value='$ID'>$ID - ($nama) - ($diskr)</option>";
-                        }
+                        echo "<option value='$ID'>$ID - ($nama) - ($diskr)</option>";
                     }
                 }
             }
@@ -79,14 +74,9 @@
                     }
 
                     if ($nama != 1542) {
-                        // echo "4 ";
-                        // echo "jalan";
-                        // echo $nama;
 
                         $delete = "DELETE FROM `HUKUMAN` WHERE IDHUKUM='$nama'";
                         // echo $delete;
-
-
 
                         if ($conn->query($delete) === TRUE) {
                             echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
@@ -95,15 +85,6 @@
                         }
                     }
                 }
-
-
-
-
-
-
-
-
-
                 /////
             } else {
                 echo "<h3>Mohon Centang confirmasi</h3>";
@@ -114,7 +95,6 @@
     } else {
         header("Location: /php/login/logout.php");
     }
-    // require('../daftar/player.php');
     ?>
 
 

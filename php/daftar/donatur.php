@@ -55,9 +55,6 @@
                 require("../proses/cekinput.php");
                 if ($bersih) {
 
-
-
-
                     if ($bulan !== "*") {
                         echo "<H1>$bulan</H1>";
                         $sql = "SELECT NAME,JUMLAH_DONASI,BULAN FROM DONATUR WHERE `BULAN` = '$bulan' ORDER BY `JUMLAH_DONASI` ASC";
@@ -78,13 +75,6 @@
                                 $jumlah =  htmlspecialchars($row['JUMLAH_DONASI']);
                                 $jumlah = number_format($jumlah, 2, ",", ".");
                                 $bulan = date("F Y", strtotime(htmlspecialchars($row['BULAN'])));
-                                // $bulan = htmlspecialchars($row['BULAN']);
-
-
-                                // echo $bulan;
-                                // $bulan2 = date("F Y", strtotime($bulan1));
-
-                                // echo $bulan2;
 
                                 echo "<tr>";
 

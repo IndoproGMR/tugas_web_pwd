@@ -17,13 +17,13 @@
     <hr>
     <form action="" method="post">
         ID: <span class="required">*</span>
-        <input type="number" name="idj" placeholder="id jenis farm (1001 = afk redstone farm)" required>
+        <input type="number" name="idj" placeholder="id jenis farm (1001 = afk redstone farm)" maxlength="8" required>
         <br>
         Nama jenis farm: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Afk farm" required>
+        <input type="text" name="nama" placeholder="Afk farm" maxlength="300" required>
         <br>
         Biaya per block: <span class="required">*</span>
-        <input type="number" name="biaya" id="" placeholder="1000" require>
+        <input type="number" name="biaya" id="" placeholder="1000" maxlength="20" require>
         <br>
         <br>
         <input type="submit">

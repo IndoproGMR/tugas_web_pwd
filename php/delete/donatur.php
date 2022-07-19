@@ -37,12 +37,7 @@
                         $jumlah = number_format($jumlah, 2, ",", ".");
 
 
-
-                        if ($nama == $nama) {
-                            echo "<option value='$ID'>$nama - ($level) - ($bulan) - (Rp. $jumlah)</option>";
-                        } else {
-                            echo "<option value='$ID'>$nama - ($level) - ($bulan) - (Rp. $jumlah)</option>";
-                        }
+                        echo "<option value='$ID'>$nama - ($level) - ($bulan) - (Rp. $jumlah)</option>";
                     }
                 }
             }
@@ -53,21 +48,14 @@
         <br>
         <input type="submit">
     </form>
-    <!-- <script src="../js/select.js"></script> -->
-
 
     <a href="../home.php" class="btmhome">home</a>
     <a href="../input/donatur.php" class="btmhome">Input</a>
     <a href="../update/donatur.php" class="btmhome">Update</a>
     <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
 
-
-
-
     <?php
-    // echo "-1";
     require("../proses/ceklogin.php");
-    // echo $_POST["confirmasi"];
 
     if ($valid) { // menerima signyal validasi dari ceklogin
 
@@ -108,7 +96,6 @@
     } else {
         header("Location: /php/login/logout.php");
     }
-    // require('../daftar/player.php');
     ?>
 
 

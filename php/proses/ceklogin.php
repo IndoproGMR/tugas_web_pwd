@@ -34,32 +34,36 @@ if (
 
             if (mysqli_num_rows($ceklogin1) === 1) {
                 $row = mysqli_fetch_assoc($ceklogin1);
-                if ($row['EXP'] < $exp) {
+                if ($row['EXP'] < $exp) {  // 20220720 < 20220801
                     header("Location: ../php/login");
                 } elseif ($row['SESSIONKEY'] === $key) {
                     // >>>>>>>>>>>>>>>>>>>>
                     require("../proses/renewkey.php");
                     $valid = true;
                     // >>>>>>>>>>>>>>>>>>>>
-                } elseif ($row['SESSIONKEY'] || $row['HASH'] === null) {
+                } elseif ($row['SESSIONKEY'] || $row['HASH'] == null) {
                     header("Location: ../php/login");
-                } elseif ($row['SESSIONKEY'] || $row['HASH']  === "24ab243446b96dd563c71cd219d6e995e8013c9c0459d7ed8d0456d3b8894679") {
+                } elseif ($row['SESSIONKEY'] || $row['HASH']  == "24ab243446b96dd563c71cd219d6e995e8013c9c0459d7ed8d0456d3b8894679") {
                     // hash untuk null
                     header("Location: ../php/login");
-                } elseif (!$row['SESSIONKEY'] === $key) {
+                } elseif (!$row['SESSIONKEY'] == $key) {
                     header("Location: ../php/login");
-                } elseif (!$row['HASH'] === $hash1) {
+                } elseif (!$row['HASH'] == $hash1) {
                     header("Location: ../php/login");
                 }
             } else {
                 header("Location: ../login/logout.php");
             }
+
+            ////
         } else {
             header("Location: ../login/logout.php"); //awto logout
         }
     } else {
         header("Location: ../login/logout.php"); //awto logout
     }
+
+    /////
 } else {
     header("Location: ../login/logout.php");
 }

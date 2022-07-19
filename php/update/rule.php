@@ -46,10 +46,10 @@
             ?>
         </div>
         Nama Hukuman: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Nama hukuman" required>
+        <input type="text" name="nama" placeholder="Nama hukuman" maxlength="128" required>
         <br>
         Diskripsi:
-        <textarea name="diskr" placeholder="Diban secara Permanen"></textarea>
+        <textarea name="diskr" placeholder="Diban secara Permanen" maxlength="128"></textarea>
         <br>
         <input type="submit" value="update">
     </form>

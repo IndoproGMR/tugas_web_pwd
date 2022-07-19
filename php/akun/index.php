@@ -24,6 +24,7 @@
     }
 
     .nama {
+        color: #dfdfdf;
         padding: auto;
         display: flex;
         justify-content: center;
@@ -110,12 +111,15 @@
                     $nick = $_COOKIE["username"];
                     echo "$nick";
                 } else {
-                    echo "<a href='login' class='name'>Login</a>";
+                    echo "<a href='../login' class='name'>Login</a>";
                 }
                 ?>
             </h1>
         </div>
     </div>
+    <p>Entah akan diisi apa</p>
+
+
 
 
 

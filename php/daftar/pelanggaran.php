@@ -54,8 +54,6 @@
 
 
                     $sqllink = "SELECT NAME, RULENAME, HUKUMAN, LAMA FROM PELANGGARAN P INNER JOIN RULE R ON P.IDRULE = R.IDRULE INNER JOIN HUKUMAN H ON P.IDHUKUM = H.IDHUKUM ";
-                    // WHERE P.NAME = 'RiveraMaxwell'
-                    //ORDER BY P.NAME";
 
                     echo "<br>";
 

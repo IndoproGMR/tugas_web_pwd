@@ -173,7 +173,7 @@
                                 if ($lama !== '') {
                                     $lama = " LAMA = '$lama'";
                                 } else {
-                                    $lama = " LAMA = '2000-01-01'";
+                                    $lama = " LAMA = null";
                                 }
 
                                 $sql = "UPDATE `PELANGGARAN` SET $lama $rule $sangsi WHERE ID_PELANGGARAN = '$idp'";

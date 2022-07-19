@@ -54,7 +54,7 @@
         }
     </style>
 
-    <h1>Daftar Player</h1>
+    <h1>Daftar Akun</h1>
     <hr>
     <br>
     <a href="../home.php" class="btmhome">home</a>

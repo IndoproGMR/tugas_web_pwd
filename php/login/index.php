@@ -24,10 +24,10 @@
     <!-- login -->
     <form action="index.php" method="POST">
         <label for="user">Username :</label>
-        <input type="text" id="user" name="user" placeholder="Username" />
+        <input type="text" id="user" name="user" placeholder="Username" require />
         <br />
         <label for="password">password :</label>
-        <input type="password" id="password" name="password" placeholder="password" />
+        <input type="password" id="password" name="password" placeholder="password" require />
         <br />
         <input type="checkbox" name="remember" id="remember" value="true" />
         <label for="remember">Remember me a bit longer (3 hari)</label>
@@ -39,12 +39,12 @@
     <a href="../home.php" class="btmhome">home</a>
 
     <p>username : root </p>
-    <p> password : root atau test</p>
+    <p>password : root atau test</p>
 
-    <p>Todo:</p>
-    <p>1. membuat form ganti pass dan username</p>
-    <p>2. mempercantik login form</p>
-    <p>3. Bersih2 code</p>
+    <!-- <p>Todo:</p> -->
+    <!-- <p>1. membuat form ganti pass dan username</p> -->
+    <!-- <p>2. mempercantik login form</p> -->
+    <!-- <p>3. Bersih2 code</p> -->
 
     <?php
     require("../proses/sql.php");
@@ -68,10 +68,13 @@
 
 
     // echo "-1";
-    if (isset($_POST["user"]) && isset($_POST["password"])) {
+    if (
+        isset($_POST["user"]) &&
+        isset($_POST["password"])
+    ) {
         // echo "0";
 
-        var_dump($_POST);
+        // var_dump($_POST);
 
         require("../proses/sql.php");
 
@@ -129,21 +132,23 @@
             // echo "2";
 
             $row = mysqli_fetch_assoc($cek1);
-            if ($row['HASH'] === $hash1 && $row['PASSWORD'] === $pass2) {
+            if ($row['HASH'] === $hash1 && $row['PASSWORD'] === $pass2) { // cek kembali apakah password dan user hase sama
                 // echo "3"; //login berhasil
-                $exp = date("Ymd");
-                $exp = $exp + 1;
 
-                if ($remember == "true") {
-                    $exp = $exp + 2;
+                $exp = date("Ymd"); // 20220720
+                $exp = $exp + 1; // 20220721
+
+                if ($remember == "true") { // == untuk same string === untuk same type
+                    $exp = $exp + 2; //20220723
                 }
+
                 //set session key
                 $random = random_int(000, 9999);
                 $sql_update = "UPDATE session SET SESSIONKEY='$random', EXP='$exp' WHERE HASH='$hash1'";
 
-                setcookie("hash", $hash1, time() + (86400 * 6), "/");
-                setcookie("session", $random, time() + (86400 * 6), "/");
-                setcookie("username", $row['NAME_AKUN'], time() + (86400 * 6), "/");
+                setcookie("hash", $hash1, time() + (86400 * 4), "/");
+                setcookie("session", $random, time() + (86400 * 4), "/");
+                setcookie("username", $row['NAME_AKUN'], time() + (86400 * 4), "/");
 
 
                 if ($conn->query($sql_update) === TRUE) {

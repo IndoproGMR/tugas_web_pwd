@@ -76,7 +76,7 @@
             <a href="../php/update/farm.php">Update Farm</a>
             <a href="../php/delete/farm.php">Delete Farm</a>
             <a href="../php/daftar/farm.php">Daftar Farm</a>
-            <a href="">sertifikat Farm</a>
+            <!-- <a href="">sertifikat Farm</a> -->
         </div>
     </div>
 

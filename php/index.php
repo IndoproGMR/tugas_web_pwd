@@ -15,6 +15,7 @@
     <title>Input database Server</title>
 </head>
 
+
 <body>
     <?php
     require("../php/proses/nav.php");
@@ -22,26 +23,44 @@
 
     <H2>Selamat datang pada Laman utama Furcaf</H2>
     <hr>
-    <p>dimana Anda dapat menginputkan data melihat data</p>
-    <p>pertama mohon untuk memasukan data sql dangan nama databese "test"</p>
-    <p>kedua mohon untuk login terlebih dahulu pada tab akun</p>
-    <p>bila mengalami kendala pada login mohon untuk tidak memblok cookie</p>
-    <p>bila login tetap bermasalah ada kemungkinan masalah ada pada link</p>
-    <p>http://localhost<b>/php/home.php</b></p>
-    <p>link yang seharus nya seperti diatas</p>
-    <br>
-    <p>projek ini mengandung <code>ob_start();</code> dan <code>.htaccess</code> yang mungkin akan broke pada suatu saat :"D </p>
 
-    <br>
-    <br>
-
-    <h4>NAMA KELOMPOK</h4>
-    <p>2010651170 ACHMAD NAJI</p>
-    <p>2010651165 VIRA SAFITRI SARI</p>
+    <div class="p">
+        <p>dimana Anda dapat menginputkan data melihat data</p>
+        <p>Tujuan Utama web ini di buat adalah untuk mendata data player dan men Archive data server</p>
+        <p>Seperti : </p>
+        <p>Mendata Jumlah Donasi Player berikan, </p>
+        <p>Mendata siapa saja yang melanggarar peraturan, </p>
+        <p>Mendata Bangunan dan pajak per tahun</p>
 
 
-    <a href="../php/daftar/tempo.php">tempo</a>
 
+
+
+        <br>
+        <br>
+        <br>
+        <h4>NAMA KELOMPOK</h4>
+        <p>2010651170 ACHMAD NAJI</p>
+        <p>2010651165 VIRA SAFITRI SARI</p>
+
+        <br>
+        <br>
+        <p>pertama mohon untuk memasukan data sql dangan nama databese "test"</p>
+        <p>kedua mohon untuk login terlebih dahulu pada tab akun</p>
+        <p>bila mengalami kendala pada login mohon untuk tidak memblok cookie</p>
+        <p>bila login tetap bermasalah ada kemungkinan masalah ada pada link</p>
+        <p>http://localhost<b>/php/home.php</b></p>
+        <p>link yang seharus nya seperti diatas</p>
+        <br>
+        <p>projek ini mengandung <code>ob_start();</code> dan <code>.htaccess</code> yang mungkin akan broke pada suatu saat :"D </p>
+
+        <br>
+        <br>
+
+
+
+        <!-- <a href="../php/daftar/tempo.php">tempo</a> -->
+    </div>
 </body>
 
 </html>

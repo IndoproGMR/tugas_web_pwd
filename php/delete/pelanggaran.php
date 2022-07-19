@@ -35,13 +35,7 @@
                         $huk = htmlspecialchars($row['HUKUMAN']);
                         $lama = htmlspecialchars($row['LAMA']);
 
-
-
-                        if ($nama == $nama) {
-                            echo "<option value='$ID'>$nama - ($rn) - ($huk) - ($lama)</option>";
-                        } else {
-                            echo "<option value='$ID'>$nama - ($rn) - ($huk) - ($lama)</option>";
-                        }
+                        echo "<option value='$ID'>$nama - ($rn) - ($huk) - ($lama)</option>";
                     }
                 }
             }
@@ -59,9 +53,6 @@
     <a href="../update/pelanggaran.php" class="btmhome">Update</a>
     <a href="../daftar/pelanggaran.php" class="btmhome">Daftar</a>
 
-
-
-
     <?php
     require("../proses/ceklogin.php");
 
@@ -70,9 +61,6 @@
         if (isset($_POST["confirmasi"])) {
             $confirm = $_POST["confirmasi"];
             if ($confirm === "true") {
-
-
-
 
                 if (isset($_POST['idp'])) {
                     $nama = $_POST['idp'];
@@ -84,14 +72,9 @@
                     }
 
                     if ($nama != 1542) {
-                        // echo "4 ";
-                        // echo "jalan";
-                        // echo $nama;
 
                         $delete = "DELETE FROM `PELANGGARAN` WHERE ID_PELANGGARAN='$nama'";
                         // echo $delete;
-
-
 
                         if ($conn->query($delete) === TRUE) {
                             echo "Player <strong>" . $nama . "</strong> telah di hapus dari database" . "<br>";
@@ -100,14 +83,6 @@
                         }
                     }
                 }
-
-
-
-
-
-
-
-
 
                 /////
             } else {
@@ -119,7 +94,6 @@
     } else {
         header("Location: /php/login/logout.php");
     }
-    // require('../daftar/player.php');
     ?>
 
 

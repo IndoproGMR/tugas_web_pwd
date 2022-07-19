@@ -16,6 +16,14 @@ img {
   vertical-align: middle;
 }
 
+h2 {
+  text-align: center;
+}
+
+.p {
+  padding: 15px;
+}
+
 /*========================================*/
 
 /* width */

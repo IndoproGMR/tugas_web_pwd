@@ -42,10 +42,10 @@
             ?>
         </div>
         Nama jenis: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Nama hukuman" required>
+        <input type="text" name="nama" placeholder="Nama hukuman" maxlength="300" required>
         <br>
         biaya Per 10 block:
-        <input type="number" name="biaya" id="" placeholder="1000">
+        <input type="number" name="biaya" id="" placeholder="1000" maxlength="20">
         <br>
         <input type="submit" value="update">
     </form>

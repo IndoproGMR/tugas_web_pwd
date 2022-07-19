@@ -13,7 +13,6 @@
 
 <body>
 
-
     <h1>Daftar Player</h1>
     <hr>
     <!-- --------------- -->
@@ -26,9 +25,6 @@
     <button onclick="cetak()" id="btm" class="btmhome">cetak</button>
     <script src="../js/print.js"></script>
     <!-- --------------- -->
-
-
-
 
     <table>
         <tr>

@@ -176,3 +176,11 @@ form {
 .btm:hover {
   background-color: #45a049;
 } */
+
+.note {
+  font-size: small;
+}
+
+.note > span {
+  color: red;
+}

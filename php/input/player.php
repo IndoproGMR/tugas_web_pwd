@@ -17,13 +17,13 @@
     <hr>
     <form action="" method="post">
         Nickname:
-        <input type="text" name="nick" placeholder="Player Name">
+        <input type="text" name="nick" placeholder="Player Name" maxlength="64">
         <br>
         Nama: <span class="required">*</span>
-        <input type="text" name="nama" placeholder="Player Name" required>
+        <input type="text" name="nama" placeholder="Player Name" maxlength="64" required>
         <br>
         UUID: <span class="required">*</span>
-        <input type="text" name="uuid" placeholder="2b430-1wa..." required>
+        <input type="text" name="uuid" placeholder="2d162166-1wa..." maxlength="40" required>
         <br>
         SoftBan:
         <div class="custom-select">
