@@ -2,8 +2,7 @@
 
 <div class="topnav" id="myTopnav">
     <img class="logo" src="foto/Logo _transapran.png" alt="logo" onclick="klik()" />
-    <!-- <a href="./" class="active" id="back">Back</a> -->
-    <!-- class="active" -->
+
 
     <a href="/php/home.php" class="dropbtn">Home</a>
 
@@ -80,11 +79,6 @@
         </div>
     </div>
 
-
-
-
-
-
     <?php
     if (isset($_COOKIE["username"])) {
         $nick = $_COOKIE["username"];
@@ -93,9 +87,6 @@
         echo "<a href='login' class='name'>Login</a>";
     }
     ?>
-
-
-
 
     <a href="javascript:void(0);" class="icon" onclick="burger()">
         <i class="fa fa-bars"></i>

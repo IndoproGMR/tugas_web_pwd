@@ -167,7 +167,7 @@ if ($valid) { // menerima signyal validasi dari ceklogin
                                 echo "Error: " . $sql_update . "<br>" . $conn->error;
                             }
                         } else {
-                            echo "kosong";
+                            header("Location: /php/login/logout.php");
                         }
                     }
                 }

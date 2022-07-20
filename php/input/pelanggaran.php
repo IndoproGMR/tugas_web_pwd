@@ -108,7 +108,6 @@
             isset($_POST['sangsi']) &&
             isset($_POST['lama'])
         ) {
-            // echo $_POST['lama'];
 
             $nama = $_POST['namaplayer'];
             $rule = $_POST['rule'];
@@ -142,8 +141,6 @@
                             VALUES ('$idrandom', '$rule', '$nama', '$sangsi', $lama, current_timestamp())";
 
                             // echo $sql;
-                            //INSERT INTO `PELANGGARAN` (`ID_PELANGGARAN`, `IDRULE`, `NAME`, `IDHUKUM`, `LAMA`, `TIMESTAMP_P`) 
-                            //VALUES ('98150056', '0', 'Kevin_TF0X', '0', '', current_timestamp());
 
                             if ($conn->query($sql) === TRUE) {
                                 echo "Player <strong>" . $nama . "</strong> telah di ditambahkan ke dalam database" . "<br>";

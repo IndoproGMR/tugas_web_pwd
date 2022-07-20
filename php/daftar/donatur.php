@@ -16,7 +16,6 @@
     <hr>
     <br>
     <!-- --------------- -->
-    <!-- --------------- -->
     <link rel="stylesheet" href="../style/table.css">
     <link rel="stylesheet" href="../style/input.css" />
     <a href="../home.php" class="btmhome">home</a>

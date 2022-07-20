@@ -70,7 +70,7 @@
     <a href="../daftar/donatur.php" class="btmhome">Daftar</a>
 
 
-    ..
+
 
     <?php
     require("../proses/ceklogin.php");

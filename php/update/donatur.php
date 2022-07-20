@@ -128,7 +128,7 @@
 
                             if ($idlevel != 1542) {
 
-                                if ($donasi !== '') {
+                                if ($donasi !== '') { // apakah jumlah donasi di ubah
                                     $donasia = ", JUMLAH_DONASI = '$donasi'";
                                 } else {
                                     $donasia = "";

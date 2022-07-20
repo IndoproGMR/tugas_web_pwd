@@ -47,10 +47,10 @@
             echo "<select>";
             ?>
         </div>
-        Nama Farm:
+        Nama Farm: <span class="required">*</span>
         <input type="text" name="nf" placeholder="Gold Farm 1000" maxlength="64" require>
         <br>
-        jenis Farm:
+        jenis Farm: <span class="required">*</span>
         <div>
             <?
             require("../proses/sql.php");
@@ -81,20 +81,20 @@
         Diskripsi:
         <textarea name="diskr" placeholder="Menghasilkan GOLD YANG SANGATTTTTT BANYAAAAAAKKKKKKK" maxlength="300"></textarea>
         <br>
-        Ukuran farm:
-        <input type="number" name="ukuran" placeholder="titik 1 ke titik 2 (pakai world edit untuk mempermudah)" maxlength="15">
+        Ukuran farm: <span class="required">*</span>
+        <input type="number" name="ukuran" placeholder="titik 1 ke titik 2 (pakai world edit untuk mempermudah)" maxlength="15" require>
         <br>
-        world:
+        world: <span class="required">*</span>
         <select name="world" id="">
             <option value="_overworld" selected>Orverworld</option>
             <option value="_nether">Nether</option>
             <option value="_the_end">The End</option>
         </select>
         <div>
-            <strong>Lokasi: </strong>
+            <strong>Lokasi: </strong><span class="required">*</span>
             <br>
-            <span>&nbsp; X: </span> <input type="number" name="X" placeholder="titik tengah farm" maxlength="11">
-            <span>&nbsp; Z: </span> <input type="number" name="Z" placeholder="titik tengah farm" maxlength="11">
+            <span>&nbsp; X: </span> <input type="number" name="X" placeholder="titik tengah farm" maxlength="11" require>
+            <span>&nbsp; Z: </span> <input type="number" name="Z" placeholder="titik tengah farm" maxlength="11" require>
         </div>
         <input type="submit" value="update">
     </form>

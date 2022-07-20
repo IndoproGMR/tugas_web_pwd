@@ -92,7 +92,7 @@
 
                         if ($donasi != 1542) {
 
-                            if ($diskr !== '') {
+                            if ($diskr !== '') { // apakah diskripsi tidak kosong
                                 $diskr = ", DISKRIPSI = '$diskr'";
                             } else {
                                 $diskr = "";
@@ -102,7 +102,6 @@
 
                             // echo $sql;
 
-                            // echo "jalan";
                             if ($conn->query($sql) === TRUE) {
                                 echo "Player <strong>" . $donasi . "</strong> telah di Update ke dalam database" . "<br>";
                             } else {

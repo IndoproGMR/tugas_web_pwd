@@ -4,6 +4,8 @@
     <?php
     // data O
     // $namaplayer
+
+
     require("../proses/sql.php");
     echo "<select name='namaplayer' id='namaplayer' value=''>";
     $sql = "SELECT * FROM PLAYER";

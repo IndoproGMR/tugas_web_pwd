@@ -40,19 +40,13 @@ if ($valid) { // menerima signyal validasi dari ceklogin
         isset($_POST["pass"]) &&
         isset($_POST["name"])
     ) {
-        // echo "0";
 
         require("../proses/sql.php");
 
         //input data
-
         $name = $_POST["name"];
-
         $user = $_POST["user"];
-
         $pass = $_POST["pass"];
-
-
 
         // untuk menambahkan akun admin command line dari >>>>
 
@@ -83,21 +77,18 @@ if ($valid) { // menerima signyal validasi dari ceklogin
 
 
                 //password
-
                 $pass1 = hash('sha256', $pass);
                 $pass2 = hash('sha256', $pass1);
 
                 //user hash
-
                 $hash = $user . "_" . $pass1;
                 $hash1 = hash("sha256", $hash);
-
 
 
                 $cek = $name;
                 require("../proses/cekinput.php");
                 if ($bersih) { //cek nama
-                    // echo "bersih";
+
                     $idrandom = random_int(0, 99999999);
 
                     $input = "INSERT INTO `akun` (`ID_AKUN`, `NAME_AKUN`, `HASH`, `PASSWORD`, `TIME_AKUN`)

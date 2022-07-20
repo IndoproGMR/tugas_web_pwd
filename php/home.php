@@ -16,50 +16,88 @@
     <title>Home panel</title>
 </head>
 
-<body>
+<style>
+    .bg {
+        background-image: url("foto/bg.jpg");
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        /* width: 1366px; */
+        /* margin-top: 100px; */
+        width: 100%;
+        height: auto;
+        background-size: 100%;
+
+        /* background-size: cover; */
+    }
+
+    .bga {
+        background-color: #ffffff7c;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+
+    }
+
+    .tombol {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 10px;
+        transition: 300ms;
+    }
+
+    .tombol:hover {
+        background-color: #ffffff7c;
+    }
+</style>
+
+
+<body class="bg">
     <?php require("../php/proses/nav.php"); ?>
 
-    <h2>Selamat Datang pada laman Home Panel</h2>
-    <hr>
 
-    <a href="/php/">index</a>
+    <div class="bga">
+        <!-- <img src="foto/bg.jpg" alt=""> -->
+        <h2>Selamat Datang pada laman Home Panel</h2>
+        <hr>
 
 
-    <p>Todo:</p>
-    <p>1. melengkapi yang kosong DONE</p>
-    <ul>
-        <strong>Akun (4/4) DONE</strong>
-        <br>
-        <br>
-
-        <strong>Daftar (10/10) DONE</strong>
-        <br>
-        <br>
-
-        <strong>Input (8/8) DONE</strong>
-        <br>
-        <br>
-
-        <strong>Update (8/8) DONE</strong>
-        <br>
 
         <br>
-        <strong>Delete Data (8/8) DONE</strong>
-        <br>
+        <a href="/php/" class="tombol">Lama Utama</a>
+        <!-- <a href="/php/">index</a> -->
+        <p>Todo:</p>
+        <p>1. melengkapi yang kosong DONE</p>
+        <ul>
+            <strong>Akun (4/4) DONE</strong>
+            <br>
+            <br>
 
-        <br>
-        <!-- <strong>Bagunan (4/6)</strong> -->
-        <!-- <li>desain sertifikat</li> -->
-        <!-- <li>sertifikat farm</li> -->
-        <!-- <strong>Bagunan (4/4) DONE</strong> -->
+            <strong>Daftar (10/10) DONE</strong>
+            <br>
+            <br>
 
-    </ul>
-    <!-- <p>2. entah sih mau diisi apa di halaman utama XD</p> -->
-    <p>5. bersihkan code dari command selain debug (90%)</p>
-    <p>7. sambungkan sql database ke remote database 2</p>
+            <strong>Input (8/8) DONE</strong>
+            <br>
+            <br>
 
+            <strong>Update (8/8) DONE</strong>
+            <br>
 
+            <br>
+            <strong>Delete Data (8/8) DONE</strong>
+            <br>
 
+            <br>
+            <!-- <strong>Bagunan (4/6)</strong> -->
+            <!-- <li>desain sertifikat</li> -->
+            <!-- <li>sertifikat farm</li> -->
+            <!-- <strong>Bagunan (4/4) DONE</strong> -->
+
+        </ul>
+        <!-- <p>2. entah sih mau diisi apa di halaman utama XD</p> -->
+        <p>7. sambungkan sql database ke remote database 2</p>
+
+    </div>
 
 
     <?

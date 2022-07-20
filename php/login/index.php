@@ -41,11 +41,6 @@
     <p>username : root </p>
     <p>password : root atau test</p>
 
-    <!-- <p>Todo:</p> -->
-    <!-- <p>1. membuat form ganti pass dan username</p> -->
-    <!-- <p>2. mempercantik login form</p> -->
-    <!-- <p>3. Bersih2 code</p> -->
-
     <?php
     require("../proses/sql.php");
 
@@ -63,77 +58,41 @@
         }
     }
 
-
-
-
-
-    // echo "-1";
     if (
         isset($_POST["user"]) &&
         isset($_POST["password"])
     ) {
-        // echo "0";
-
-        // var_dump($_POST);
 
         require("../proses/sql.php");
 
         //input data
-
         $user = $_POST["user"];
-        // echo $user;
-        // echo "<br>";
-
         $pass = $_POST["password"];
-        // echo $password;
-        // echo "<br>";
-
         $remember = "false";
 
+
+        // cek apakah remember me di centang
         if (isset($_POST["remember"])) {
             $remember = "true";
         }
-        // echo $remember;
-
 
         //password
-
         $pass1 = hash('sha256', $pass);
         $pass2 = hash('sha256', $pass1);
-        // echo "<br>";
-
-        // echo $pass;
-        // echo "<br>";
-
-        // echo $pass1;
-        // echo "<br>";
-
-        // echo $pass2;
-        // echo "<br>";
-
-        // echo "<br>";
-
 
         //user hash
-
         $hash = $user . "_" . $pass1;
-        // echo $hash;
-        // echo "<br>";
-
         $hash1 = hash("sha256", $hash);
-        // echo $hash1;
-        // echo "<br>";
 
         // <cocokan password dan hash1 dengan sql>
         $cek = "SELECT * FROM akun WHERE HASH='$hash1' AND PASSWORD='$pass2'";
-        // echo "1";
+
         $cek1 = mysqli_query($conn, $cek);
         if (mysqli_num_rows($cek1) === 1) {
-            // echo "2";
 
             $row = mysqli_fetch_assoc($cek1);
             if ($row['HASH'] === $hash1 && $row['PASSWORD'] === $pass2) { // cek kembali apakah password dan user hase sama
-                // echo "3"; //login berhasil
+                // login berhasi;
 
                 $exp = date("Ymd"); // 20220720
                 $exp = $exp + 1; // 20220721
@@ -159,7 +118,6 @@
             }
         } else {
             echo "<h2>Password atau username salah</h2>";
-            // header("Location: ../login/index.php?error=Incorect_Username_or_password");
             exit();
         }
         exit();

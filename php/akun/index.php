@@ -117,8 +117,6 @@
             </h1>
         </div>
     </div>
-    <p>Entah akan diisi apa</p>
-
 
 
 
